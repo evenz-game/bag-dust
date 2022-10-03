@@ -29,7 +29,11 @@ public class Character : MonoBehaviour
     [SerializeField]
     private float jumpPower = 4;
     [SerializeField]
-    private float rotatePower = 2;
+    private float lookSpeed = 2;
+    [SerializeField]
+    private float rotateSpeed = 2;
+
+    private Vector3 dir;
 
     private new Rigidbody rigidbody;
 
@@ -41,10 +45,12 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody.AddTorque(Random.insideUnitSphere * 3, ForceMode.Impulse);
+        // rigidbody.AddTorque(Random.insideUnitSphere * 3, ForceMode.Impulse);
     }
 
-    // Update is called once per frame
+    private Quaternion rotateDirection;
+    private Quaternion prevQuaternion;
+    private bool look = false;
     void Update()
     {
         faceLocalPosition = faceTransform.localPosition;
@@ -52,20 +58,47 @@ public class Character : MonoBehaviour
         if (start)
             faceTransform.localPosition = Vector3.Lerp(startLocalPosition, endLocalPosition, (bodyTransform.localScale.x - startScale.x) / (endScale.x - startScale.x));
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftCommand))
         {
-            rigidbody.AddForce(transform.up * jumpPower, ForceMode.Impulse);
+            rigidbody.AddForce(transform.forward * jumpPower, ForceMode.Impulse);
         }
-
 
         Vector3 f = Vector3.zero;
 
         float hor = Input.GetAxis("Horizontal");
-        f += Vector3.up * -hor * rotatePower;
 
         float ver = Input.GetAxis("Vertical");
-        f += Vector3.right * ver * rotatePower;
 
-        rigidbody.AddTorque(f);
+        f += Vector3.up * ver;
+        f += Vector3.right * hor;
+
+        f.Normalize();
+
+        if (f.sqrMagnitude > 0)
+        {
+            dir = f;
+            // transform.LookAt(transform.position + dir);
+            if (!look)
+            {
+                rotateDirection = Quaternion.FromToRotation(prevQuaternion.eulerAngles, Quaternion.LookRotation(dir).eulerAngles);
+                print(rotateDirection);
+                prevQuaternion = transform.rotation;
+            }
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * lookSpeed);
+            rigidbody.angularVelocity = Vector3.zero;
+            look = true;
+        }
+        else
+        {
+            // if (look)
+            // {
+            //     // Vector3 t = new Vector3(-dir.y, dir.x);
+            //     Vector3 t = rotateDirection.eulerAngles; //new Vector3(rotateDirection.x, rotateDirection.y, rotateDirection.z);
+            //     t.Normalize();
+            //     rigidbody.AddTorque(t * rotateSpeed);
+            //     look = false;
+            // }
+        }
+
     }
 }
