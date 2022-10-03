@@ -35,6 +35,15 @@ public class Character : MonoBehaviour
 
     private Vector3 dir;
 
+    [Header("Keys")]
+    [Range(1, 4)]
+    [SerializeField]
+    private int playerJoystickIndex = 1;
+    [SerializeField]
+    private KeyCode buttonAKeyKode;
+    [SerializeField]
+    private KeyCode buttonBKeyKode;
+
     private new Rigidbody rigidbody;
 
     private void Awake()
@@ -58,18 +67,23 @@ public class Character : MonoBehaviour
         if (start)
             faceTransform.localPosition = Vector3.Lerp(startLocalPosition, endLocalPosition, (bodyTransform.localScale.x - startScale.x) / (endScale.x - startScale.x));
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftCommand))
+        if (Input.GetKeyDown(buttonAKeyKode) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftCommand))
         {
             rigidbody.AddForce(transform.forward * jumpPower, ForceMode.Impulse);
         }
 
+        if (Input.GetKeyDown(buttonBKeyKode))
+        {
+            print("B 1");
+        }
+
         Vector3 f = Vector3.zero;
 
-        float hor = Input.GetAxis("Horizontal");
+        float hor = Input.GetAxis($"Joystick Horizontal {playerJoystickIndex}");
 
-        float ver = Input.GetAxis("Vertical");
+        float ver = Input.GetAxis($"Joystick Vertical {playerJoystickIndex}");
 
-        f += Vector3.up * ver;
+        f += Vector3.up * -ver;
         f += Vector3.right * hor;
 
         f.Normalize();
