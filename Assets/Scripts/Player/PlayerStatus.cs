@@ -35,6 +35,10 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     private float currentWeight;                        // 현재 무게
     public float CurrentWeight => currentWeight;
+    [SerializeField]
+    private bool useWeightCurve;                        // 커브 사용 여부
+    [SerializeField]
+    private AnimationCurve weightCurve;                 // 무게 커브
 
     [Header("Scale")]
     public UnityEvent<float, float> onChangedScale      // 스케일 변경 이벤트 (prevScale, curScale);
@@ -48,6 +52,10 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     private float currentScale;                         // 현재 스케일
     public float CurrentSclae => currentScale;
+    [SerializeField]
+    private bool useScaleCurve;                         // 커브 사용 여부
+    [SerializeField]
+    private AnimationCurve scaleCurve;                  // 스케일 커브
 
     private void Start()
     {
@@ -110,7 +118,10 @@ public class PlayerStatus : MonoBehaviour
     {
         float prev = currentWeight;
 
-        currentWeight = Mathf.Lerp(minWeight, maxWeight, percent);
+        if (useWeightCurve)
+            currentWeight = Mathf.Lerp(minWeight, maxWeight, weightCurve.Evaluate(percent));
+        else
+            currentWeight = Mathf.Lerp(minWeight, maxWeight, percent);
 
         return prev;
     }
@@ -124,7 +135,10 @@ public class PlayerStatus : MonoBehaviour
     {
         float prev = currentScale;
 
-        currentScale = Mathf.Lerp(minScale, maxScale, percent);
+        if (useScaleCurve)
+            currentScale = Mathf.Lerp(minScale, maxScale, scaleCurve.Evaluate(percent));
+        else
+            currentScale = Mathf.Lerp(minScale, maxScale, percent);
 
         return prev;
     }
