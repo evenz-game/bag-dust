@@ -57,6 +57,14 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     private AnimationCurve scaleCurve;                  // 스케일 커브
 
+    [Header("Movement")]
+    [SerializeField]
+    private float dashPower;                            // 대쉬 파워
+    public float DashPower => dashPower;
+    [SerializeField]
+    private float rotateSpeed;                          // 회전 속도
+    public float RotateSpeed => rotateSpeed;
+
     private void Start()
     {
         IncreaseDustCount(0, true);
