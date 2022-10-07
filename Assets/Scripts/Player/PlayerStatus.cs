@@ -20,8 +20,9 @@ public class PlayerStatus : MonoBehaviour
     public int MaxDustCount => maxDustCount;
     [Min(0)]
     [SerializeField]
-    private int currentDustCount = 3;                  // 현재 먼지 개수
+    private int currentDustCount = 3;                   // 현재 먼지 개수
     public int CurrentDustCount => currentDustCount;
+    private float dustCountPercent;                     // 현재 먼지 개수가 몇 퍼센트인지
 
     [Header("Weight")]
     public UnityEvent<float, float> onChangedWeight     // 무게 변경 이벤트 (prevWeight, curWeight);
@@ -62,8 +63,12 @@ public class PlayerStatus : MonoBehaviour
     private float dashPower;                            // 대쉬 파워
     public float DashPower => dashPower;
     [SerializeField]
-    private float rotateSpeed;                          // 회전 속도
-    public float RotateSpeed => rotateSpeed;
+    private float minRotateSpeed;                       // 최소 회전 속도
+    public float MinRotateSpeed => minRotateSpeed;
+    [SerializeField]
+    private float maxRotateSpeed;                       // 최대 회전 속도
+    public float MaxRotateSpeed => maxRotateSpeed;
+    public float RotateSpeed => Mathf.Lerp(minRotateSpeed, maxRotateSpeed, dustCountPercent);
 
     private void Start()
     {
@@ -101,11 +106,11 @@ public class PlayerStatus : MonoBehaviour
         if (!changed && !init) return 0;
 
         // 현재 먼지 개수가 몇 퍼센트인지
-        float percent = (float)(currentDustCount - minDustCount) / (float)(maxDustCount - minDustCount);
+        dustCountPercent = (float)(currentDustCount - minDustCount) / (float)(maxDustCount - minDustCount);
 
         // 무게 및 스케일 업데이트 후, 이전 값 저장
-        float prevWeight = UpdateWeight(percent);
-        float prevScale = UpdateScale(percent);
+        float prevWeight = UpdateWeight(dustCountPercent);
+        float prevScale = UpdateScale(dustCountPercent);
 
         // 변경 이벤트 호출
         onChangedDustCount.Invoke(prevDustCount, currentDustCount);

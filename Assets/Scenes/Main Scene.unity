@@ -778,7 +778,19 @@ MonoBehaviour:
   currentDustCount: 1
   onChangedWeight:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2130084858}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnChangedWeight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   minWeight: 1
   maxWeight: 3
   currentWeight: 1
@@ -814,8 +826,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  dashPower: 5
-  rotateSpeed: 3
+  dashPower: 8
+  minRotateSpeed: 5
+  maxRotateSpeed: 0.5
 --- !u!114 &2130084856
 MonoBehaviour:
   m_ObjectHideFlags: 0
