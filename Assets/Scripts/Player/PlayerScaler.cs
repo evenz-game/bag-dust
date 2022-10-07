@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScaler : MonoBehaviour, PlayerStatus.OnChangedScale
+public class PlayerScaler : PlayerComponent, PlayerStatus.OnChangedScale
 {
     [Header("Body")]
     [SerializeField]

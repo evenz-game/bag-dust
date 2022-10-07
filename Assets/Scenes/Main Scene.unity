@@ -716,6 +716,8 @@ GameObject:
   - component: {fileID: 2130084853}
   - component: {fileID: 2130084856}
   - component: {fileID: 2130084855}
+  - component: {fileID: 2130084857}
+  - component: {fileID: 2130084858}
   - component: {fileID: 2130084854}
   m_Layer: 0
   m_Name: Player
@@ -773,7 +775,7 @@ MonoBehaviour:
       m_Calls: []
   minDustCount: 0
   maxDustCount: 10
-  currentDustCount: 4
+  currentDustCount: 1
   onChangedWeight:
     m_PersistentCalls:
       m_Calls: []
@@ -812,6 +814,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  dashPower: 5
+  rotateSpeed: 3
 --- !u!114 &2130084856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,6 +826,66 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 702667d70c4414da29b65ff1ef8dea64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2130084857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130084851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be15e243bf8b64ee5af64de1999d9f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onUpdatedAxis:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2130084858}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnUpdatedAxis
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  xAxisName: Horizontal
+  yAxisName: Vertical
+  axisScale: {x: 1, y: 1}
+  buttonEventSets:
+  - buttonType: 0
+    buttonKeyCode: 122
+    onButtonDown:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2130084858}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: Dash
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2130084858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130084851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd667879c8801436c8ef11a533de5637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7093342480129145731
