@@ -7,7 +7,7 @@ using UnityEngine.Events;
 [Serializable]
 public class PlayerStatus : MonoBehaviour
 {
-    [Header("Dust Count")]
+    [Header("Dust")]
     public UnityEvent<int, int> onChangedDustCount      // 먼지 변경 이벤트 (prevDustCount, curDustCount);
         = new UnityEvent<int, int>();
     [Min(0)]
@@ -76,9 +76,9 @@ public class PlayerStatus : MonoBehaviour
     }
 
     /// <summary>
-    /// 먼지 개수를 변경합니다.
+    /// 먼지 개수를 증가시킵니다.
     /// </summary>
-    /// <param name="amount">변경할 먼지 개수(양)</param>
+    /// <param name="amount">증가시킬 먼지 개수(양)</param>
     /// <returns>실제로 변경된 먼지 개수</returns>
     public int IncreaseDustCount(int amount)
     {

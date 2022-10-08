@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class GameObjectUtils
 {
-    public static T FindCompoenet<T>(GameObject targetGameObject) where T : MonoBehaviour
+    public static T FindCompoenet<T>(GameObject targetGameObject) where T : Component
     {
         T result = null;
 

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3981314181963544517}
   - component: {fileID: 3981314181963544518}
   - component: {fileID: 3981314181963544519}
-  m_Layer: 0
-  m_Name: Sphere
+  m_Layer: 12
+  m_Name: Item Collision Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 903984eabc2db4b039fd267df8576053, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,7 +108,8 @@ GameObject:
   - component: {fileID: 3981314182892921931}
   - component: {fileID: 261626029426540592}
   - component: {fileID: 3981314182892921930}
-  m_Layer: 0
+  - component: {fileID: 4493723080699152680}
+  m_Layer: 11
   m_Name: Item Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,6 +145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increaseDustAmount: 1
+  disableColliderTime: 1
+  scatterAngle: 0
+  minScatterForceScale: 0.3
+  maxScatterForceScale: 0.6
+  itemCollisionCollider: {fileID: 3981314181963544519}
 --- !u!54 &3981314182892921930
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -152,11 +158,24 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3981314182892921972}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 5
+  m_Drag: 3
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &4493723080699152680
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981314182892921972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

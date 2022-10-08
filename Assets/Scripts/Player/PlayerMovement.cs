@@ -36,4 +36,9 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
     {
         rigidbody.mass = currentWeight;
     }
+
+    public void Knockback(Vector3 knockbackForce)
+    {
+        rigidbody.AddForce(knockbackForce, ForceMode.Impulse);
+    }
 }
