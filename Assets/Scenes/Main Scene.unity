@@ -816,7 +816,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  minScale: 0.1
+  minScale: 0.4
   maxScale: 5
   currentScale: 1
   useScaleCurve: 0
@@ -908,6 +908,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2130084853}
     m_Modifications:
+    - target: {fileID: 2042235639, guid: 424c70c14f9fddb419697ded91644c74, type: 3}
+      propertyPath: changeTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042235639, guid: 424c70c14f9fddb419697ded91644c74, type: 3}
+      propertyPath: faceHeight
+      value: 0.64
+      objectReference: {fileID: 0}
     - target: {fileID: 1437031988410866420, guid: 424c70c14f9fddb419697ded91644c74, type: 3}
       propertyPath: m_Name
       value: Model
