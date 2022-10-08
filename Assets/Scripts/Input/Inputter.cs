@@ -6,8 +6,10 @@ using UnityEngine.Events;
 
 public enum ButtonType { A, B, Start, Pause }
 
-public class Inputter : MonoBehaviour
+public class Inputter : MonoBehaviour, CameraController.OnFinishedChangeFov
 {
+    private bool init = false;
+
     [Header("Axis")]
     public UnityEvent<Vector2> onUpdatedAxis = new UnityEvent<Vector2>();
     [SerializeField]
@@ -25,6 +27,8 @@ public class Inputter : MonoBehaviour
 
     private void Update()
     {
+        if (!init) return;
+
         UpdateAxis();
         UdpateButtons();
     }
@@ -39,6 +43,11 @@ public class Inputter : MonoBehaviour
     {
         foreach (ButtonEventSet set in buttonEventSets)
             set.CheckButtonDown();
+    }
+
+    public void OnFinishedChangeFov()
+    {
+        init = true;
     }
 
     [Serializable]
