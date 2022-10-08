@@ -9,11 +9,10 @@ public class ItemDust : Item
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerStatus status = FindCompoenet<PlayerStatus>(other.gameObject);
-        if (!status) return;
-
-        status.IncreaseDustCount(increaseDustAmount);
-
-        Destroy(this.gameObject);
+        if (GameObjectUtils.FindCompoenet<PlayerStatus>(other.gameObject, out PlayerStatus status))
+        {
+            status.IncreaseDustCount(increaseDustAmount);
+            Destroy(this.gameObject);
+        }
     }
 }

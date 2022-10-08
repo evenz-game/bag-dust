@@ -9,21 +9,7 @@ public abstract class PlayerComponent : MonoBehaviour
 
     protected virtual void Awake()
     {
-        player = FindCompoenet<Player>();
-        playerStatus = FindCompoenet<PlayerStatus>();
-    }
-
-    protected T FindCompoenet<T>() where T : MonoBehaviour
-    {
-        T result = null;
-
-        result = GetComponent<T>();
-        if (result) return result;
-
-        result = GetComponentInChildren<T>();
-        if (result) return result;
-
-        result = GetComponentInParent<T>();
-        return result;
+        player = GameObjectUtils.FindCompoenet<Player>(gameObject);
+        playerStatus = GameObjectUtils.FindCompoenet<PlayerStatus>(gameObject);
     }
 }
