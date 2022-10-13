@@ -4,9 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum PlayerState { Live, LastChance, Dead }
+
 [Serializable]
 public class PlayerStatus : MonoBehaviour
 {
+    [Header("State")]
+    public UnityEvent<PlayerState> onChangedPlayerState
+        = new UnityEvent<PlayerState>();
+    private PlayerState currentPlayerState              // 현재 플레이어 상태
+        = PlayerState.Live;
+
     [Header("Dust")]
     public UnityEvent<int, int> onChangedDustCount      // 먼지 변경 이벤트 (prevDustCount, curDustCount);
         = new UnityEvent<int, int>();
@@ -82,6 +90,10 @@ public class PlayerStatus : MonoBehaviour
     /// <returns>실제로 변경된 먼지 개수</returns>
     public int IncreaseDustCount(int amount)
     {
+        // 이미 죽어있으면, 리턴
+        if (currentPlayerState == PlayerState.Dead)
+            return 0;
+
         // 외부 호출은 무조건 초기화를 위한 호출이 아님
         return IncreaseDustCount(amount, false);
     }
@@ -101,9 +113,14 @@ public class PlayerStatus : MonoBehaviour
         currentDustCount += amount;
         currentDustCount = Mathf.Clamp(currentDustCount, minDustCount, maxDustCount);
 
+        // 플레이어 상태 업데이트 후, 변경 이벤트 호출
+        if (UpdatePlayerState(prevDustCount, currentDustCount, amount))
+            onChangedPlayerState.Invoke(currentPlayerState);
+
         // 먼지 개수 변경 없으면 0(변경된 개수) 리턴
         bool changed = currentDustCount != prevDustCount;
-        if (!changed && !init) return 0;
+        if (!changed && !init)
+            return 0;
 
         // 현재 먼지 개수가 몇 퍼센트인지
         dustCountPercent = (float)(currentDustCount - minDustCount) / (float)(maxDustCount - minDustCount);
@@ -156,6 +173,41 @@ public class PlayerStatus : MonoBehaviour
         return prev;
     }
 
+    /// <summary>
+    /// 플레이어 상태(state)를 업데이트합니다.
+    /// </summary>
+    /// <param name="previousDustCount">이전 먼지 개수</param>
+    /// <param name="currentDustCount">현재 먼지 개수</param>
+    /// <param name="increaseDustAmount">증가시킬 먼지 개수(양)</param>
+    /// <returns>상태 변경 여부</returns>
+    private bool UpdatePlayerState(int previousDustCount, int currentDustCount, int increaseDustAmount)
+    {
+        PlayerState prevPlayerState = currentPlayerState;
+
+        if (previousDustCount == 0)
+        {
+            if (currentDustCount == 0 && increaseDustAmount < 0)
+                currentPlayerState = PlayerState.Dead;
+
+            else if (currentDustCount > 0 && increaseDustAmount > 0)
+                currentPlayerState = PlayerState.Live;
+        }
+        else
+        {
+            if (currentDustCount == 0 && increaseDustAmount < 0)
+                currentPlayerState = PlayerState.LastChance;
+
+            else if (currentDustCount > 0)
+                currentPlayerState = PlayerState.Live;
+        }
+
+        return currentPlayerState != prevPlayerState;
+    }
+
+    public interface OnChangedPlayerState
+    {
+        public void OnChangedPlayerState(PlayerState currentPlayerState);
+    }
     public interface OnChangedDustCount
     {
         public void OnChangedDustCount(int previousDustCount, int currentDustCount);

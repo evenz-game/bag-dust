@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 1238594928748252005}
   - component: {fileID: 954194143762566311}
   - component: {fileID: 6232064791850028222}
+  - component: {fileID: 8983529169534198787}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -243,6 +244,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d149c84110bfe4806a5b7d221362be13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onChangedPlayerState:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8983529169534198787}
+        m_TargetAssemblyTypeName: PlayerPhysics, Assembly-CSharp
+        m_MethodName: OnChangedPlayerState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onChangedDustCount:
     m_PersistentCalls:
       m_Calls:
@@ -419,6 +435,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dustParticlePrefab: {fileID: 3981314182892921972, guid: f62979804942942a1b1822fe5b5ee929, type: 3}
+--- !u!114 &8983529169534198787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574520127624018850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5d1a894290f4121a7967a8e92c7c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyCollider: {fileID: 8325196194340192624}
 --- !u!1 &7652180796686353026
 GameObject:
   m_ObjectHideFlags: 0
