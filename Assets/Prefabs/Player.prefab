@@ -277,7 +277,7 @@ MonoBehaviour:
         m_CallState: 2
   minDustCount: 0
   maxDustCount: 10
-  currentDustCount: 6
+  currentDustCount: 3
   onChangedWeight:
     m_PersistentCalls:
       m_Calls:
@@ -330,7 +330,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   dashPower: 8
   minRotateSpeed: 5
-  maxRotateSpeed: 0.5
+  maxRotateSpeed: 5
 --- !u!114 &7230174588137574461
 MonoBehaviour:
   m_ObjectHideFlags: 0
