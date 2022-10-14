@@ -862,14 +862,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 8817221375981260554}
     m_Modifications:
     - target: {fileID: 5280282732378514065, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
-      propertyPath: maxRotateSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5280282732378514065, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
-      propertyPath: currentDustCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5280282732378514065, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
       propertyPath: onChangedPlayerState.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
