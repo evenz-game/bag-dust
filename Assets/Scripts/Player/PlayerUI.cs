@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerUI : MonoBehaviour, PlayerStatus.OnChangedPlayerState
+public class PlayerUI : PlayerComponent, PlayerStatus.OnChangedPlayerState
 {
     [SerializeField]
     private Transform playerTransfrom;
+
+    [Header("Index")]
+    [SerializeField]
+    private Transform indexTransform;
+    [SerializeField]
+    private Vector3 addIndexPosition;
+    [SerializeField]
+    private TextMeshProUGUI textIndex;
+
     [Header("Icon")]
     [SerializeField]
     private Transform iconTransform;
@@ -17,9 +26,20 @@ public class PlayerUI : MonoBehaviour, PlayerStatus.OnChangedPlayerState
     [SerializeField]
     private TextMeshProUGUI textDeadIcon;
 
+    private void Start()
+    {
+        textIndex.text = playerStatus.Index.ToString();
+    }
+
     private void Update()
     {
+        UpdateIndexPosition();
         UpdateIconPosition();
+    }
+
+    private void UpdateIndexPosition()
+    {
+        indexTransform.position = playerTransfrom.position + addIndexPosition;
     }
 
     private void UpdateIconPosition()
@@ -46,9 +66,12 @@ public class PlayerUI : MonoBehaviour, PlayerStatus.OnChangedPlayerState
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(playerTransfrom.position + addIconPosition, 0.1f);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(playerTransfrom.position + addIndexPosition, 0.1f);
     }
 }

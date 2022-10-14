@@ -9,6 +9,11 @@ public enum PlayerState { Live, LastChance, Dead }
 [Serializable]
 public class PlayerStatus : MonoBehaviour
 {
+    [Header("Index")]
+    [SerializeField]
+    private int index = 0;
+    public int Index => index;
+
     [Header("State")]
     public UnityEvent<PlayerState> onChangedPlayerState
         = new UnityEvent<PlayerState>();
