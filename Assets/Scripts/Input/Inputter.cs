@@ -8,6 +8,7 @@ public enum ButtonType { A, B, Start, Pause }
 
 public class Inputter : MonoBehaviour, CameraController.OnFinishedChangeFov
 {
+    [SerializeField]
     private bool init = false;
 
     [Header("Axis")]
@@ -46,6 +47,11 @@ public class Inputter : MonoBehaviour, CameraController.OnFinishedChangeFov
     }
 
     public void OnFinishedChangeFov()
+    {
+        Init();
+    }
+
+    public void Init()
     {
         init = true;
     }
