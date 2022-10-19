@@ -162,11 +162,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flyingForce: {x: -2.36, y: -2.9, z: 0}
   knockbackForceScale: 1.3
-  bounceColliderDisableTimeAtFirst: 1
+  bounceColliderDisableTimeAtFirst: 0.5
   targetBounceLayerMask:
     serializedVersion: 2
     m_Bits: 1048576
-  targetBounceCount: 10
+  targetBounceCount: 5
   bounceCollider: {fileID: 1788294514}
 --- !u!65 &1788294514
 BoxCollider:

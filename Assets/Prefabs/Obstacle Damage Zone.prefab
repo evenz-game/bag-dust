@@ -63,6 +63,13 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 0, y: 0, z: 0}
   moveTime: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  isPingpong: 1
 --- !u!54 &8991754804107426659
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,7 +148,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f471e3269a5d041659b7ec9956dd1254, type: 2}
+  - {fileID: 2100000, guid: 6689978a87ca14c8aa02456df2af2858, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

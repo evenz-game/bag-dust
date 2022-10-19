@@ -41,27 +41,17 @@ public class GameController : MonoBehaviour
     {
         if (state != PlayerState.Dead) return;
 
-        int activePlayerCount = 0;
-        PlayerStatus winner = null;
-
         for (int i = 0; i < activePlayers.Count; i++)
         {
             PlayerStatus player = activePlayers[i];
 
             if (player.CurrentPlayerState == PlayerState.Dead)
-            {
                 activePlayers.Remove(player);
-            }
-            else
-            {
-                winner = player;
-                activePlayerCount++;
-            }
         }
 
         // 혼자 남았을 때
-        if (activePlayerCount == 1 && winner)
-            FinishGame(winner);
+        if (activePlayers.Count == 1)
+            FinishGame(activePlayers[0]);
     }
 
     private void FinishGame(PlayerStatus winner)
