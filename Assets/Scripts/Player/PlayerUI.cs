@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerUI : PlayerComponent, PlayerStatus.OnChangedPlayerState
@@ -10,21 +11,26 @@ public class PlayerUI : PlayerComponent, PlayerStatus.OnChangedPlayerState
 
     [Header("Index")]
     [SerializeField]
-    private Transform indexTransform;
-    [SerializeField]
-    private Vector3 addIndexPosition;
+    private RectTransform indexTransform;
     [SerializeField]
     private TextMeshProUGUI textIndex;
+    [SerializeField]
+    private Vector3 addIndexPosition;
 
     [Header("Icon")]
-    [SerializeField]
-    private Transform iconTransform;
-    [SerializeField]
-    private Vector3 addIconPosition;
     [SerializeField]
     private TextMeshProUGUI textLastChanceIcon;
     [SerializeField]
     private TextMeshProUGUI textDeadIcon;
+    [SerializeField]
+    private Vector3 addIconPosition;
+
+    private Camera mainCamera;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     private void Start()
     {
@@ -39,12 +45,16 @@ public class PlayerUI : PlayerComponent, PlayerStatus.OnChangedPlayerState
 
     private void UpdateIndexPosition()
     {
-        indexTransform.position = playerTransfrom.position + addIndexPosition;
+        indexTransform.position = WorldToScreenPoint(playerTransfrom.position + addIndexPosition);
     }
 
     private void UpdateIconPosition()
     {
-        iconTransform.position = playerTransfrom.position + addIconPosition;
+        if (textLastChanceIcon.IsActive())
+            textLastChanceIcon.transform.position = WorldToScreenPoint(playerTransfrom.position + addIconPosition);
+
+        if (textDeadIcon.IsActive())
+            textDeadIcon.transform.position = WorldToScreenPoint(playerTransfrom.position + addIconPosition);
     }
 
     public void OnChangedPlayerState(PlayerState currentPlayerState)
@@ -64,6 +74,11 @@ public class PlayerUI : PlayerComponent, PlayerStatus.OnChangedPlayerState
                 textDeadIcon.gameObject.SetActive(true);
                 break;
         }
+    }
+
+    private Vector3 WorldToScreenPoint(Vector3 worldPosition)
+    {
+        return Camera.main.WorldToScreenPoint(worldPosition);
     }
 
     private void OnDrawGizmosSelected()
