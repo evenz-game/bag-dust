@@ -10,6 +10,11 @@ public class ObstacleMover : MonoBehaviour
     private Vector3 endPosition;
     [SerializeField]
     private float moveTime;
+    [SerializeField]
+    private AnimationCurve curve;
+
+    [SerializeField]
+    private bool isPingpong = true;
 
     [ContextMenu("Set Start Position")]
     private void SetStartPosition()
@@ -17,9 +22,15 @@ public class ObstacleMover : MonoBehaviour
         startPosition = transform.position;
     }
 
-    private void Awake()
+    [ContextMenu("Set End Position")]
+    private void SetEndPosition()
     {
         endPosition = transform.position;
+    }
+
+    [ContextMenu("Move To Start Position")]
+    private void MoveToStartPosition()
+    {
         transform.position = startPosition;
     }
 
@@ -30,16 +41,25 @@ public class ObstacleMover : MonoBehaviour
 
     private IEnumerator MoveRoutine()
     {
-        float timer = 0, percent = 0;
-
-        while (percent < 1)
+        do
         {
-            timer += Time.deltaTime;
-            percent = timer / moveTime;
+            float timer = 0, percent = 0;
+            Vector3 firstPosition = transform.position;
 
-            transform.position = Vector3.Lerp(startPosition, endPosition, percent);
+            while (percent < 1)
+            {
+                timer += Time.deltaTime;
+                percent = timer / moveTime;
 
-            yield return null;
-        }
+                transform.position = Vector3.Lerp(firstPosition, endPosition, curve.Evaluate(percent));
+
+                yield return null;
+            }
+
+            Vector3 temp = endPosition;
+            endPosition = startPosition;
+            startPosition = temp;
+
+        } while (isPingpong);
     }
 }
