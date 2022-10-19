@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
     {
         float timer = 0, percent = 0;
 
-        while (percent < 1)
+        while (percent < 1 && changeFOVTime > 0)
         {
             timer += Time.deltaTime;
             percent = timer / changeFOVTime;
