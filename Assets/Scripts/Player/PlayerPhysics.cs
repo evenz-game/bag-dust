@@ -16,7 +16,6 @@ public class PlayerPhysics : MonoBehaviour, PlayerStatus.OnChangedPlayerState
 
     public void OnChangedPlayerState(PlayerState currentPlayerState)
     {
-        print("sdfasfd" + currentPlayerState.ToString());
         switch (currentPlayerState)
         {
             case PlayerState.Dead:

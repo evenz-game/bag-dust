@@ -13,7 +13,12 @@ public class SceneController : MonoBehaviour
         foreach (KeyCode key in restartKeyCode)
         {
             if (Input.GetKeyDown(key))
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Restart();
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
