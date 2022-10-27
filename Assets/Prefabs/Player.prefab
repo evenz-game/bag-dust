@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 954194143762566311}
   - component: {fileID: 6232064791850028222}
   - component: {fileID: 8983529169534198787}
+  - component: {fileID: 7906327302030692327}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -236,6 +237,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8983529169534198787}
         m_TargetAssemblyTypeName: PlayerPhysics, Assembly-CSharp
+        m_MethodName: OnChangedPlayerState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6232064791850028222}
+        m_TargetAssemblyTypeName: PlayerDustParticleCreator, Assembly-CSharp
         m_MethodName: OnChangedPlayerState
         m_Mode: 0
         m_Arguments:
@@ -379,6 +392,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7906327302030692327}
+          m_TargetAssemblyTypeName: PlayerAnimator, Assembly-CSharp
+          m_MethodName: OnButtonDown
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1238594928748252005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dustParticlePrefab: {fileID: 3981314182892921972, guid: f62979804942942a1b1822fe5b5ee929, type: 3}
+  dustParticleCountAtDeath: 30
 --- !u!114 &8983529169534198787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +463,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyCollider: {fileID: 1895679881267616537}
+--- !u!114 &7906327302030692327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574520127624018850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4a0289659f54d05923a076ed8fde7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 2967194558484069114}
 --- !u!1 &6591886323032090957
 GameObject:
   m_ObjectHideFlags: 0

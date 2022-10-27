@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDustParticleCreator : PlayerComponent, PlayerStatus.OnChangedDustCount
+public class PlayerDustParticleCreator : PlayerComponent, PlayerStatus.OnChangedDustCount, PlayerStatus.OnChangedPlayerState
 {
     [SerializeField]
     private GameObject dustParticlePrefab;          // 먼지 조각 프리팹
 
+    [Space]
+    [SerializeField]
+    private int dustParticleCountAtDeath = 50;
 
     private new Rigidbody rigidbody;
 
@@ -35,5 +38,11 @@ public class PlayerDustParticleCreator : PlayerComponent, PlayerStatus.OnChanged
             ItemDust itemDust = GameObjectUtils.FindCompoenet<ItemDust>(dustClone);
             itemDust.Scatter(rigidbody.velocity);
         }
+    }
+
+    public void OnChangedPlayerState(PlayerState currentPlayerState)
+    {
+        if (currentPlayerState == PlayerState.Dead)
+            CreateDustParticle(dustParticleCountAtDeath);
     }
 }

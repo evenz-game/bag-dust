@@ -1629,6 +1629,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ea028437966914dcebc187fe4cfcc113, type: 2}
+    - target: {fileID: 6547299885420252505, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547299885420252505, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547299885420252505, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6826360850642985364, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: index
       value: 1
@@ -4994,6 +5006,29 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1676188580}
+          m_TargetAssemblyTypeName: PlayerAnimator, Assembly-CSharp
+          m_MethodName: OnButtonDown
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1676188580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8810066609213967586, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+  m_PrefabInstance: {fileID: 563904172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563904174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4a0289659f54d05923a076ed8fde7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1679344776
 GameObject:
   m_ObjectHideFlags: 0
