@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerUI : PlayerComponent, PlayerStatus.OnChangedPlayerState
+public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 {
     [SerializeField]
     private Transform playerTransfrom;
@@ -27,9 +27,9 @@ public class PlayerUI : PlayerComponent, PlayerStatus.OnChangedPlayerState
 
     private Camera mainCamera;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
+        playerStatus.onChangedPlayerState.AddListener(OnChangedPlayerState);
     }
 
     private void Start()

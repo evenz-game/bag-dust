@@ -4,13 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerInfoUI : MonoBehaviour, PlayerStatus.OnChangedDustCount
+public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
 {
-    [Header("Player Status")]
+    [Header("Target")]
     [SerializeField]
-    private PlayerStatus playerStatus;
-
-    [Header("Target Position")]
+    private Transform playerInfoTransform;
     [SerializeField]
     private List<Vector3> targetPositions;
 
@@ -26,6 +24,11 @@ public class PlayerInfoUI : MonoBehaviour, PlayerStatus.OnChangedDustCount
     [SerializeField]
     private AnimationCurve fillImageDustCountCurve;
 
+    private void Awake()
+    {
+        playerStatus.onChangedDustCount.AddListener(OnChangedDustCount);
+    }
+
     private void Start()
     {
         Init();
@@ -33,7 +36,7 @@ public class PlayerInfoUI : MonoBehaviour, PlayerStatus.OnChangedDustCount
 
     private void Init()
     {
-        transform.position = targetPositions[playerStatus.Index];
+        playerInfoTransform.position = targetPositions[playerStatus.Index];
         textPlayerIndex.text = playerStatus.Index.ToString();
         imageDustCount.fillAmount = (float)playerStatus.CurrentDustCount / (float)playerStatus.MaxDustCount;
     }
@@ -68,6 +71,6 @@ public class PlayerInfoUI : MonoBehaviour, PlayerStatus.OnChangedDustCount
     [ContextMenu("Add Target Position")]
     private void AddTargetPosition()
     {
-        targetPositions.Add(transform.position);
+        targetPositions.Add(playerInfoTransform.position);
     }
 }
