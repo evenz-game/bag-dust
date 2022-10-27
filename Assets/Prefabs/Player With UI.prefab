@@ -1245,6 +1245,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8817221375981260554}
     m_Modifications:
+    - target: {fileID: 216801414958308488, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517735434576713246, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517735434576713246, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517735434576713246, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517735434576713246, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5574520127624018850, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1293,7 +1313,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 360
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3923511228324873241, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
 --- !u!114 &6826360850642985364 stripped
 MonoBehaviour:

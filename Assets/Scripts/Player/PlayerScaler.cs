@@ -54,6 +54,6 @@ public class PlayerScaler : PlayerComponent, PlayerStatus.OnChangedScale
         float rad = Mathf.Asin(sin);
         float y = Mathf.Cos(rad) * targetScale;
 
-        playerFaceTransform.localPosition = new Vector3(0, -y, 0);
+        playerFaceTransform.localPosition = new Vector3(playerFaceTransform.localPosition.x, y, playerFaceTransform.localPosition.z);
     }
 }
