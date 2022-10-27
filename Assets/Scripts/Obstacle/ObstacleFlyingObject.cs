@@ -29,15 +29,16 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
         rigidbody.AddForce(flyingForce, ForceMode.Impulse);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (GameObjectUtils.FindCompoenet<PlayerMovement>(other.gameObject, out PlayerMovement movement))
-        {
             movement.Knockback(rigidbody.velocity * knockbackForceScale);
+    }
 
-            if (GameObjectUtils.FindCompoenet<PlayerStatus>(other.gameObject, out PlayerStatus status))
-                status.IncreaseDustCount(-2);
-        }
+    private void OnTriggerExit(Collider other)
+    {
+        if (GameObjectUtils.FindCompoenet<PlayerStatus>(other.gameObject, out PlayerStatus status))
+            status.IncreaseDustCount(-2);
     }
 
     private void OnDrawGizmos()

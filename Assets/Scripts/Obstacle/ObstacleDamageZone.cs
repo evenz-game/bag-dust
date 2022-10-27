@@ -7,6 +7,8 @@ public class ObstacleDamageZone : Obstacle
     [Header("Knockback")]
     [SerializeField]
     private float knockbackPower;
+    [SerializeField]
+    private int decreaseDustCount = 4;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +30,7 @@ public class ObstacleDamageZone : Obstacle
     {
         if (GameObjectUtils.FindCompoenet<PlayerStatus>(other.gameObject, out PlayerStatus status))
         {
-            status.IncreaseDustCount(-4);
+            status.IncreaseDustCount(-decreaseDustCount);
         }
     }
 }

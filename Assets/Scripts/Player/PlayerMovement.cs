@@ -7,6 +7,9 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
 {
     private new Rigidbody rigidbody;
 
+    [SerializeField]
+    private float knockbackScale;
+
     protected override void Awake()
     {
         base.Awake();
@@ -67,5 +70,14 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
     public void Knockback(Vector3 knockbackForce)
     {
         rigidbody.AddForce(knockbackForce, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (GameObjectUtils.FindCompoenet<PlayerMovement>(other.gameObject, out PlayerMovement movement))
+        {
+            if (rigidbody.velocity.sqrMagnitude > movement.rigidbody.velocity.sqrMagnitude)
+                movement.Knockback(rigidbody.velocity.normalized * playerStatus.CurrentWeight * knockbackScale);
+        }
     }
 }
