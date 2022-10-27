@@ -1269,6 +1269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6232064791850028222, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
+      propertyPath: dustParticleCountAtDeath
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7899141601105577327, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
       propertyPath: m_RootOrder
       value: 0
