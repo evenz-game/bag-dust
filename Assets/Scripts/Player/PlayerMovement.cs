@@ -7,6 +7,9 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
 {
     private new Rigidbody rigidbody;
 
+    [SerializeField]
+    private float knockbackScale;
+
     protected override void Awake()
     {
         base.Awake();
@@ -20,11 +23,38 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
 
         rigidbody.angularVelocity = Vector3.zero;
 
+        Quaternion target = Quaternion.LookRotation(axis, transform.up);
+        // target.eulerAngles = new Vector3(target.eulerAngles.x, 90, target.eulerAngles.z);
+
         transform.rotation = Quaternion.Lerp(
             transform.rotation,
-            Quaternion.LookRotation(axis),
+            target,
             Time.deltaTime * playerStatus.RotateSpeed
         );
+    }
+
+    private Quaternion GetTargetRotationByAxis(Vector2 axis)
+    {
+        Quaternion result = new Quaternion();
+
+        if (axis.x == 1 && axis.y == 0)
+            result.eulerAngles = new Vector3(0, 0, 270);
+        else if (axis.x == 1 && axis.y == 1)
+            result.eulerAngles = new Vector3(0, 0, 315);
+        else if (axis.x == 0 && axis.y == 1)
+            result.eulerAngles = new Vector3(0, 0, 360);
+        else if (axis.x == -1 && axis.y == 1)
+            result.eulerAngles = new Vector3(0, 0, 45);
+        else if (axis.x == -1 && axis.y == 0)
+            result.eulerAngles = new Vector3(0, 0, 90);
+        else if (axis.x == -1 && axis.y == -1)
+            result.eulerAngles = new Vector3(0, 0, 135);
+        else if (axis.x == 0 && axis.y == -1)
+            result.eulerAngles = new Vector3(0, 0, 180);
+        else if (axis.x == 1 && axis.y == -1)
+            result.eulerAngles = new Vector3(0, 0, 225);
+
+        return result;
     }
 
     public void Dash()
@@ -40,5 +70,14 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
     public void Knockback(Vector3 knockbackForce)
     {
         rigidbody.AddForce(knockbackForce, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (GameObjectUtils.FindCompoenet<PlayerMovement>(other.gameObject, out PlayerMovement movement))
+        {
+            if (rigidbody.velocity.sqrMagnitude > movement.rigidbody.velocity.sqrMagnitude)
+                movement.Knockback(rigidbody.velocity.normalized * playerStatus.CurrentWeight * knockbackScale);
+        }
     }
 }

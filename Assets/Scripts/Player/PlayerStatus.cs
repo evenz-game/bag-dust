@@ -19,6 +19,8 @@ public class PlayerStatus : MonoBehaviour
         = new UnityEvent<PlayerState>();
     private PlayerState currentPlayerState              // 현재 플레이어 상태
         = PlayerState.Live;
+    public PlayerState CurrentPlayerState
+        => currentPlayerState;
 
     [Header("Dust")]
     public UnityEvent<int, int> onChangedDustCount      // 먼지 변경 이벤트 (prevDustCount, curDustCount);

@@ -16,14 +16,19 @@ public class PlayerPhysics : MonoBehaviour, PlayerStatus.OnChangedPlayerState
 
     public void OnChangedPlayerState(PlayerState currentPlayerState)
     {
-        print("sdfasfd" + currentPlayerState.ToString());
-        switch (currentPlayerState)
-        {
-            case PlayerState.Dead:
-                bodyCollider.enabled = false;
-                rigidbody.mass = 0;
-                rigidbody.drag = 0;
-                break;
-        }
+        if (currentPlayerState == PlayerState.Dead)
+            Die();
+    }
+
+    private void Die()
+    {
+        bodyCollider.enabled = false;
+        rigidbody.mass = 0;
+        rigidbody.drag = 0;
+
+        Vector3 dir = Camera.main.transform.position - transform.position;
+        dir.Normalize();
+        rigidbody.constraints = RigidbodyConstraints.None;
+        rigidbody.velocity = dir * 400;
     }
 }

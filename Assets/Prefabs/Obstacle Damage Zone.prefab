@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8991754804107426660}
   - component: {fileID: 8991754804107426661}
+  - component: {fileID: 659239123483566909}
   - component: {fileID: 8991754804107426659}
   m_Layer: 0
   m_Name: Obstacle Damage Zone
@@ -47,6 +48,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackPower: 10
+--- !u!114 &659239123483566909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8991754804107426658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0bd9b8f60c1401580f4365111d63a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0, z: 0}
+  endPosition: {x: 0, y: 0, z: 0}
+  moveTime: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  isPingpong: 1
 --- !u!54 &8991754804107426659
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,7 +148,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f471e3269a5d041659b7ec9956dd1254, type: 2}
+  - {fileID: 2100000, guid: 6689978a87ca14c8aa02456df2af2858, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
