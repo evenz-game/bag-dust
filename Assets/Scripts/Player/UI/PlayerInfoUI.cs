@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
 {
@@ -12,9 +11,13 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
     [SerializeField]
     private List<Vector3> targetPositions;
 
+    [Space]
+    [SerializeField]
+    private List<Sprite> backgroundSprites;
+
     [Header("UI Components")]
     [SerializeField]
-    private TextMeshProUGUI textPlayerIndex;
+    private Image imgaeBackground;
     [SerializeField]
     private Image imageDustCount;
 
@@ -36,8 +39,9 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
 
     private void Init()
     {
-        playerInfoTransform.position = targetPositions[playerStatus.Index];
-        textPlayerIndex.text = playerStatus.Index.ToString();
+        int playerIndex = playerStatus.Index;
+        playerInfoTransform.position = targetPositions[playerIndex];
+        imgaeBackground.sprite = backgroundSprites[playerIndex];
         imageDustCount.fillAmount = (float)playerStatus.CurrentDustCount / (float)playerStatus.MaxDustCount;
     }
 
@@ -74,3 +78,4 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
         targetPositions.Add(playerInfoTransform.position);
     }
 }
+

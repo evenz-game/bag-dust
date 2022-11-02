@@ -1036,6 +1036,26 @@ PrefabInstance:
       propertyPath: curve.m_Curve.Array.data[1].outWeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 8991754804107426658, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
       propertyPath: m_Name
       value: Obstacle Damage Zone (2)
@@ -4571,6 +4591,26 @@ PrefabInstance:
     - target: {fileID: 659239123483566909, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
       propertyPath: curve.m_Curve.Array.data[1].outWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437803699819184005, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8991754804107426658, guid: 3c3c632e6b54645f88b208988260b05b, type: 3}
       propertyPath: m_Name
