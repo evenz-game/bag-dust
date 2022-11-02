@@ -10,16 +10,32 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     private float knockbackForceScale = 1;
 
     private new Rigidbody rigidbody;
+    private MeshRenderer[] meshRenderers;
 
     private void Awake()
     {
         rigidbody = GameObjectUtils.FindCompoenet<Rigidbody>(gameObject);
+        meshRenderers = GetComponentsInChildren<MeshRenderer>();
+
+        EnableMeshRenderers(false);
     }
 
     private void OnEnable()
     {
         rigidbody.isKinematic = true;
-        Invoke(nameof(AddForce), 1f);
+        Invoke(nameof(Init), 1f);
+    }
+
+    protected virtual void Init()
+    {
+        EnableMeshRenderers(true);
+        AddForce();
+    }
+
+    protected void EnableMeshRenderers(bool value)
+    {
+        foreach (MeshRenderer renderer in meshRenderers)
+            renderer.enabled = value;
     }
 
     protected virtual void AddForce()
