@@ -1,28 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class GameController : MonoBehaviour
 {
     private List<PlayerStatus> activePlayers = new List<PlayerStatus>();
 
+    private bool finishedGame = false;
+
+    [Header("Game Finish")]
     [SerializeField]
-    private GameObject canvasFinishGame;
+    private GameObject panelFinishGame;
     [SerializeField]
     private TextMeshProUGUI textWinnerPlayerIndex;
 
+    [Header("Timer")]
+    [SerializeField]
+    private float gamePlayTime = 60;
+    [SerializeField]
+    private TextMeshProUGUI textTimer;
+    [SerializeField]
+    private UnityEvent onFinishedTimer = new UnityEvent();
+
     private void Awake()
     {
-        canvasFinishGame.SetActive(false);
+        panelFinishGame.SetActive(false);
     }
 
     private void Start()
     {
-        Init();
+        FindActivePlayers();
+        StartCoroutine(TimerRoutine());
     }
 
-    private void Init()
+    private void FindActivePlayers()
     {
         // 활성 상태 플레이어 검색
         // 활성화 상태를 기반으로 찾기 때문에 Awake에서 호출 금지
@@ -54,9 +67,55 @@ public class GameController : MonoBehaviour
             FinishGame(activePlayers[0]);
     }
 
+    private PlayerStatus FindWinnerByDustCount()
+    {
+        PlayerStatus winner = null;
+
+        for (int i = 0; i < activePlayers.Count; i++)
+        {
+            PlayerStatus player = activePlayers[i];
+
+            if (player.CurrentPlayerState == PlayerState.Dead)
+                continue;
+
+            if (!winner)
+                winner = player;
+            else if (player.CurrentDustCount >= winner.CurrentDustCount)
+                winner = player;
+        }
+
+        return winner;
+    }
+
     private void FinishGame(PlayerStatus winner)
     {
+        if (finishedGame) return;
+
+        finishedGame = true;
         textWinnerPlayerIndex.text = winner.Index.ToString();
-        canvasFinishGame.SetActive(true);
+        panelFinishGame.SetActive(true);
+    }
+
+    private IEnumerator TimerRoutine()
+    {
+        float timer = gamePlayTime;
+
+        while (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0) break;
+
+            textTimer.text = ((int)timer).ToString();
+
+            yield return null;
+        }
+
+        // 타이머 종료 이벤트 호출
+        onFinishedTimer.Invoke();
+
+        // 승리한 플레이어 있으면 게임 종료
+        PlayerStatus winner = FindWinnerByDustCount();
+        if (winner)
+            FinishGame(winner);
     }
 }
