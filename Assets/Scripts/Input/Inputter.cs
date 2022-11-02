@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public enum ButtonType { A, B, Start, Pause }
 
-public class Inputter : MonoBehaviour, CameraController.OnFinishedChangeFov
+public class Inputter : MonoBehaviour, GameController.OnStartedGame
 {
     [SerializeField]
     private bool init = false;
@@ -46,14 +46,14 @@ public class Inputter : MonoBehaviour, CameraController.OnFinishedChangeFov
             set.CheckButtonDown();
     }
 
-    public void OnFinishedChangeFov()
-    {
-        Init();
-    }
-
     public void Init()
     {
         init = true;
+    }
+
+    public void OnStartedGame()
+    {
+        Init();
     }
 
     [Serializable]

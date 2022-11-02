@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CameraController : MonoBehaviour
+public class CameraController : MonoBehaviour, GameController.OnStartedGame
 {
     public UnityEvent onFinishedChangeFov = new UnityEvent();
 
@@ -15,11 +15,6 @@ public class CameraController : MonoBehaviour
     private float changeFOVTime;
     [SerializeField]
     private AnimationCurve changeFOVCurve;
-
-    private void Start()
-    {
-        ChangeFOV();
-    }
 
     private void ChangeFOV()
     {
@@ -43,6 +38,11 @@ public class CameraController : MonoBehaviour
 
         Camera.main.fieldOfView = endFOV;
         onFinishedChangeFov.Invoke();
+    }
+
+    public void OnStartedGame()
+    {
+        ChangeFOV();
     }
 
     public interface OnFinishedChangeFov

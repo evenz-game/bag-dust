@@ -1,14 +1,16 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour, GameController.OnStartedGame
 {
     private List<PlayerStatus> activePlayers = new List<PlayerStatus>();
 
-    private bool finishedGame = false;
+    private enum GameStatus { None, Start, End }
+    private GameStatus gameStatus = GameStatus.None;
 
     [Header("Game Finish")]
     [SerializeField]
@@ -29,10 +31,16 @@ public class GameController : MonoBehaviour
         panelFinishGame.SetActive(false);
     }
 
-    private void Start()
+    public void StartGame()
     {
-        FindActivePlayers();
-        StartCoroutine(TimerRoutine());
+        if (gameStatus == GameStatus.Start || gameStatus == GameStatus.End) return;
+
+        gameStatus = GameStatus.Start;
+
+        GameController.OnStartedGame[] onStartedGames = FindObjectsOfType<MonoBehaviour>().OfType<GameController.OnStartedGame>().ToArray();
+
+        foreach (var e in onStartedGames)
+            e.OnStartedGame();
     }
 
     private void FindActivePlayers()
@@ -89,9 +97,9 @@ public class GameController : MonoBehaviour
 
     private void FinishGame(PlayerStatus winner)
     {
-        if (finishedGame) return;
+        if (gameStatus == GameStatus.End) return;
 
-        finishedGame = true;
+        gameStatus = GameStatus.End;
         textWinnerPlayerIndex.text = winner.Index.ToString();
         panelFinishGame.SetActive(true);
     }
@@ -117,5 +125,16 @@ public class GameController : MonoBehaviour
         PlayerStatus winner = FindWinnerByDustCount();
         if (winner)
             FinishGame(winner);
+    }
+
+    void OnStartedGame.OnStartedGame()
+    {
+        FindActivePlayers();
+        StartCoroutine(TimerRoutine());
+    }
+
+    public interface OnStartedGame
+    {
+        public void OnStartedGame();
     }
 }

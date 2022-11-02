@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleFlyingObjectSpawnController : MonoBehaviour
+public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController.OnStartedGame
 {
     [Header("Position")]
     [SerializeField]
@@ -21,11 +21,6 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour
     private ObstacleFlyingObject[] obstaclePrefabs;
 
     private bool isSpawnable = true;
-
-    private void Start()
-    {
-        StartCoroutine(SpawnRoutine());
-    }
 
     private IEnumerator SpawnRoutine()
     {
@@ -75,5 +70,10 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(minSpawnTransform.position, maxSpawnTransform.position);
+    }
+
+    public void OnStartedGame()
+    {
+        StartCoroutine(SpawnRoutine());
     }
 }

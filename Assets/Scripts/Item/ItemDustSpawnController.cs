@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDustSpawnController : MonoBehaviour
+public class ItemDustSpawnController : MonoBehaviour, GameController.OnStartedGame
 {
     [Header("Item")]
     [SerializeField]
@@ -31,11 +31,6 @@ public class ItemDustSpawnController : MonoBehaviour
     private float minSpawnForce;
     [SerializeField]
     private float maxSpawnForce;
-
-    private void Start()
-    {
-        StartCoroutine(SpawnRoutine());
-    }
 
     private IEnumerator SpawnRoutine()
     {
@@ -77,5 +72,10 @@ public class ItemDustSpawnController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(minSpawnTransform.position, maxSpawnTransform.position);
+    }
+
+    public void OnStartedGame()
+    {
+        StartCoroutine(SpawnRoutine());
     }
 }
