@@ -19,9 +19,9 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
     [Header("Icon")]
     [SerializeField]
-    private TextMeshProUGUI textLastChanceIcon;
+    private GameObject LastChanceIcon;
     [SerializeField]
-    private TextMeshProUGUI textDeadIcon;
+    private GameObject DeadIcon;
     [SerializeField]
     private Vector3 addIconPosition;
 
@@ -50,11 +50,11 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
     private void UpdateIconPosition()
     {
-        if (textLastChanceIcon.IsActive())
-            textLastChanceIcon.transform.position = WorldToScreenPoint(playerTransfrom.position + addIconPosition);
+        if (LastChanceIcon.activeSelf)
+            LastChanceIcon.transform.position = WorldToScreenPoint(playerTransfrom.position + addIconPosition);
 
-        if (textDeadIcon.IsActive())
-            textDeadIcon.transform.position = WorldToScreenPoint(playerTransfrom.position + addIconPosition);
+        if (DeadIcon.activeSelf)
+            DeadIcon.transform.position = WorldToScreenPoint(playerTransfrom.position + addIconPosition);
     }
 
     public void OnChangedPlayerState(PlayerState currentPlayerState)
@@ -62,16 +62,16 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
         switch (currentPlayerState)
         {
             case PlayerState.Live:
-                textLastChanceIcon.gameObject.SetActive(false);
-                textDeadIcon.gameObject.SetActive(false);
+                LastChanceIcon.gameObject.SetActive(false);
+                DeadIcon.gameObject.SetActive(false);
                 break;
             case PlayerState.LastChance:
-                textLastChanceIcon.gameObject.SetActive(true);
-                textDeadIcon.gameObject.SetActive(false);
+                LastChanceIcon.gameObject.SetActive(true);
+                DeadIcon.gameObject.SetActive(false);
                 break;
             case PlayerState.Dead:
-                textLastChanceIcon.gameObject.SetActive(false);
-                textDeadIcon.gameObject.SetActive(true);
+                LastChanceIcon.gameObject.SetActive(false);
+                DeadIcon.gameObject.SetActive(true);
                 break;
         }
     }
