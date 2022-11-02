@@ -275,7 +275,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   minDustCount: 0
-  maxDustCount: 10
+  maxDustCount: 20
   currentDustCount: 3
   onChangedWeight:
     m_PersistentCalls:
@@ -318,7 +318,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   minScale: 0.25
-  maxScale: 1
+  maxScale: 1.5
   currentScale: 1
   useScaleCurve: 0
   scaleCurve:

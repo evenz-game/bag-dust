@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyingForce: {x: -2.36, y: -2.9, z: 0}
-  knockbackForceScale: 1.3
+  knockbackForceScale: 2
+  dangerous: {fileID: 0}
   bounceColliderDisableTimeAtFirst: 0.5
   targetBounceLayerMask:
     serializedVersion: 2
