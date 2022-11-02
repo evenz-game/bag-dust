@@ -489,7 +489,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3556379932875885239, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_Name
-      value: B_01_Potion
+      value: B 01 Potion
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_RootOrder
@@ -509,31 +509,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.380422
+      value: 19.59
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.0837555
+      value: -7.19
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.707592
+      value: -5.46
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5924403
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.8056144
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -545,7 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4184156419346747405, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -107.339
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89c1bd1051ecf1445b55f196615df899, type: 3}
@@ -3007,7 +3007,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1681726694830842825, guid: e8f48d59cde06ed4790fb968f00f6d56, type: 3}
       propertyPath: m_Name
-      value: B_02_Potion
+      value: B 02 Potion
       objectReference: {fileID: 0}
     - target: {fileID: 1681726694830842825, guid: e8f48d59cde06ed4790fb968f00f6d56, type: 3}
       propertyPath: m_Layer
@@ -3167,15 +3167,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9678ded376eeb754aae3c1851e75fce8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.56
+      value: 18.24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9678ded376eeb754aae3c1851e75fce8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.47
+      value: -5.89
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9678ded376eeb754aae3c1851e75fce8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.96
+      value: 8.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9678ded376eeb754aae3c1851e75fce8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3207,7 +3207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9678ded376eeb754aae3c1851e75fce8, type: 3}
       propertyPath: m_Name
-      value: B_03_Potion
+      value: B 03 Potion
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9678ded376eeb754aae3c1851e75fce8, type: 3}
       propertyPath: m_Layer
