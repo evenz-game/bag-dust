@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour, Inputter.OnButtonDown
+public class PlayerAnimator : PlayerComponent, Inputter.OnButtonDown
 {
     [SerializeField]
     private Animator playerAnimator;

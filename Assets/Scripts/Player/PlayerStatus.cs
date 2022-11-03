@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public enum PlayerState { Live, LastChance, Dead }
 
 [Serializable]
-public class PlayerStatus : MonoBehaviour
+public class PlayerStatus : PlayerComponent
 {
     [Header("Index")]
     [SerializeField]

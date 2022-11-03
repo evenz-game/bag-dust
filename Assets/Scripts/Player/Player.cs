@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerStatus))]
-public class Player : MonoBehaviour
+public class Player : PlayerComponent
 {
-    private PlayerStatus playerStatus;
-
-    private void Awake()
+    protected override void Awake()
     {
-        playerStatus = GetComponent<PlayerStatus>();
+        base.Awake();
     }
 
     private void Update()

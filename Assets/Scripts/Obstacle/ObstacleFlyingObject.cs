@@ -9,13 +9,19 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     [SerializeField]
     private float knockbackForceScale = 1;
 
+    [Header("Audio Clips")]
+    [SerializeField]
+    private AudioClip spawnAudioClip;
+
     private new Rigidbody rigidbody;
     private MeshRenderer[] meshRenderers;
+    protected AudioSource audioSource;
 
     private void Awake()
     {
         rigidbody = GameObjectUtils.FindCompoenet<Rigidbody>(gameObject);
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         EnableMeshRenderers(false);
     }
@@ -30,6 +36,8 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     {
         EnableMeshRenderers(true);
         AddForce();
+
+        audioSource?.PlayOneShot(spawnAudioClip);
     }
 
     protected void EnableMeshRenderers(bool value)

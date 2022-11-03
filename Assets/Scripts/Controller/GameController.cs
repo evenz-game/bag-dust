@@ -9,10 +9,14 @@ public class GameController : MonoBehaviour, GameController.OnStartedGame
 {
     private List<PlayerStatus> activePlayers = new List<PlayerStatus>();
 
-    private enum GameStatus { None, Start, End }
+    private enum GameStatus { None, Start, Finish }
     private GameStatus gameStatus = GameStatus.None;
 
+    [Header("Game Start")]
+    public UnityEvent onStartedGame = new UnityEvent();
+
     [Header("Game Finish")]
+    public UnityEvent onFinishedGame = new UnityEvent();
     [SerializeField]
     private GameObject panelFinishGame;
     [SerializeField]
@@ -33,14 +37,31 @@ public class GameController : MonoBehaviour, GameController.OnStartedGame
 
     public void StartGame()
     {
-        if (gameStatus == GameStatus.Start || gameStatus == GameStatus.End) return;
+        if (gameStatus == GameStatus.Start || gameStatus == GameStatus.Finish) return;
 
         gameStatus = GameStatus.Start;
 
         GameController.OnStartedGame[] onStartedGames = FindObjectsOfType<MonoBehaviour>().OfType<GameController.OnStartedGame>().ToArray();
-
         foreach (var e in onStartedGames)
             e.OnStartedGame();
+
+        onStartedGame.Invoke();
+    }
+
+    public void FinishGame(PlayerStatus winner)
+    {
+        if (gameStatus == GameStatus.Finish) return;
+
+        gameStatus = GameStatus.Finish;
+
+        textWinnerPlayerIndex.text = winner.Index.ToString();
+        panelFinishGame.SetActive(true);
+
+        GameController.OnFinishedGame[] onStartedGames = FindObjectsOfType<MonoBehaviour>().OfType<GameController.OnFinishedGame>().ToArray();
+        foreach (var e in onStartedGames)
+            e.OnFinishedGame();
+
+        onFinishedGame.Invoke();
     }
 
     private void FindActivePlayers()
@@ -95,15 +116,6 @@ public class GameController : MonoBehaviour, GameController.OnStartedGame
         return winner;
     }
 
-    private void FinishGame(PlayerStatus winner)
-    {
-        if (gameStatus == GameStatus.End) return;
-
-        gameStatus = GameStatus.End;
-        textWinnerPlayerIndex.text = winner.Index.ToString();
-        panelFinishGame.SetActive(true);
-    }
-
     private IEnumerator TimerRoutine()
     {
         float timer = gamePlayTime;
@@ -136,5 +148,10 @@ public class GameController : MonoBehaviour, GameController.OnStartedGame
     public interface OnStartedGame
     {
         public void OnStartedGame();
+    }
+
+    public interface OnFinishedGame
+    {
+        public void OnFinishedGame();
     }
 }

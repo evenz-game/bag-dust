@@ -15,6 +15,10 @@ public class ObstacleFlyingObjectBounce : ObstacleFlyingObject
     [SerializeField]
     private Collider bounceCollider;
 
+    [Header("Audio Clips")]
+    [SerializeField]
+    private AudioClip bounceAudioClip;
+
     private void Start()
     {
         bounceCollider.enabled = false;
@@ -39,5 +43,7 @@ public class ObstacleFlyingObjectBounce : ObstacleFlyingObject
 
         if (currentBounceCount >= targetBounceCount)
             bounceCollider.enabled = false;
+
+        audioSource?.PlayOneShot(bounceAudioClip);
     }
 }

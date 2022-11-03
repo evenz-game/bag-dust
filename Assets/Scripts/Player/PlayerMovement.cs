@@ -60,6 +60,7 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
     public void Dash()
     {
         rigidbody.AddForce(transform.forward * playerStatus.DashPower, ForceMode.Impulse);
+        playerAudioPlayer?.Dash();
     }
 
     public void OnChangedWeight(float previousWeight, float currentWeight)
@@ -74,10 +75,16 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
 
     private void OnCollisionEnter(Collision other)
     {
-        if (GameObjectUtils.FindCompoenet<PlayerMovement>(other.gameObject, out PlayerMovement movement))
+        if (GameObjectUtils.FindCompoenet<PlayerMovement>(other.gameObject, out PlayerMovement otherPlayer))
+            ClashOtherPlayer(otherPlayer);
+    }
+
+    private void ClashOtherPlayer(PlayerMovement otherPlayer)
+    {
+        if (rigidbody.velocity.sqrMagnitude > otherPlayer.rigidbody.velocity.sqrMagnitude)
         {
-            if (rigidbody.velocity.sqrMagnitude > movement.rigidbody.velocity.sqrMagnitude)
-                movement.Knockback(rigidbody.velocity.normalized * playerStatus.CurrentWeight * knockbackScale);
+            otherPlayer.Knockback(rigidbody.velocity.normalized * playerStatus.CurrentWeight * knockbackScale);
+            playerAudioPlayer?.ClashOtherPlayer();
         }
     }
 }

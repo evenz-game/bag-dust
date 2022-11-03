@@ -3,7 +3,10 @@ guid: 0b85ee438c4f045b5a667b7fbde559c8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - spawnAudioClip: {fileID: 8300000, guid: 1dfad36235a3943828d4b1cd4dc92510, type: 3}
+  - bounceCollider: {instanceID: 0}
+  - bounceAudioClip: {fileID: 8300000, guid: c30ff70a494c94ff09aea557c87620b4, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
