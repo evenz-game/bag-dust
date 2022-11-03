@@ -32,7 +32,17 @@ public class GameController : MonoBehaviour, GameController.OnStartedGame
 
     private void Awake()
     {
+        Screen.SetResolution(1920, 1080, true);
+
         panelFinishGame.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void StartGame()
