@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public enum ButtonType { A, B, Start, Pause }
 
-public class Inputter : MonoBehaviour, GameController.OnStartedGame
+public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
 {
     [SerializeField]
     private bool init = false;
@@ -51,7 +51,7 @@ public class Inputter : MonoBehaviour, GameController.OnStartedGame
         init = true;
     }
 
-    public void OnStartedGame()
+    public void InitializeInputter()
     {
         Init();
     }

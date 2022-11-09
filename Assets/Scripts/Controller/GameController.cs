@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
-public class GameController : MonoBehaviour, GameController.OnStartedGame
+public class GameController : MonoBehaviour
 {
     private List<PlayerStatus> activePlayers = new List<PlayerStatus>();
 
@@ -37,12 +37,24 @@ public class GameController : MonoBehaviour, GameController.OnStartedGame
         panelFinishGame.SetActive(false);
     }
 
+    private void Start()
+    {
+        FindActivePlayers();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
+    }
+
+    public void InitializeInputter()
+    {
+        GameController.InitializeInputterEvent[] onStartedGames = FindObjectsOfType<MonoBehaviour>().OfType<GameController.InitializeInputterEvent>().ToArray();
+        foreach (var e in onStartedGames)
+            e.InitializeInputter();
     }
 
     public void StartGame()
@@ -126,6 +138,11 @@ public class GameController : MonoBehaviour, GameController.OnStartedGame
         return winner;
     }
 
+    public void StartTimer()
+    {
+        StartCoroutine(TimerRoutine());
+    }
+
     private IEnumerator TimerRoutine()
     {
         float timer = gamePlayTime;
@@ -149,12 +166,6 @@ public class GameController : MonoBehaviour, GameController.OnStartedGame
             FinishGame(winner);
     }
 
-    void OnStartedGame.OnStartedGame()
-    {
-        FindActivePlayers();
-        StartCoroutine(TimerRoutine());
-    }
-
     public interface OnStartedGame
     {
         public void OnStartedGame();
@@ -163,5 +174,10 @@ public class GameController : MonoBehaviour, GameController.OnStartedGame
     public interface OnFinishedGame
     {
         public void OnFinishedGame();
+    }
+
+    public interface InitializeInputterEvent
+    {
+        public void InitializeInputter();
     }
 }
