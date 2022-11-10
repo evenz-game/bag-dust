@@ -3,7 +3,27 @@ guid: e7c9552395a4d314c83aa52b91902fa4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye
+    second: {fileID: 2100000, guid: cc44f2bd0e9a75a48bd54f5cd3d5fa5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyelashes..001
+    second: {fileID: 2100000, guid: cc44f2bd0e9a75a48bd54f5cd3d5fa5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leg.002
+    second: {fileID: 2100000, guid: 35b290750532bd7428e82d8c00f84c23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: squid
+    second: {fileID: 2100000, guid: bf2d52e2c4067af42957493cf9d85446, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
