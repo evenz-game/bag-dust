@@ -6,7 +6,27 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye.001
+    second: {fileID: 2100000, guid: 8dfbcb0e59dac4c4383b540654bb9db7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyelashes..002
+    second: {fileID: 2100000, guid: 8dfbcb0e59dac4c4383b540654bb9db7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leg.003
+    second: {fileID: 2100000, guid: 02c4618af34fb7441923ff30cb4db737, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\uB9E4\uD14C\uB9AC\uC5BC.001"
+    second: {fileID: 2100000, guid: 4d4d66b0ad72e8d44820e1b3317bde37, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
