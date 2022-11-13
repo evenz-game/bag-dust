@@ -3,7 +3,12 @@ guid: 9fe55214666c72b44ba0d975bde5e197
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mungchi_05_palette
+    second: {fileID: 2100000, guid: 0aeb9d17b1d50b046959ad222ce15699, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
