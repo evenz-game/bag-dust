@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b8bbfeb00bd12954ab01a3676db7dcf3
+guid: 4ff938fd63146294fa6ad4d19b1f704a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -19,21 +19,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: C 00 Leg
     second: {fileID: 2100000, guid: c6d8880b8bf63ef418b040b34efdf2fb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: hair
-    second: {fileID: 2100000, guid: d7f0546c3419c8e418cd4d77bae949b2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "\uB208"
-    second: {fileID: 2100000, guid: b10091935df32c84b93de0dfe032d722, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "\uB9E4\uD14C\uB9AC\uC5BC"
-    second: {fileID: 2100000, guid: ea028437966914dcebc187fe4cfcc113, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
