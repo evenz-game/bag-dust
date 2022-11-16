@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: C 02 Leg
+    second: {fileID: 2100000, guid: d230058bd8f4d4e42b0761da35482815, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: leg.001
     second: {fileID: 2100000, guid: d230058bd8f4d4e42b0761da35482815, type: 2}
   materials:
