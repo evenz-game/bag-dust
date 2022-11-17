@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPhysics : PlayerComponent, PlayerStatus.OnChangedPlayerState
+public class PlayerPhysics : PlayerComponent, PlayerStatus.OnChangedPlayerState, PlayerModel.OnInitializedPlayerModel
 {
-    [Header("Components")]
-    [SerializeField]
-    private Collider bodyCollider;
+    private PlayerModelInfo model;
+
     private new Rigidbody rigidbody;
 
     protected override void Awake()
@@ -23,7 +22,7 @@ public class PlayerPhysics : PlayerComponent, PlayerStatus.OnChangedPlayerState
 
     private void Die()
     {
-        bodyCollider.enabled = false;
+        model.BodyCollider.enabled = false;
         rigidbody.mass = 0;
         rigidbody.drag = 0;
 
@@ -31,5 +30,10 @@ public class PlayerPhysics : PlayerComponent, PlayerStatus.OnChangedPlayerState
         dir.Normalize();
         rigidbody.constraints = RigidbodyConstraints.None;
         rigidbody.velocity = dir * 400;
+    }
+
+    public void OnInitializedPlayerModel(PlayerModelInfo model)
+    {
+        this.model = model;
     }
 }

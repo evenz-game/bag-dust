@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScaler : PlayerComponent, PlayerStatus.OnChangedScale
+public class PlayerScaler : PlayerComponent, PlayerStatus.OnChangedScale, PlayerModel.OnInitializedPlayerModel
 {
-    [Header("Body")]
-    [SerializeField]
-    private Transform playerBodyTransform;      // 몸 트랜스폼
-
-    [Header("Face")]
-    [SerializeField]
-    private Transform playerFaceTransform;      // 얼굴 트랜스폼
-    [SerializeField]
-    private float faceHeight;                   // 얼굴 높이
+    private PlayerModelInfo model;
 
     [Header("Time")]
     [SerializeField]
@@ -24,10 +16,15 @@ public class PlayerScaler : PlayerComponent, PlayerStatus.OnChangedScale
         StartCoroutine(ChangeScaleRoutine(currentScale));
     }
 
+    public void OnInitializedPlayerModel(PlayerModelInfo model)
+    {
+        this.model = model;
+    }
+
     private IEnumerator ChangeScaleRoutine(float targetScale)
     {
         float timer = 0, percent = 0;
-        float startScale = playerBodyTransform.localScale.x;
+        float startScale = model.BodyTransform.localScale.x;
 
         while (percent < 1)
         {
@@ -45,15 +42,16 @@ public class PlayerScaler : PlayerComponent, PlayerStatus.OnChangedScale
 
     private void UpdateBodyScale(float targetScale)
     {
-        playerBodyTransform.localScale = new Vector3(targetScale, targetScale, targetScale);
+        model.BodyTransform.localScale = new Vector3(targetScale, targetScale, targetScale);
     }
 
     private void UpdateHeadPosition(float targetScale)
     {
-        float sin = (faceHeight / 2f) / targetScale;       // 높이 / 반지름(빗변)
+        float sin = (model.FaceHeight / 2f) / targetScale;       // 높이 / 반지름(빗변)
         float rad = Mathf.Asin(sin);
-        float y = Mathf.Cos(rad) * targetScale;
+        float y = Mathf.Cos(rad) * targetScale * 0.01f;
 
-        playerFaceTransform.localPosition = new Vector3(playerFaceTransform.localPosition.x, y, playerFaceTransform.localPosition.z);
+        Transform faceTransform = model.PlayerFaceTransform;
+        faceTransform.localPosition = new Vector3(faceTransform.localPosition.x, y, faceTransform.localPosition.z);
     }
 }

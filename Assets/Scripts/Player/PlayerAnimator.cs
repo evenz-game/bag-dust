@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimator : PlayerComponent, Inputter.OnButtonDown
+public class PlayerAnimator : PlayerComponent, PlayerModel.OnInitializedPlayerModel
 {
     [SerializeField]
-    private Animator playerAnimator;
+    private Animator animator;
 
-    public void OnButtonDown(ButtonType buttonType)
+    public void Dash()
     {
-        if (buttonType == ButtonType.A)
-            playerAnimator.Play("Dash", -1, 0);
+        animator?.Play("Dash", -1, 0);
+    }
+
+    public void OnInitializedPlayerModel(PlayerModelInfo model)
+    {
+        animator = model.Animator;
     }
 }
