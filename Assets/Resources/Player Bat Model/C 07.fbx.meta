@@ -12,12 +12,27 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: C 07 Body.001
+    second: {fileID: 2100000, guid: 635324ae9b48bf24cadefae371ec61e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: C 07 Face
     second: {fileID: 2100000, guid: 36acb1ae102c4434aa492c94a3548543, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: C 07 Face.001
+    second: {fileID: 2100000, guid: 36acb1ae102c4434aa492c94a3548543, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: C 07 Leg
+    second: {fileID: 2100000, guid: 7b0c02cb5e24db4428cb1151733a6de1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C 07 Leg.001
     second: {fileID: 2100000, guid: 7b0c02cb5e24db4428cb1151733a6de1, type: 2}
   - first:
       type: UnityEngine:Material

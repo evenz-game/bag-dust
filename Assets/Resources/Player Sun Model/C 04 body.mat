@@ -17,6 +17,7 @@ Material:
   - _OUTLINE_NML
   m_InvalidKeywords:
   - _
+  - _MatCap
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -234,7 +235,7 @@ Material:
     - _Is_ViewCoord_Scroll: 0
     - _Is_ViewShift: 0
     - _LightDirection_MaskOn: 0
-    - _MatCap: 0
+    - _MatCap: 1
     - _Metallic: 0
     - _Mode: 0
     - _Nearest_Distance: 0.5
@@ -243,7 +244,7 @@ Material:
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
     - _Offset_Z: 0
-    - _Outline_Width: 0.15
+    - _Outline_Width: 0.2
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
