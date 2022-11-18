@@ -33,7 +33,7 @@ public class ObstacleDamageZone : Obstacle
             status.IncreaseDustCount(-decreaseDustCount);
 
             if (decreaseDustCount > 0)
-                CameraController.Shake(0.3f, 0.2f);
+                CameraWalkingController.Shake(0.3f, 0.2f);
         }
     }
 }
