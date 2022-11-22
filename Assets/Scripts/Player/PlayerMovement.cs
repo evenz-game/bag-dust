@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inputter.OnUpdatedAxis
+public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState, PlayerStatus.OnChangedWeight, PlayerModel.OnInitializedPlayerModel, Inputter.OnUpdatedAxis
 {
+    private PlayerModelInfo model;
+
     private new Rigidbody rigidbody;
 
     [SerializeField]
@@ -17,6 +19,12 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
         rigidbody = GetComponent<Rigidbody>();
     }
 
+    public void OnChangedWeight(float previousWeight, float currentWeight)
+    {
+        rigidbody.mass = currentWeight;
+    }
+
+    /* 회전 및 이동 */
     public void OnUpdatedAxis(Vector2 axis)
     {
         if (axis == Vector2.zero) return;
@@ -63,11 +71,7 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
         playerAudioPlayer?.Dash();
     }
 
-    public void OnChangedWeight(float previousWeight, float currentWeight)
-    {
-        rigidbody.mass = currentWeight;
-    }
-
+    /* 넉백 */
     public void Knockback(Vector3 knockbackForce)
     {
         rigidbody.AddForce(knockbackForce, ForceMode.Impulse);
@@ -86,5 +90,31 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
             otherPlayer.Knockback(rigidbody.velocity.normalized * playerStatus.CurrentWeight * knockbackScale);
             playerAudioPlayer?.ClashOtherPlayer();
         }
+    }
+
+    /* 플레이어 상태 변화 */
+    public void OnChangedPlayerState(PlayerState currentPlayerState)
+    {
+        if (currentPlayerState == PlayerState.Dead)
+            Die();
+    }
+
+    /* 사망 시, 카메라 쪽으로 */
+    private void Die()
+    {
+        model.BodyCollider.enabled = false;
+        rigidbody.mass = 0;
+        rigidbody.drag = 0;
+
+        Vector3 dir = Camera.main.transform.position - transform.position;
+        dir.Normalize();
+        rigidbody.constraints = RigidbodyConstraints.None;
+        rigidbody.velocity = dir * 400;
+    }
+
+    /* 모델 초기화 */
+    public void OnInitializedPlayerModel(PlayerModelInfo model)
+    {
+        this.model = model;
     }
 }
