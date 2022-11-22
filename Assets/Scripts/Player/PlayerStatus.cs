@@ -3,8 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static PlayerStatus;
 
-public enum PlayerState { Live, LastChance, Dead }
+public enum PlayerState
+{
+    Dead = -1, Ghost = -2,
+    Live = 1, LastChance = 2
+}
 
 [Serializable]
 public class PlayerStatus : PlayerComponent
@@ -88,6 +93,10 @@ public class PlayerStatus : PlayerComponent
     private void Start()
     {
         IncreaseDustCount(0, true);
+
+        // 죽음 체크
+        // 죽을 경우, 유령 상태로 변경
+        onChangedPlayerState.AddListener(CheckDeath);
     }
 
     /// <summary>
@@ -98,7 +107,7 @@ public class PlayerStatus : PlayerComponent
     public int IncreaseDustCount(int amount)
     {
         // 이미 죽어있으면, 리턴
-        if (currentPlayerState == PlayerState.Dead)
+        if ((int)currentPlayerState <= (int)PlayerState.Dead)
             return 0;
 
         // 외부 호출은 무조건 초기화를 위한 호출이 아님
@@ -209,6 +218,20 @@ public class PlayerStatus : PlayerComponent
         }
 
         return currentPlayerState != prevPlayerState;
+    }
+
+    public void CheckDeath(PlayerState currentPlayerState)
+    {
+        // 죽으면 3초뒤 유령으로 상태 변경
+        if (currentPlayerState == PlayerState.Dead)
+            Invoke(nameof(ChangeToGhost), 3);
+    }
+
+    private void ChangeToGhost()
+    {
+        currentPlayerState = PlayerState.Ghost;
+        onChangedPlayerState.Invoke(currentPlayerState);
+        IncreaseDustCount(0, true);
     }
 
     public interface OnChangedPlayerState

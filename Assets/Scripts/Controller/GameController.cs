@@ -108,13 +108,13 @@ public class GameController : MonoBehaviour
 
     public void CheckPlayerDeath(PlayerState state)
     {
-        if (state != PlayerState.Dead) return;
+        if ((int)state > (int)PlayerState.Dead) return;
 
         for (int i = 0; i < activePlayers.Count; i++)
         {
             PlayerStatus player = activePlayers[i];
 
-            if (player.CurrentPlayerState == PlayerState.Dead)
+            if ((int)player.CurrentPlayerState <= (int)PlayerState.Dead)
                 activePlayers.Remove(player);
         }
 
@@ -131,7 +131,7 @@ public class GameController : MonoBehaviour
         {
             PlayerStatus player = activePlayers[i];
 
-            if (player.CurrentPlayerState == PlayerState.Dead)
+            if ((int)player.CurrentPlayerState <= (int)PlayerState.Dead)
                 continue;
 
             if (!winner)

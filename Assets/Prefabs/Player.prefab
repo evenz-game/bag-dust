@@ -95,6 +95,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6792157716391364251}
+        m_TargetAssemblyTypeName: PlayerModel, Assembly-CSharp
+        m_MethodName: OnChangedPlayerState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onChangedDustCount:
     m_PersistentCalls:
       m_Calls:
@@ -112,7 +124,7 @@ MonoBehaviour:
         m_CallState: 2
   minDustCount: 0
   maxDustCount: 20
-  currentDustCount: 3
+  currentDustCount: 6
   onChangedWeight:
     m_PersistentCalls:
       m_Calls:
@@ -180,9 +192,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onInitializedPlayerModel:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1238594928748252005}
+        m_TargetAssemblyTypeName: PlayerScaler, Assembly-CSharp
+        m_MethodName: OnInitializedPlayerModel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8983529169534198787}
+        m_TargetAssemblyTypeName: PlayerPhysics, Assembly-CSharp
+        m_MethodName: OnInitializedPlayerModel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7906327302030692327}
+        m_TargetAssemblyTypeName: PlayerAnimator, Assembly-CSharp
+        m_MethodName: OnInitializedPlayerModel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerModelInfos:
   - {fileID: 1632432244, guid: b99dcd95e2a2f45f4bd55cb36a196b41, type: 3}
+  - {fileID: 6801106689336707671, guid: 8e33f8f75a8e94908a6044b3705b6bae, type: 3}
 --- !u!114 &7230174588137574461
 MonoBehaviour:
   m_ObjectHideFlags: 0
