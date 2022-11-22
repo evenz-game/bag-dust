@@ -9,8 +9,14 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
 
     private new Rigidbody rigidbody;
 
+    [Header("Knockback")]
     [SerializeField]
     private float knockbackScale;
+
+    [Header("Ghost Dash")]
+    [SerializeField]
+    private float ghostDashDelayTime = 4;
+    private float lastDashTime = 0;
 
     protected override void Awake()
     {
@@ -67,13 +73,23 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
 
     public void Dash()
     {
+        if (playerStatus.CurrentPlayerState == PlayerState.Ghost)
+            if (Time.time - lastDashTime <= ghostDashDelayTime)
+                return;
+
         rigidbody.AddForce(transform.forward * playerStatus.DashPower, ForceMode.Impulse);
         playerAudioPlayer?.Dash();
+
+        lastDashTime = Time.time;
     }
 
     /* 넉백 */
-    public void Knockback(Vector3 knockbackForce)
+    public void Knockback(Vector2 knockbackForce)
     {
+        Vector3 newPos = transform.position;
+        newPos.z = 0;
+        transform.position = newPos;
+
         rigidbody.AddForce(knockbackForce, ForceMode.Impulse);
     }
 
@@ -87,7 +103,7 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
     {
         if (rigidbody.velocity.sqrMagnitude > otherPlayer.rigidbody.velocity.sqrMagnitude)
         {
-            otherPlayer.Knockback(rigidbody.velocity.normalized * playerStatus.CurrentWeight * knockbackScale);
+            otherPlayer.Knockback(rigidbody.velocity.normalized * playerStatus.TotalWeight * knockbackScale);
             playerAudioPlayer?.ClashOtherPlayer();
         }
     }
@@ -97,6 +113,8 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
     {
         if (currentPlayerState == PlayerState.Dead)
             Die();
+        else if (currentPlayerState == PlayerState.Ghost)
+            SpawnGhost();
     }
 
     /* 사망 시, 카메라 쪽으로 */
@@ -110,6 +128,21 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
         dir.Normalize();
         rigidbody.constraints = RigidbodyConstraints.None;
         rigidbody.velocity = dir * 400;
+    }
+
+    /* 유령 생성 */
+    private void SpawnGhost()
+    {
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.constraints =
+            RigidbodyConstraints.FreezePositionZ
+            | RigidbodyConstraints.FreezeRotationX
+            | RigidbodyConstraints.FreezeRotationZ;
+
+        transform.localEulerAngles = new Vector3(-90, 180, 0);
+        transform.position = Vector3.zero;
+
+        lastDashTime = 0;
     }
 
     /* 모델 초기화 */

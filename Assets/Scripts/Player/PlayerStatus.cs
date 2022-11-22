@@ -54,8 +54,9 @@ public class PlayerStatus : PlayerComponent
     private float maxWeight = 5;                        // 최대 무게
     public float MaxWeight => maxWeight;
     [SerializeField]
-    private float currentWeight;                        // 현재 무게
-    public float CurrentWeight => currentWeight;
+    private float currentWeight;                        // 현재 캐릭터 무게
+    private float addedWeight;                          // 추가되는 무게
+    public float TotalWeight => currentWeight + addedWeight;
     [SerializeField]
     private bool useWeightCurve;                        // 커브 사용 여부
     [SerializeField]
@@ -147,7 +148,7 @@ public class PlayerStatus : PlayerComponent
 
         // 변경 이벤트 호출
         onChangedDustCount.Invoke(prevDustCount, currentDustCount);
-        onChangedWeight.Invoke(prevWeight, currentWeight);
+        onChangedWeight.Invoke(prevWeight, TotalWeight);
         onChangedScale.Invoke(prevScale, currentScale);
 
         // 먼지 개수 차이 반환
@@ -179,7 +180,7 @@ public class PlayerStatus : PlayerComponent
     /// <returns>이전 스케일 값</returns>
     private float UpdateScale(float percent)
     {
-        float prev = currentScale;
+        float prev = TotalWeight;
 
         if (useScaleCurve)
             currentScale = Mathf.Lerp(minScale, maxScale, scaleCurve.Evaluate(percent));
@@ -232,6 +233,19 @@ public class PlayerStatus : PlayerComponent
         currentPlayerState = PlayerState.Ghost;
         onChangedPlayerState.Invoke(currentPlayerState);
         IncreaseDustCount(0, true);
+    }
+
+    public void AddWeight(float weight)
+    {
+        if (weight == 0) return;
+        float prev = TotalWeight;
+
+        addedWeight += weight;
+
+        if (addedWeight < 0)
+            addedWeight = 0;
+
+        onChangedWeight.Invoke(prev, TotalWeight);
     }
 
     public interface OnChangedPlayerState

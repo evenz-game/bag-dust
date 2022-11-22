@@ -2006,6 +2006,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -6010033391688967697, guid: b8bbfeb00bd12954ab01a3676db7dcf3, type: 3}
+    - target: {fileID: 5048160503961519035, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: ghostWeight
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5783733822388942508, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Name
       value: Player With UI (C 00)
@@ -7437,8 +7441,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1676188580}
-          m_TargetAssemblyTypeName: PlayerAnimator, Assembly-CSharp
+        - m_Target: {fileID: 1676188592}
+          m_TargetAssemblyTypeName: PlayerGhost, Assembly-CSharp
           m_MethodName: OnButtonDown
           m_Mode: 0
           m_Arguments:
@@ -7449,15 +7453,15 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1676188580 stripped
+--- !u!114 &1676188592 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8810066609213967586, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5048160503961519035, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
   m_PrefabInstance: {fileID: 563904172}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563904174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a4a0289659f54d05923a076ed8fde7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bc9000be14494854913bb89bb53eb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1696514149
