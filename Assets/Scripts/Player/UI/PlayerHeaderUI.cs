@@ -6,8 +6,10 @@ using TMPro;
 
 public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 {
+    [Header("Transform")]
     [SerializeField]
     private Transform playerTransfrom;
+
 
     [Header("Index")]
     [SerializeField]
@@ -25,11 +27,20 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
     [SerializeField]
     private Vector3 addIconPosition;
 
+    [Header("Ghost Kick Counter")]
+    [SerializeField]
+    private PlayerGhost playerGhost;
+    [SerializeField]
+    private TextMeshProUGUI textGhostKickCounter;
+    [SerializeField]
+    private Vector3 addGhostKickCounterPosition;
+
     private Camera mainCamera;
 
     private void Awake()
     {
         playerStatus.onChangedPlayerState.AddListener(OnChangedPlayerState);
+        playerGhost.onChangedLeftKickCount.AddListener(UpdateGhostKickCounter);
     }
 
     private void Start()
@@ -41,6 +52,7 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
     {
         UpdateIndexPosition();
         UpdateIconPosition();
+        UpdateGhostKickCounterPosition();
     }
 
     private void UpdateIndexPosition()
@@ -55,6 +67,17 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
         if (DeadIcon.activeSelf)
             DeadIcon.transform.position = WorldToScreenPoint(playerTransfrom.position + addIconPosition);
+    }
+
+    private void UpdateGhostKickCounterPosition()
+    {
+        if (textGhostKickCounter.gameObject.activeSelf)
+            textGhostKickCounter.transform.position = WorldToScreenPoint(playerTransfrom.position + addGhostKickCounterPosition);
+    }
+
+    private void UpdateGhostKickCounter(int leftKickCount)
+    {
+        textGhostKickCounter.text = leftKickCount > 0 ? leftKickCount.ToString() : "";
     }
 
     public void OnChangedPlayerState(PlayerState currentPlayerState)
@@ -73,6 +96,11 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
                 LastChanceIcon.gameObject.SetActive(false);
                 DeadIcon.gameObject.SetActive(true);
                 break;
+            case PlayerState.Ghost:
+                LastChanceIcon.gameObject.SetActive(false);
+                DeadIcon.gameObject.SetActive(false);
+                textGhostKickCounter.gameObject.SetActive(true);
+                break;
         }
     }
 
@@ -88,5 +116,8 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(playerTransfrom.position + addIndexPosition, 0.1f);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(playerTransfrom.position + addGhostKickCounterPosition, 0.1f);
     }
 }

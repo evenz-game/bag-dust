@@ -1712,6 +1712,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5234633412060663298, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5783733822388942508, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Name
       value: Player With UI (C 01)
@@ -7543,7 +7547,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 100, y: 10, z: 1}
-  m_Center: {x: 0, y: -14.25, z: 0}
+  m_Center: {x: 0, y: -18.83, z: 0}
 --- !u!54 &1710309360
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7578,6 +7582,8 @@ MonoBehaviour:
   maxSpawnDeltaTime: 8
   obstaclePrefabs:
   - {fileID: 1788294513, guid: 41a5b638ecabb43e1af81402c0703c33, type: 3}
+  - {fileID: 4668093167197922721, guid: 1a39c911ce7f7471787b66e29c0a9a29, type: 3}
+  - {fileID: 3639794625365569348, guid: f4b257fc353c74d01a7726b0d21ce45b, type: 3}
 --- !u!1 &1717817991
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, Inputter.OnButtonDown
 {
@@ -35,8 +36,6 @@ public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, I
 
         ghostChildren.Remove(children);
 
-        children.Kick();
-
         if (GameObjectUtils.FindCompoenet<PlayerMovement>(children.gameObject, out PlayerMovement childMovement))
         {
             Vector3 dir = children.transform.position - transform.position;
@@ -56,10 +55,11 @@ public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, I
     /// </summary>
     private void KickChildren()
     {
-        foreach (PlayerGhost child in ghostChildren)
+        for (int i = 0; i < ghostChildren.Count; i++)
         {
-            child.leftKickCount--;
-            if (child.leftKickCount == 0)
+            PlayerGhost child = ghostChildren[i];
+
+            if (child.Kick())
             {
                 RemoveChildren(child);
                 playerStatus.AddWeight(-ghostWeight);
@@ -77,12 +77,15 @@ public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, I
     {
         foreach (PlayerGhost child in ghostChildren)
         {
+            child.Kick(999);        // 999: 무조건 떨어뜨린다는 의미
             RemoveChildren(child);
             playerStatus.AddWeight(-ghostWeight);
         }
     }
 
     /* ------ 자식 ------ */
+    public UnityEvent<int> onChangedLeftKickCount = new UnityEvent<int>();  // 남은 킥 횟수 변화 이벤트
+
     private Transform originParentTransform;
 
     [SerializeField]
@@ -92,7 +95,8 @@ public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, I
     private int kickCount = 15;
     public int leftKickCount = 0;
 
-    private float lastKickTime = 0;
+    private PlayerGhost lastParent = null;  // 마지막으로 붙어있던 부모
+    private float lastKickOffTime = 0;      // 마지막으로 차여서 "떨어져나간" 시간
 
     private bool hasParent = false;
 
@@ -102,28 +106,43 @@ public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, I
         // 내가 유령일 때, 다른 플레이어와 부딪히면
         if (isGhost && !hasParent && GameObjectUtils.FindCompoenet<PlayerGhost>(other.gameObject, out PlayerGhost parent))
         {
-            if (Time.time - lastKickTime < 3) return;
+            // 같은 부모인데, 떨어진지 3초 전이라면 다시 못 붙음
+            if (parent == lastParent && Time.time - lastKickOffTime < 3) return;
 
             // 부모가 유령이 아닐 때
             // 나를 자식으로 넣고
             if (!parent.isGhost)
             {
-
                 rigidbody.isKinematic = true;
                 rigidbody.velocity = Vector3.zero;
+
+                lastParent = parent;
                 parent.AddChildren(this);
                 parent.playerStatus.AddWeight(ghostWeight);
+
                 leftKickCount = kickCount;
+                onChangedLeftKickCount.Invoke(leftKickCount);
+
                 hasParent = true;
             }
         }
     }
 
-    private void Kick()
+    private bool Kick(int kickCount = 1)
     {
-        transform.parent = originParentTransform;
-        rigidbody.isKinematic = false;
-        hasParent = false;
-        lastKickTime = Time.time;
+        leftKickCount -= kickCount;
+        leftKickCount = Mathf.Max(0, leftKickCount);
+        onChangedLeftKickCount.Invoke(leftKickCount);
+
+        if (leftKickCount == 0)
+        {
+            transform.parent = originParentTransform;
+            rigidbody.isKinematic = false;
+            hasParent = false;
+            lastKickOffTime = Time.time;
+            return true;
+        }
+
+        return false;
     }
 }
