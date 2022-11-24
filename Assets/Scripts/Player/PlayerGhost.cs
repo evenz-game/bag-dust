@@ -84,7 +84,8 @@ public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, I
     }
 
     /* ------ 자식 ------ */
-    public UnityEvent<int> onChangedLeftKickCount = new UnityEvent<int>();  // 남은 킥 횟수 변화 이벤트
+    public UnityEvent<int> onChangedLeftKickCount = new UnityEvent<int>();              // 남은 킥 횟수 변화 이벤트
+    public UnityEvent<PlayerGhost> onChangedParent = new UnityEvent<PlayerGhost>();     // 부모 변경 이벤트
 
     private Transform originParentTransform;
 
@@ -119,6 +120,7 @@ public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, I
                 lastParent = parent;
                 parent.AddChildren(this);
                 parent.playerStatus.AddWeight(ghostWeight);
+                onChangedParent.Invoke(parent);
 
                 leftKickCount = kickCount;
                 onChangedLeftKickCount.Invoke(leftKickCount);
@@ -136,6 +138,7 @@ public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, I
 
         if (leftKickCount == 0)
         {
+            onChangedParent.Invoke(null);
             transform.parent = originParentTransform;
             rigidbody.isKinematic = false;
             hasParent = false;

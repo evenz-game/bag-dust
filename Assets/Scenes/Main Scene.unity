@@ -7908,13 +7908,13 @@ MonoBehaviour:
         m_CallState: 2
   panelFinishGame: {fileID: 1349903359}
   textWinnerPlayerIndex: {fileID: 610884709}
-  gamePlayTime: 60
+  gamePlayTime: 180
   textTimer: {fileID: 2112464340}
   onFinishedTimer:
     m_PersistentCalls:
       m_Calls: []
   timelineInfos:
-  - targetTime: 50
+  - targetTime: 120
     onComeTime:
       m_PersistentCalls:
         m_Calls:
@@ -7942,7 +7942,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - targetTime: 40
+  - targetTime: 60
     onComeTime:
       m_PersistentCalls:
         m_Calls:

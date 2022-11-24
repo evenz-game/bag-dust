@@ -1,13 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState, PlayerStatus.OnChangedWeight, PlayerModel.OnInitializedPlayerModel, Inputter.OnUpdatedAxis
 {
     private PlayerModelInfo model;
-
     private new Rigidbody rigidbody;
+
+    public UnityEvent<float> onDash = new UnityEvent<float>();  // 대쉬했을 때 발생하는 이벤트, 대쉬 딜레이 시간이 전달
+
+    private float DashDelayTime
+        => playerStatus.CurrentPlayerState == PlayerState.Ghost ? ghostDashDelayTime : defaultDashDelayTime;
+
+    [Header("Dash")]
+    [SerializeField]
+    private float defaultDashDelayTime = 0;
 
     [Header("Knockback")]
     [SerializeField]
@@ -73,14 +82,15 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
 
     public void Dash()
     {
-        if (playerStatus.CurrentPlayerState == PlayerState.Ghost)
-            if (Time.time - lastDashTime <= ghostDashDelayTime)
-                return;
+        if (Time.time - lastDashTime <= DashDelayTime)
+            return;
 
         rigidbody.AddForce(transform.forward * playerStatus.DashPower, ForceMode.Impulse);
         playerAudioPlayer?.Dash();
 
         lastDashTime = Time.time;
+
+        onDash.Invoke(DashDelayTime);
     }
 
     /* 넉백 */

@@ -256,6 +256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd667879c8801436c8ef11a533de5637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onDash:
+    m_PersistentCalls:
+      m_Calls: []
+  defaultDashDelayTime: 0
   knockbackScale: 5
   ghostDashDelayTime: 4
 --- !u!114 &7377724827343032211
@@ -361,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dustParticlePrefab: {fileID: 3981314182892921972, guid: f62979804942942a1b1822fe5b5ee929, type: 3}
-  dustParticleCountAtDeath: 30
+  dustParticleCountAtDeath: 10
 --- !u!114 &7906327302030692327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +504,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc9000be14494854913bb89bb53eb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onChangedLeftKickCount:
+    m_PersistentCalls:
+      m_Calls: []
+  onChangedParent:
+    m_PersistentCalls:
+      m_Calls: []
   ghostWeight: 5
   kickCount: 15
   leftKickCount: 0

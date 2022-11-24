@@ -10,7 +10,6 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
     [SerializeField]
     private Transform playerTransfrom;
 
-
     [Header("Index")]
     [SerializeField]
     private RectTransform indexTransform;
@@ -27,6 +26,14 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
     [SerializeField]
     private Vector3 addIconPosition;
 
+    [Header("Dash Timer")]
+    [SerializeField]
+    private PlayerMovement playerMovement;
+    [SerializeField]
+    private Image imageDashTimer;
+    [SerializeField]
+    private Vector3 addDashTimerPosition;
+
     [Header("Ghost Kick Counter")]
     [SerializeField]
     private PlayerGhost playerGhost;
@@ -40,7 +47,11 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
     private void Awake()
     {
         playerStatus.onChangedPlayerState.AddListener(OnChangedPlayerState);
+        playerMovement.onDash.AddListener(OnDash);
         playerGhost.onChangedLeftKickCount.AddListener(UpdateGhostKickCounter);
+
+        playerGhost.onChangedParent.AddListener((PlayerGhost parent) =>
+            imageDashTimer.gameObject.SetActive(parent == null));
     }
 
     private void Start()
@@ -52,6 +63,7 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
     {
         UpdateIndexPosition();
         UpdateIconPosition();
+        UpdateDashTimerPosition();
         UpdateGhostKickCounterPosition();
     }
 
@@ -67,6 +79,33 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
         if (DeadIcon.activeSelf)
             DeadIcon.transform.position = WorldToScreenPoint(playerTransfrom.position + addIconPosition);
+    }
+
+    private void UpdateDashTimerPosition()
+    {
+        if (imageDashTimer.gameObject.activeSelf)
+            imageDashTimer.transform.position = WorldToScreenPoint(playerTransfrom.position + addDashTimerPosition);
+    }
+
+    private void OnDash(float dashDelayTime)
+    {
+        StartCoroutine(DashTimerRoutine(dashDelayTime));
+    }
+
+    private IEnumerator DashTimerRoutine(float time)
+    {
+        float timer = 0, percent = 0;
+        while (percent < 1)
+        {
+            timer += Time.deltaTime;
+            percent = timer / time;
+
+            imageDashTimer.fillAmount = percent;
+
+            yield return null;
+        }
+
+        imageDashTimer.fillAmount = 1;
     }
 
     private void UpdateGhostKickCounterPosition()
@@ -99,6 +138,7 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
             case PlayerState.Ghost:
                 LastChanceIcon.gameObject.SetActive(false);
                 DeadIcon.gameObject.SetActive(false);
+                imageDashTimer.gameObject.SetActive(true);
                 textGhostKickCounter.gameObject.SetActive(true);
                 break;
         }
@@ -116,6 +156,9 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(playerTransfrom.position + addIndexPosition, 0.1f);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(playerTransfrom.position + addDashTimerPosition, 0.1f);
 
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(playerTransfrom.position + addGhostKickCounterPosition, 0.1f);
