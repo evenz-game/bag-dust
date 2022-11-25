@@ -7,13 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: C 08 Body
+    second: {fileID: 2100000, guid: 6b0c67efd552b674db33e63d401afdf9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: C 08 Body.001
     second: {fileID: 2100000, guid: 6b0c67efd552b674db33e63d401afdf9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: C 08 Face
+    second: {fileID: 2100000, guid: 555272f3b64a2004da951acd3c583ae7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: C 08 Face.001
     second: {fileID: 2100000, guid: 555272f3b64a2004da951acd3c583ae7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C 08 Leg
+    second: {fileID: 2100000, guid: 1dc4cecb3b16cd840bff2fc9550349c2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
