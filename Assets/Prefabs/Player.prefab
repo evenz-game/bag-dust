@@ -17,10 +17,10 @@ GameObject:
   - component: {fileID: 1238594928748252005}
   - component: {fileID: 954194143762566311}
   - component: {fileID: 6232064791850028222}
-  - component: {fileID: 8983529169534198787}
   - component: {fileID: 7906327302030692327}
   - component: {fileID: 7723624269555866475}
   - component: {fileID: 5931490800846214861}
+  - component: {fileID: 5905878371399696574}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -71,8 +71,8 @@ MonoBehaviour:
   onChangedPlayerState:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8983529169534198787}
-        m_TargetAssemblyTypeName: PlayerPhysics, Assembly-CSharp
+      - m_Target: {fileID: 7230174588137574461}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: OnChangedPlayerState
         m_Mode: 0
         m_Arguments:
@@ -85,6 +85,30 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 6232064791850028222}
         m_TargetAssemblyTypeName: PlayerDustParticleCreator, Assembly-CSharp
+        m_MethodName: OnChangedPlayerState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6792157716391364251}
+        m_TargetAssemblyTypeName: PlayerModel, Assembly-CSharp
+        m_MethodName: OnChangedPlayerState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5905878371399696574}
+        m_TargetAssemblyTypeName: PlayerGhost, Assembly-CSharp
         m_MethodName: OnChangedPlayerState
         m_Mode: 0
         m_Arguments:
@@ -112,7 +136,7 @@ MonoBehaviour:
         m_CallState: 2
   minDustCount: 0
   maxDustCount: 20
-  currentDustCount: 3
+  currentDustCount: 6
   onChangedWeight:
     m_PersistentCalls:
       m_Calls:
@@ -180,9 +204,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onInitializedPlayerModel:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1238594928748252005}
+        m_TargetAssemblyTypeName: PlayerScaler, Assembly-CSharp
+        m_MethodName: OnInitializedPlayerModel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7230174588137574461}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnInitializedPlayerModel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7906327302030692327}
+        m_TargetAssemblyTypeName: PlayerAnimator, Assembly-CSharp
+        m_MethodName: OnInitializedPlayerModel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerModelInfos:
   - {fileID: 1632432244, guid: b99dcd95e2a2f45f4bd55cb36a196b41, type: 3}
+  - {fileID: 6801106689336707671, guid: 8e33f8f75a8e94908a6044b3705b6bae, type: 3}
 --- !u!114 &7230174588137574461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +256,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd667879c8801436c8ef11a533de5637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onDash:
+    m_PersistentCalls:
+      m_Calls: []
+  defaultDashDelayTime: 0
   knockbackScale: 5
+  ghostDashDelayTime: 4
 --- !u!114 &7377724827343032211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +303,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
           m_MethodName: Dash
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5905878371399696574}
+          m_TargetAssemblyTypeName: PlayerGhost, Assembly-CSharp
+          m_MethodName: OnButtonDown
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -287,19 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dustParticlePrefab: {fileID: 3981314182892921972, guid: f62979804942942a1b1822fe5b5ee929, type: 3}
-  dustParticleCountAtDeath: 30
---- !u!114 &8983529169534198787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5574520127624018850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af5d1a894290f4121a7967a8e92c7c74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  dustParticleCountAtDeath: 10
 --- !u!114 &7906327302030692327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,3 +492,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5905878371399696574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574520127624018850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9000be14494854913bb89bb53eb52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onChangedLeftKickCount:
+    m_PersistentCalls:
+      m_Calls: []
+  onChangedParent:
+    m_PersistentCalls:
+      m_Calls: []
+  ghostWeight: 5
+  kickCount: 15
+  leftKickCount: 0

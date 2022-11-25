@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerModelType { Normal, Ghost }
 public class PlayerModelInfo : MonoBehaviour
 {
     [SerializeField]
     private int modelIndex = -1;
     public int ModelIndex => modelIndex;
+
+    [SerializeField]
+    private PlayerModelType modelType = PlayerModelType.Normal;
+    public PlayerModelType ModelType => modelType;
 
     [Header("Face")]
     [SerializeField]

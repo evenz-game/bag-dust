@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +30,10 @@ public class GameController : MonoBehaviour
     private TextMeshProUGUI textTimer;
     [SerializeField]
     private UnityEvent onFinishedTimer = new UnityEvent();
+
+    [Header("Timeline")]
+    [SerializeField]
+    private List<TimelineInfo> timelineInfos;
 
     private void Awake()
     {
@@ -103,13 +108,13 @@ public class GameController : MonoBehaviour
 
     public void CheckPlayerDeath(PlayerState state)
     {
-        if (state != PlayerState.Dead) return;
+        if ((int)state > (int)PlayerState.Dead) return;
 
         for (int i = 0; i < activePlayers.Count; i++)
         {
             PlayerStatus player = activePlayers[i];
 
-            if (player.CurrentPlayerState == PlayerState.Dead)
+            if ((int)player.CurrentPlayerState <= (int)PlayerState.Dead)
                 activePlayers.Remove(player);
         }
 
@@ -126,7 +131,7 @@ public class GameController : MonoBehaviour
         {
             PlayerStatus player = activePlayers[i];
 
-            if (player.CurrentPlayerState == PlayerState.Dead)
+            if ((int)player.CurrentPlayerState <= (int)PlayerState.Dead)
                 continue;
 
             if (!winner)
@@ -152,6 +157,10 @@ public class GameController : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer < 0) break;
 
+            // 타임라인
+            UpdateTimelineByTimer(timer);
+
+            // UI 업데이트
             textTimer.text = ((int)timer).ToString();
 
             yield return null;
@@ -164,6 +173,15 @@ public class GameController : MonoBehaviour
         PlayerStatus winner = FindWinnerByDustCount();
         if (winner)
             FinishGame(winner);
+    }
+
+    private void UpdateTimelineByTimer(float currentTime)
+    {
+        foreach (TimelineInfo info in timelineInfos)
+        {
+            if (info.isUsable(currentTime))
+                info.Run();
+        }
     }
 
     public interface OnStartedGame
@@ -179,5 +197,25 @@ public class GameController : MonoBehaviour
     public interface InitializeInputterEvent
     {
         public void InitializeInputter();
+    }
+
+    [Serializable]
+    private class TimelineInfo
+    {
+        public int targetTime;
+        public UnityEvent onComeTime = new UnityEvent();
+        private bool enable = true;
+
+        public void Run()
+        {
+            if (!enable) return;
+            onComeTime.Invoke();
+            enable = false;
+        }
+
+        public bool isUsable(float currentTime)
+        {
+            return enable && (int)currentTime == targetTime;
+        }
     }
 }

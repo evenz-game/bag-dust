@@ -5,9 +5,9 @@ using UnityEngine;
 public class ObstacleMover : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 startPosition;
+    private Transform startTransform;
     [SerializeField]
-    private Vector3 endPosition;
+    private Transform endTransform;
     [SerializeField]
     private float moveTime;
     [SerializeField]
@@ -16,22 +16,10 @@ public class ObstacleMover : MonoBehaviour
     [SerializeField]
     private bool isPingpong = true;
 
-    [ContextMenu("Set Start Position")]
-    private void SetStartPosition()
-    {
-        startPosition = transform.position;
-    }
-
-    [ContextMenu("Set End Position")]
-    private void SetEndPosition()
-    {
-        endPosition = transform.position;
-    }
-
     [ContextMenu("Move To Start Position")]
     private void MoveToStartPosition()
     {
-        transform.position = startPosition;
+        transform.position = startTransform.position;
     }
 
     private void Start()
@@ -41,24 +29,28 @@ public class ObstacleMover : MonoBehaviour
 
     private IEnumerator MoveRoutine()
     {
+        Transform targetTransform = endTransform;
+
         do
         {
             float timer = 0, percent = 0;
-            Vector3 firstPosition = transform.position;
+            Transform firstTransform = targetTransform == endTransform ? startTransform : endTransform;
 
             while (percent < 1)
             {
                 timer += Time.deltaTime;
                 percent = timer / moveTime;
 
-                transform.position = Vector3.Lerp(firstPosition, endPosition, curve.Evaluate(percent));
+                transform.position = Vector3.Lerp(
+                    firstTransform.position,
+                    targetTransform.position,
+                    curve.Evaluate(percent)
+                );
 
                 yield return null;
             }
 
-            Vector3 temp = endPosition;
-            endPosition = startPosition;
-            startPosition = temp;
+            targetTransform = targetTransform == endTransform ? startTransform : endTransform;
 
         } while (isPingpong);
     }

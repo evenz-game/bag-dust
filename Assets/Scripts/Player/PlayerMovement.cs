@@ -1,14 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inputter.OnUpdatedAxis
+public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState, PlayerStatus.OnChangedWeight, PlayerModel.OnInitializedPlayerModel, Inputter.OnUpdatedAxis
 {
+    private PlayerModelInfo model;
     private new Rigidbody rigidbody;
 
+    public UnityEvent<float> onDash = new UnityEvent<float>();  // 대쉬했을 때 발생하는 이벤트, 대쉬 딜레이 시간이 전달
+
+    private float DashDelayTime
+        => playerStatus.CurrentPlayerState == PlayerState.Ghost ? ghostDashDelayTime : defaultDashDelayTime;
+
+    [Header("Dash")]
+    [SerializeField]
+    private float defaultDashDelayTime = 0;
+
+    [Header("Knockback")]
     [SerializeField]
     private float knockbackScale;
+
+    [Header("Ghost Dash")]
+    [SerializeField]
+    private float ghostDashDelayTime = 4;
+    private float lastDashTime = 0;
 
     protected override void Awake()
     {
@@ -17,6 +34,12 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
         rigidbody = GetComponent<Rigidbody>();
     }
 
+    public void OnChangedWeight(float previousWeight, float currentWeight)
+    {
+        rigidbody.mass = currentWeight;
+    }
+
+    /* 회전 및 이동 */
     public void OnUpdatedAxis(Vector2 axis)
     {
         if (axis == Vector2.zero) return;
@@ -59,17 +82,24 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
 
     public void Dash()
     {
+        if (Time.time - lastDashTime <= DashDelayTime)
+            return;
+
         rigidbody.AddForce(transform.forward * playerStatus.DashPower, ForceMode.Impulse);
         playerAudioPlayer?.Dash();
+
+        lastDashTime = Time.time;
+
+        onDash.Invoke(DashDelayTime);
     }
 
-    public void OnChangedWeight(float previousWeight, float currentWeight)
+    /* 넉백 */
+    public void Knockback(Vector2 knockbackForce)
     {
-        rigidbody.mass = currentWeight;
-    }
+        Vector3 newPos = transform.position;
+        newPos.z = 0;
+        transform.position = newPos;
 
-    public void Knockback(Vector3 knockbackForce)
-    {
         rigidbody.AddForce(knockbackForce, ForceMode.Impulse);
     }
 
@@ -83,8 +113,51 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedWeight, Inp
     {
         if (rigidbody.velocity.sqrMagnitude > otherPlayer.rigidbody.velocity.sqrMagnitude)
         {
-            otherPlayer.Knockback(rigidbody.velocity.normalized * playerStatus.CurrentWeight * knockbackScale);
+            otherPlayer.Knockback(rigidbody.velocity.normalized * playerStatus.TotalWeight * knockbackScale);
             playerAudioPlayer?.ClashOtherPlayer();
         }
+    }
+
+    /* 플레이어 상태 변화 */
+    public void OnChangedPlayerState(PlayerState currentPlayerState)
+    {
+        if (currentPlayerState == PlayerState.Dead)
+            Die();
+        else if (currentPlayerState == PlayerState.Ghost)
+            SpawnGhost();
+    }
+
+    /* 사망 시, 카메라 쪽으로 */
+    private void Die()
+    {
+        model.BodyCollider.enabled = false;
+        rigidbody.mass = 0;
+        rigidbody.drag = 0;
+
+        Vector3 dir = Camera.main.transform.position - transform.position;
+        dir.Normalize();
+        rigidbody.constraints = RigidbodyConstraints.None;
+        rigidbody.velocity = dir * 400;
+    }
+
+    /* 유령 생성 */
+    private void SpawnGhost()
+    {
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.constraints =
+            RigidbodyConstraints.FreezePositionZ
+            | RigidbodyConstraints.FreezeRotationX
+            | RigidbodyConstraints.FreezeRotationZ;
+
+        transform.localEulerAngles = new Vector3(-90, 180, 0);
+        transform.position = Vector3.zero;
+
+        lastDashTime = 0;
+    }
+
+    /* 모델 초기화 */
+    public void OnInitializedPlayerModel(PlayerModelInfo model)
+    {
+        this.model = model;
     }
 }

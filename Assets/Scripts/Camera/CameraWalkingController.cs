@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CameraController : MonoBehaviour
+public class CameraWalkingController : MonoBehaviour
 {
-    private static CameraController instance;
+    private static CameraWalkingController instance;
 
     public UnityEvent onFinishedCameraWalking = new UnityEvent();
 

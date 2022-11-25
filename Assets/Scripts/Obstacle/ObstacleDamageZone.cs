@@ -10,6 +10,18 @@ public class ObstacleDamageZone : Obstacle
     [SerializeField]
     private int decreaseDustCount = 4;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GameObjectUtils.FindCompoenet<Animator>(this.gameObject);
+    }
+
+    public void Spawn()
+    {
+        animator?.Play("Spawn", -1);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (GameObjectUtils.FindCompoenet<PlayerMovement>(other.gameObject, out PlayerMovement movement))
@@ -33,7 +45,7 @@ public class ObstacleDamageZone : Obstacle
             status.IncreaseDustCount(-decreaseDustCount);
 
             if (decreaseDustCount > 0)
-                CameraController.Shake(0.3f, 0.2f);
+                CameraWalkingController.Shake(0.3f, 0.2f);
         }
     }
 }
