@@ -10,6 +10,8 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
 {
     [SerializeField]
     private bool init = false;
+    [SerializeField]
+    private bool useAxisRaw = false;
 
     [Header("Axis")]
     public UnityEvent<Vector2> onUpdatedAxis = new UnityEvent<Vector2>();
@@ -36,7 +38,11 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
 
     private void UpdateAxis()
     {
-        currentAxis = new Vector2(Input.GetAxis(xAxisName) * axisScale.x, Input.GetAxis(yAxisName) * axisScale.y);
+        if (useAxisRaw)
+            currentAxis = new Vector2(Input.GetAxisRaw(xAxisName) * axisScale.x, Input.GetAxisRaw(yAxisName) * axisScale.y);
+        else
+            currentAxis = new Vector2(Input.GetAxis(xAxisName) * axisScale.x, Input.GetAxis(yAxisName) * axisScale.y);
+
         onUpdatedAxis.Invoke(currentAxis);
     }
 
