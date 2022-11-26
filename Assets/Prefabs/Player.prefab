@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535759fd9851d4d01a78352392fbe330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugModelIndex: 0
   onInitializedPlayerModel:
     m_PersistentCalls:
       m_Calls:
@@ -242,8 +243,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   playerModelInfos:
-  - {fileID: 1632432244, guid: b99dcd95e2a2f45f4bd55cb36a196b41, type: 3}
-  - {fileID: 6801106689336707671, guid: 8e33f8f75a8e94908a6044b3705b6bae, type: 3}
+  - {fileID: 885461980, guid: 2613c1d3cff4649bcbf9ebddb3a55986, type: 3}
+  - {fileID: 2291600707318469539, guid: 7ad944a4918b94e8fa35a55107fb3fbf, type: 3}
+  - {fileID: 1298700624, guid: f6c4df3b2671c4763bfd4c00c8aae07e, type: 3}
+  - {fileID: 537920497717651696, guid: 0a1ac634e15b144609cef50e985220ae, type: 3}
+  - {fileID: 841415298, guid: de8b6045d293240d195dcc952bd45096, type: 3}
+  - {fileID: 4770664967058860947, guid: e1982d9811ab244668e21f30188899af, type: 3}
+  spawnLocalEulerAngles: {x: 90, y: 0, z: 0}
 --- !u!114 &7230174588137574461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   init: 0
+  useAxisRaw: 0
   onUpdatedAxis:
     m_PersistentCalls:
       m_Calls:
@@ -510,6 +517,6 @@ MonoBehaviour:
   onChangedParent:
     m_PersistentCalls:
       m_Calls: []
-  ghostWeight: 5
+  ghostWeight: 7
   kickCount: 15
   leftKickCount: 0
