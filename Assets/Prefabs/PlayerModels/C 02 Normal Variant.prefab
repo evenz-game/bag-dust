@@ -313,11 +313,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
       propertyPath: m_LocalPosition.z
@@ -354,6 +354,10 @@ PrefabInstance:
     - target: {fileID: -6042460896149115178, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6042460896149115178, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6010655102094255042, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
       propertyPath: m_Layer
@@ -441,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
       propertyPath: m_Name
-      value: C 02
+      value: C 02 Normal Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
       propertyPath: m_Layer
@@ -498,6 +502,10 @@ PrefabInstance:
     - target: {fileID: 8519667785798768380, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519667785798768380, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8903347365843819394, guid: aa1e15cda09500f47baf4ee4d9041493, type: 3}
       propertyPath: m_Layer
