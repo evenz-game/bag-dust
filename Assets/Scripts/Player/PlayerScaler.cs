@@ -49,7 +49,7 @@ public class PlayerScaler : PlayerComponent, PlayerStatus.OnChangedScale, Player
     {
         float sin = (model.FaceHeight / 2f) / targetScale;       // 높이 / 반지름(빗변)
         float rad = Mathf.Asin(sin);
-        float y = Mathf.Cos(rad) * targetScale * 0.01f;
+        float y = Mathf.Cos(rad) * targetScale;
 
         Transform faceTransform = model.PlayerFaceTransform;
         faceTransform.localPosition = new Vector3(faceTransform.localPosition.x, y, faceTransform.localPosition.z);

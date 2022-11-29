@@ -86,6 +86,8 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
             return;
 
         rigidbody.AddForce(transform.forward * playerStatus.DashPower, ForceMode.Impulse);
+
+        playerAnimator?.Dash();
         playerAudioPlayer?.Dash();
 
         lastDashTime = Time.time;

@@ -75,8 +75,10 @@ public class PlayerGhost : PlayerComponent, PlayerStatus.OnChangedPlayerState, I
 
     private void KickAllChildren()
     {
-        foreach (PlayerGhost child in ghostChildren)
+        while (ghostChildren.Count > 0)
         {
+            PlayerGhost child = ghostChildren[0];
+
             child.Kick(999);        // 999: 무조건 떨어뜨린다는 의미
             RemoveChildren(child);
             playerStatus.AddWeight(-ghostWeight);
