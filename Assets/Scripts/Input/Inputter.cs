@@ -11,6 +11,8 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
     [SerializeField]
     private bool init = false;
     [SerializeField]
+    private bool useAxis = true;
+    [SerializeField]
     private bool useAxisRaw = false;
 
     [Header("Axis")]
@@ -38,6 +40,8 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
 
     private void UpdateAxis()
     {
+        if (!useAxis) return;
+
         if (useAxisRaw)
             currentAxis = new Vector2(Input.GetAxisRaw(xAxisName) * axisScale.x, Input.GetAxisRaw(yAxisName) * axisScale.y);
         else
