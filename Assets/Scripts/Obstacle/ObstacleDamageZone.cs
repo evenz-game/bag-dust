@@ -42,10 +42,10 @@ public class ObstacleDamageZone : Obstacle
     {
         if (GameObjectUtils.FindCompoenet<PlayerStatus>(other.gameObject, out PlayerStatus status))
         {
-            status.IncreaseDustCount(-decreaseDustCount);
+            if (decreaseDustCount <= 0) return;
 
-            if (decreaseDustCount > 0)
-                CameraWalkingController.Shake(0.3f, 0.2f);
+            status.ClashObstacle(decreaseDustCount);
+            CameraWalkingController.Shake(0.3f, 0.2f);
         }
     }
 }

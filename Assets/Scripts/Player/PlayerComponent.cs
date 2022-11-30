@@ -8,6 +8,7 @@ public abstract class PlayerComponent : MonoBehaviour
     protected PlayerStatus playerStatus;
     protected PlayerAnimator playerAnimator;
     protected PlayerAudioPlayer playerAudioPlayer;
+    protected PlayerEffector playerEffector;
 
     protected virtual void Awake()
     {
@@ -15,5 +16,6 @@ public abstract class PlayerComponent : MonoBehaviour
         playerStatus = GameObjectUtils.FindCompoenet<PlayerStatus>(gameObject);
         playerAnimator = GameObjectUtils.FindCompoenet<PlayerAnimator>(gameObject);
         playerAudioPlayer = GameObjectUtils.FindCompoenet<PlayerAudioPlayer>(gameObject);
+        playerEffector = GameObjectUtils.FindCompoenet<PlayerEffector>(gameObject);
     }
 }

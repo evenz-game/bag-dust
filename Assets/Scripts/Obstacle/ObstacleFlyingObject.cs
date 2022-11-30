@@ -62,7 +62,9 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (GameObjectUtils.FindCompoenet<PlayerStatus>(other.gameObject, out PlayerStatus status))
-            status.IncreaseDustCount(-2);
+        {
+            status.ClashObstacle(2);
+        }
     }
 
     private void OnDrawGizmos()

@@ -86,7 +86,10 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
             return;
 
         rigidbody.AddForce(transform.forward * playerStatus.DashPower, ForceMode.Impulse);
+
+        playerAnimator?.Dash();
         playerAudioPlayer?.Dash();
+        playerEffector?.Dash();
 
         lastDashTime = Time.time;
 
@@ -114,7 +117,9 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
         if (rigidbody.velocity.sqrMagnitude > otherPlayer.rigidbody.velocity.sqrMagnitude)
         {
             otherPlayer.Knockback(rigidbody.velocity.normalized * playerStatus.TotalWeight * knockbackScale);
+
             playerAudioPlayer?.ClashOtherPlayer();
+            playerEffector?.ClashOtherPlayer(transform.position, otherPlayer.transform.position);
         }
     }
 

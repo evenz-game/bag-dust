@@ -248,6 +248,13 @@ public class PlayerStatus : PlayerComponent
         onChangedWeight.Invoke(prev, TotalWeight);
     }
 
+    public void ClashObstacle(int decreaseDustAmount)
+    {
+        IncreaseDustCount(-decreaseDustAmount);
+
+        playerEffector?.ClashObstacle();
+    }
+
     public interface OnChangedPlayerState
     {
         public void OnChangedPlayerState(PlayerState currentPlayerState);
