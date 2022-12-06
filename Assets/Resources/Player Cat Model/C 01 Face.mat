@@ -155,10 +155,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _1st2nd_Shades_Feather: 0.29
-    - _1st_ShadeColor_Feather: 0.3
+    - _1st2nd_Shades_Feather: 0.0001
+    - _1st_ShadeColor_Feather: 0.0001
     - _1st_ShadeColor_Step: 0.53
-    - _2nd_ShadeColor_Feather: 0.29
+    - _2nd_ShadeColor_Feather: 0.0001
     - _2nd_ShadeColor_Step: 0.2
     - _ARSampler_AlphaOn: 0
     - _AR_OffsetU: 0
@@ -172,7 +172,7 @@ Material:
     - _BASE_COLOR_WEIGHT: 1
     - _BUMP_MAP_STRENGTH: 0.3
     - _BaseColor_Step: 0.53
-    - _BaseShade_Feather: 0.3
+    - _BaseShade_Feather: 0.0001
     - _Base_Speed: 0
     - _Blend: 0
     - _BlurLevelMatcap: 0

@@ -156,7 +156,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _1st2nd_Shades_Feather: 0.0001
-    - _1st_ShadeColor_Feather: 0.15
+    - _1st_ShadeColor_Feather: 0.0001
     - _1st_ShadeColor_Step: 0.77
     - _2nd_ShadeColor_Feather: 0.0001
     - _2nd_ShadeColor_Step: 0.57
@@ -172,7 +172,7 @@ Material:
     - _BASE_COLOR_WEIGHT: 1
     - _BUMP_MAP_STRENGTH: 0.3
     - _BaseColor_Step: 0.77
-    - _BaseShade_Feather: 0.15
+    - _BaseShade_Feather: 0.0001
     - _Base_Speed: 0
     - _Blend: 0
     - _BlurLevelMatcap: 0
