@@ -171,11 +171,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _1st2nd_Shades_Feather: 0.0001
-    - _1st_ShadeColor_Feather: 0.0001
-    - _1st_ShadeColor_Step: 0.286
-    - _2nd_ShadeColor_Feather: 0.0001
-    - _2nd_ShadeColor_Step: 0.269
+    - _1st2nd_Shades_Feather: 0.26
+    - _1st_ShadeColor_Feather: 0.23
+    - _1st_ShadeColor_Step: 0.86
+    - _2nd_ShadeColor_Feather: 0.26
+    - _2nd_ShadeColor_Step: 0.6
     - _ARSampler_AlphaOn: 0
     - _AR_OffsetU: 0
     - _AR_OffsetV: 0.3
@@ -185,8 +185,8 @@ Material:
     - _Ap_RimLight_FeatherOff: 0
     - _Ap_RimLight_Power: 0.1
     - _AutoRenderQueue: 1
-    - _BaseColor_Step: 0.286
-    - _BaseShade_Feather: 0.0001
+    - _BaseColor_Step: 0.86
+    - _BaseShade_Feather: 0.23
     - _Base_Speed: 0
     - _Blend: 0
     - _BlurLevelMatcap: 0
@@ -272,7 +272,7 @@ Material:
     - _Scroll_EmissiveU: 0
     - _Scroll_EmissiveV: 0
     - _Set_SystemShadowsToBase: 1
-    - _ShadeColor_Step: 0.269
+    - _ShadeColor_Step: 0.6
     - _Smoothness: 0.4472136
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
