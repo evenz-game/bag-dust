@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerModel : MonoBehaviour, PlayerStatus.OnChangedPlayerState
+public class PlayerModel : PlayerComponent, PlayerStatus.OnChangedPlayerState
 {
     [Header("Debug")]
     [SerializeField]
-    private int debugModelIndex = -1;
+    private int modelIndex = -1;
 
     public UnityEvent<PlayerModelInfo> onInitializedPlayerModel = new UnityEvent<PlayerModelInfo>();
 
@@ -19,11 +19,21 @@ public class PlayerModel : MonoBehaviour, PlayerStatus.OnChangedPlayerState
     private int currentModelIndex = 0;
     private PlayerModelInfo currentModel;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
+        int storedModelIndex = PlayerPrefs.GetInt($"playerModelIndex_{playerStatus.Index}", -1);
+        if (storedModelIndex > -1)
+            modelIndex = storedModelIndex;
         // Debug
-        if (debugModelIndex > -1)
-            Init(debugModelIndex, PlayerModelType.Normal);
+        else if (modelIndex == -1)
+        {
+            Debug.LogError("PlayerModel: 모델 인덱스가 -1입니다.");
+            return;
+        }
+
+        Init(modelIndex, PlayerModelType.Normal);
     }
 
     public void Init(int targetModelIndex, PlayerModelType targetModelType)
@@ -31,8 +41,15 @@ public class PlayerModel : MonoBehaviour, PlayerStatus.OnChangedPlayerState
         currentModelIndex = targetModelIndex;
 
         foreach (PlayerModelInfo info in playerModelInfos)
-            if (info.ModelIndex == targetModelIndex && info.ModelType == targetModelType)
-                CreateModel(info);
+        {
+            if (info.ModelIndex != targetModelIndex) continue;
+            if (info.ModelType != targetModelType) continue;
+
+            CreateModel(info);
+            return;
+        }
+
+        Debug.LogError($"PlayerModel: 존재하지 않는 모델 인덱스({targetModelIndex})입니다.");
     }
 
     private void CreateModel(PlayerModelInfo model)
@@ -46,6 +63,8 @@ public class PlayerModel : MonoBehaviour, PlayerStatus.OnChangedPlayerState
         currentModel.transform.localEulerAngles = spawnLocalEulerAngles;
 
         onInitializedPlayerModel.Invoke(currentModel);
+
+        PlayerPrefs.SetInt($"playerModelIndex_{playerStatus.Index}", modelIndex);
     }
 
     public void OnChangedPlayerState(PlayerState currentPlayerState)

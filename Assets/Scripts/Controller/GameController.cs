@@ -89,6 +89,8 @@ public class GameController : MonoBehaviour
             e.OnFinishedGame();
 
         onFinishedGame.Invoke();
+
+        PlayerPrefs.SetInt("winnerIndex", winner.Index);
     }
 
     private void FindActivePlayers()

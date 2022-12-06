@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScaler : PlayerComponent, PlayerStatus.OnChangedScale, PlayerModel.OnInitializedPlayerModel
 {
+    private bool init = false;
+
     private PlayerModelInfo model;
 
     [Header("Time")]
@@ -19,10 +21,13 @@ public class PlayerScaler : PlayerComponent, PlayerStatus.OnChangedScale, Player
     public void OnInitializedPlayerModel(PlayerModelInfo model)
     {
         this.model = model;
+        init = true;
     }
 
     private IEnumerator ChangeScaleRoutine(float targetScale)
     {
+        if (!init) yield break;
+
         float timer = 0, percent = 0;
         float startScale = model.BodyTransform.localScale.x;
 

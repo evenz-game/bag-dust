@@ -12,6 +12,11 @@ public class PlayerAnimator : PlayerComponent, PlayerModel.OnInitializedPlayerMo
         animator?.Play("Dash", -1, 0);
     }
 
+    public void Win()
+    {
+        animator?.Play("Win", -1, 0);
+    }
+
     public void OnInitializedPlayerModel(PlayerModelInfo model)
     {
         animator = model.Animator;
