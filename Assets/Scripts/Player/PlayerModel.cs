@@ -27,7 +27,7 @@ public class PlayerModel : PlayerComponent, PlayerStatus.OnChangedPlayerState
         // 수동 선택이 아닐 경우, 자동으로 불러옴
         if (!useManualModelIndex)
         {
-            int storedModelIndex = PlayerPrefs.GetInt($"playerModelIndex_{playerStatus.Index}", -1);
+            int storedModelIndex = MyPlayerPrefs.GetPlayerModelIndex(playerStatus.Index);
             if (storedModelIndex > -1)
                 modelIndex = storedModelIndex;
         }
@@ -69,7 +69,7 @@ public class PlayerModel : PlayerComponent, PlayerStatus.OnChangedPlayerState
 
         onInitializedPlayerModel.Invoke(currentModel);
 
-        PlayerPrefs.SetInt($"playerModelIndex_{playerStatus.Index}", modelIndex);
+        MyPlayerPrefs.SetPlayerModelIndex(playerStatus.Index, modelIndex);
     }
 
     public void OnChangedPlayerState(PlayerState currentPlayerState)

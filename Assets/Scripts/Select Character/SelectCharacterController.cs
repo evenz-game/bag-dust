@@ -2,16 +2,48 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SelectCharacterController : MonoBehaviour
 {
     private static SelectCharacterController instance;
+
+    [Header("Character Selector")]
+    [SerializeField]
+    private CharacterSelector[] characterSelectors;
+    [SerializeField]
+    private UnityEvent onSelectedAllPlayers;
+    private bool selectedAllPlayers = false;
 
     [Header("Selectable Characters")]
     [SerializeField]
     private SelectableCharacterRow[] selectableCharacterRows;
 
     private void Awake() => instance = this;
+
+    private void Update()
+    {
+        CheckAllPlayersSelecttion();
+    }
+
+    private void CheckAllPlayersSelecttion()
+    {
+        if (selectedAllPlayers) return;
+
+        foreach (CharacterSelector selector in characterSelectors)
+        {
+            if (!selector.CurrentCharacter) continue;
+            if (selector.CurrentCharacter.State != SelectableCharacterState.Select)
+                return;
+        }
+
+        foreach (CharacterSelector selector in characterSelectors)
+            selector.FreezeButtons();
+
+        selectedAllPlayers = true;
+
+        onSelectedAllPlayers.Invoke();
+    }
 
     public static SelectableCharacter GetUnhoveredSelectableCharacter()
     {
@@ -137,7 +169,6 @@ public class SelectCharacterController : MonoBehaviour
 
         return targetIdx;
     }
-
     [Serializable]
     private class SelectableCharacterRow
     {

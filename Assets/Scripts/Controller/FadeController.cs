@@ -10,10 +10,18 @@ public class FadeController : MonoBehaviour
     private enum FadeType { In, Out }
 
     [SerializeField]
+    private Color defaultColorAtAwake;
+
+    [SerializeField]
     private Image fadeImage;
 
     [SerializeField]
     private FadeInfo[] fadeInfoPresets;
+
+    private void Awake()
+    {
+        fadeImage.color = defaultColorAtAwake;
+    }
 
     public void FadeInWhite(float fadeTime)
     {

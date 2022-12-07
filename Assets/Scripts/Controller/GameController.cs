@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
 
         onFinishedGame.Invoke();
 
-        PlayerPrefs.SetInt("winnerIndex", winner.Index);
+        MyPlayerPrefs.SetWinnerIndex(winner.Index);
     }
 
     private void FindActivePlayers()
@@ -97,11 +97,13 @@ public class GameController : MonoBehaviour
         PlayerStatus[] allPlayers = GameObject.FindObjectsOfType<PlayerStatus>();
         foreach (PlayerStatus player in allPlayers)
         {
-            if (player.gameObject.activeSelf)
+            if (MyPlayerPrefs.GetPlayerActive(player.Index))
             {
                 player.onChangedPlayerState.AddListener(CheckPlayerDeath);
                 activePlayers.Add(player);
             }
+            else
+                player.transform.root.gameObject.SetActive(false);
         }
     }
 

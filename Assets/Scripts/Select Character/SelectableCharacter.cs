@@ -14,6 +14,11 @@ public class SelectableCharacter : MonoBehaviour
     private SelectableCharacterState state = SelectableCharacterState.None;
     public SelectableCharacterState State => state;
 
+    public int ModelIndex
+        => GetComponentInChildren<PlayerModelInfo>()
+            ? GetComponentInChildren<PlayerModelInfo>().ModelIndex
+            : -1;
+
     public SelectableCharacter FindSelectableCharacterByAxis(Vector2 axis)
         => SelectCharacterController.FindUnhoveredSelectableCharacterByAxis(this, axis);
 

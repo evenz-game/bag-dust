@@ -10,8 +10,10 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
     private int playerIndex = 1;
 
     [SerializeField]
-    public SelectableCharacter currentCharacter = null;
+    private SelectableCharacter currentCharacter = null;
+    public SelectableCharacter CurrentCharacter => currentCharacter;
 
+    private bool freezeButtons = false;
     [SerializeField]
     private bool movable = false;
 
@@ -23,6 +25,8 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
 
     private void Start()
     {
+        MyPlayerPrefs.SetPlayerActive(playerIndex, false);
+
         textIndex.text = $"{playerIndex}";
 
         if (currentCharacter)
@@ -42,6 +46,8 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
         if (!currentCharacter) return;
         if (currentCharacter.State == SelectableCharacterState.Select) return;
 
+        if (freezeButtons) return;
+
         SelectableCharacter newCharacter = currentCharacter.FindSelectableCharacterByAxis(axis);
         print(newCharacter);
         if (!newCharacter) return;
@@ -59,11 +65,17 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
         currentCharacter = targetCharacter;
         currentCharacter.UpdateState(SelectableCharacterState.Hover);
 
+        MyPlayerPrefs.SetPlayerActive(playerIndex, true);
+        MyPlayerPrefs.SetPlayerModelIndex(playerIndex, currentCharacter.ModelIndex);
+
+        uiIndexTransform.gameObject.SetActive(true);
         uiIndexTransform.position = Camera.main.WorldToScreenPoint(currentCharacter.CharacterTransform.position);
     }
 
     public void OnButtonDown(ButtonType buttonType)
     {
+        if (freezeButtons) return;
+
         if (buttonType != ButtonType.A) return;
 
         if (!currentCharacter)
@@ -84,5 +96,10 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
                 textIndex.text = $"{playerIndex}";
             }
         }
+    }
+
+    public void FreezeButtons(bool value = true)
+    {
+        freezeButtons = value;
     }
 }

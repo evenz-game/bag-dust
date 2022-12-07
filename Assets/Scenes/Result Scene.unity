@@ -842,9 +842,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1316466677}
   - {fileID: 844931820}
   - {fileID: 821963231}
+  - {fileID: 1316466677}
   - {fileID: 316676735}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -3281,7 +3281,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Main Scene
+          m_StringArgument: Select Character Scene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &775645840
@@ -3479,9 +3479,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fade Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 1724670009602414530, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
+      propertyPath: defaultColorAtAwake.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724670009602414530, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
+      propertyPath: defaultColorAtAwake.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724670009602414530, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
+      propertyPath: defaultColorAtAwake.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724670009602414530, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
+      propertyPath: defaultColorAtAwake.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8858767170928976798, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8858767170928976798, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3603,7 +3619,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 264812067}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &844931821
 MonoBehaviour:
@@ -5000,7 +5016,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 264812067}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1316466678
 MonoBehaviour:

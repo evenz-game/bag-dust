@@ -32,13 +32,17 @@ public class GameResultController : MonoBehaviour
 
     private int GetWinnerIndex()
     {
-        int winnerIndex = PlayerPrefs.GetInt("winnerIndex", -1);
+        int winnerIndex = MyPlayerPrefs.GetWinnerIndex();
         return winnerIndex;
     }
 
     private void SetPlayerActive()
     {
-
+        foreach (PlayerStatus player in players)
+        {
+            bool isActive = MyPlayerPrefs.GetPlayerActive(player.Index);
+            player.transform.root.gameObject.SetActive(isActive);
+        }
     }
 
     private void SetPlayerInputterActive()
