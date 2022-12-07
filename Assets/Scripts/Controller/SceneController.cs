@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
     [SerializeField]
     private KeyCode[] restartKeyCode;
+
+    public UnityEvent onStartedScene = new UnityEvent();
+
+    private void Start()
+    {
+        onStartedScene.Invoke();
+    }
 
     private void Update()
     {

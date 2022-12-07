@@ -20,8 +20,6 @@ public class GameController : MonoBehaviour
     public UnityEvent onFinishedGame = new UnityEvent();
     [SerializeField]
     private GameObject panelFinishGame;
-    [SerializeField]
-    private TextMeshProUGUI textWinnerPlayerIndex;
 
     [Header("Timer")]
     [SerializeField]
@@ -81,7 +79,6 @@ public class GameController : MonoBehaviour
 
         gameStatus = GameStatus.Finish;
 
-        textWinnerPlayerIndex.text = winner.Index.ToString();
         panelFinishGame.SetActive(true);
 
         GameController.OnFinishedGame[] onStartedGames = FindObjectsOfType<MonoBehaviour>().OfType<GameController.OnFinishedGame>().ToArray();
