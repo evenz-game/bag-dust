@@ -209,11 +209,11 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
-    frontEdgeDilateAmount: 5
-    backEdgeDilateAmount: 5
+    frontEdgeDilateAmount: 0
+    backEdgeDilateAmount: 0
     renderer: {fileID: 3981314181963544518}
     SubmeshIndex: 0
     BoundsMode: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
     CutoutThreshold: 0.5
     CullMode: 2
     cutoutTextureName: 
-    DilateRenderingMode: 0
+    DilateRenderingMode: 1
     cutoutTextureIndex: 0
   renderStyle: 2
   outlineParameters:
