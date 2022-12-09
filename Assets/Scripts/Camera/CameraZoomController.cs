@@ -6,6 +6,10 @@ using UnityEngine.Events;
 
 public class CameraZoomController : MonoBehaviour
 {
+    [SerializeField]
+    private Camera manualCamera;
+    private Camera targetCamera;
+
     [Header("Wall")]
     [SerializeField]
     private Transform wallTransform;
@@ -13,6 +17,11 @@ public class CameraZoomController : MonoBehaviour
     [Header("Camera Zoom Infos")]
     [SerializeField]
     private List<CameraZoomInfo> cameraZoomInfos;
+
+    private void Start()
+    {
+        targetCamera = manualCamera ? manualCamera : Camera.main;
+    }
 
     public void ZoomByInfoName(string name)
     {
@@ -31,7 +40,7 @@ public class CameraZoomController : MonoBehaviour
     {
         float timer = 0, percent = 0;
 
-        float startCameraFOV = Camera.main.fieldOfView;
+        float startCameraFOV = targetCamera.fieldOfView;
         Vector3 startWallScale = wallTransform.localScale;
 
         while (percent < 1 && info.zoomTime > 0)
@@ -39,7 +48,7 @@ public class CameraZoomController : MonoBehaviour
             timer += Time.deltaTime;
             percent = timer / info.zoomTime;
 
-            Camera.main.fieldOfView
+            targetCamera.fieldOfView
                 = Mathf.Lerp(startCameraFOV, info.targetCameraFOV, info.zoomCurve.Evaluate(percent));
             wallTransform.localScale
                 = Vector3.Lerp(
@@ -51,7 +60,7 @@ public class CameraZoomController : MonoBehaviour
             yield return null;
         }
 
-        Camera.main.fieldOfView = info.targetCameraFOV;
+        targetCamera.fieldOfView = info.targetCameraFOV;
         wallTransform.localScale = new Vector3(info.targetWallScale, info.targetWallScale, info.targetWallScale);
 
         info.onFinishedCameraZoom.Invoke();

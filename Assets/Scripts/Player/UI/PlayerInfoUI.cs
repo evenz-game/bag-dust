@@ -7,17 +7,21 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
 {
     [Header("Target")]
     [SerializeField]
+    private PlayerModel playerModel;
+
+    [Space]
+    [SerializeField]
     private Transform playerInfoTransform;
     [SerializeField]
     private List<Vector3> targetPositions;
 
     [Space]
     [SerializeField]
-    private List<Sprite> backgroundSprites;
+    private List<Sprite> characterSprites;
 
     [Header("UI Components")]
     [SerializeField]
-    private Image imgaeBackground;
+    private Image imgaeCharacter;
     [SerializeField]
     private Image imageDustCount;
 
@@ -30,19 +34,12 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
     private void Awake()
     {
         playerStatus.onChangedDustCount.AddListener(OnChangedDustCount);
-    }
-
-    private void Start()
-    {
-        Init();
-    }
-
-    private void Init()
-    {
-        int playerIndex = playerStatus.Index;
-        playerInfoTransform.position = targetPositions[playerIndex];
-        imgaeBackground.sprite = backgroundSprites[playerIndex];
-        imageDustCount.fillAmount = (float)playerStatus.CurrentDustCount / (float)playerStatus.MaxDustCount;
+        playerModel.onInitializedPlayerModel.AddListener((PlayerModelInfo info) =>
+        {
+            imgaeCharacter.transform.position = targetPositions[playerStatus.Index];
+            imgaeCharacter.gameObject.SetActive(true);
+            imgaeCharacter.sprite = characterSprites[info.ModelIndex];
+        });
     }
 
     public void OnChangedDustCount(int previousDustCount, int currentDustCount)

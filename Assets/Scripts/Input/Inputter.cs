@@ -30,12 +30,18 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
     [SerializeField]
     private List<ButtonEventSet> buttonEventSets;
 
+    [Header("Any Button")]
+    [SerializeField]
+    private bool checkAnyButtonDown = false;
+    public UnityEvent onDownAnyButton = new UnityEvent();
+
     private void Update()
     {
         if (!init) return;
 
         UpdateAxis();
         UdpateButtons();
+        UpdateAnyButtonDown();
     }
 
     private void UpdateAxis()
@@ -54,6 +60,14 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
     {
         foreach (ButtonEventSet set in buttonEventSets)
             set.CheckButtonDown();
+    }
+
+    private void UpdateAnyButtonDown()
+    {
+        if (!checkAnyButtonDown) return;
+        if (!Input.anyKeyDown) return;
+
+        onDownAnyButton.Invoke();
     }
 
     public void Init()

@@ -6,25 +6,33 @@ using UnityEngine.Events;
 
 public class CameraWalkingController : MonoBehaviour
 {
-    private static CameraWalkingController instance;
+    private static List<CameraWalkingController> instances = new List<CameraWalkingController>();
 
     public UnityEvent onFinishedCameraWalking = new UnityEvent();
 
+    [SerializeField]
+    private Camera manualCamera;
+    private Camera targetCamera;
     [SerializeField]
     private List<CameraWalkingInfo> cameraWalkingInfos;
     private bool isWalking = false;
 
     private void Awake()
     {
-        instance = this;
+        instances.Add(this);
+    }
+
+    private void Start()
+    {
+        targetCamera = manualCamera ? manualCamera : Camera.main;
     }
 
     [ContextMenu("Add Camera Walking Info")]
     private void AddCameraWalkingInfo()
     {
         CameraWalkingInfo info = new CameraWalkingInfo();
-        info.targetFOV = Camera.main.fieldOfView;
-        info.targetPosition = Camera.main.transform.position; ;
+        info.targetFOV = targetCamera.fieldOfView;
+        info.targetPosition = targetCamera.transform.position; ;
 
         cameraWalkingInfos.Add(info);
     }
@@ -35,8 +43,8 @@ public class CameraWalkingController : MonoBehaviour
         if (cameraWalkingInfos.Count == 0) return;
 
         CameraWalkingInfo info = cameraWalkingInfos[0];
-        Camera.main.fieldOfView = info.targetFOV;
-        Camera.main.transform.position = info.targetPosition;
+        targetCamera.fieldOfView = info.targetFOV;
+        targetCamera.transform.position = info.targetPosition;
     }
 
     public void StartCameraWalking()
@@ -66,24 +74,24 @@ public class CameraWalkingController : MonoBehaviour
     {
         float timer = 0, percent = 0;
 
-        float startFOV = Camera.main.fieldOfView;
-        Vector3 startPosition = Camera.main.transform.position;
+        float startFOV = targetCamera.fieldOfView;
+        Vector3 startPosition = targetCamera.transform.position;
 
         while (percent < 1 && info.walkingTime > 0)
         {
             timer += Time.deltaTime;
             percent = timer / info.walkingTime;
 
-            Camera.main.fieldOfView
+            targetCamera.fieldOfView
                 = Mathf.Lerp(startFOV, info.targetFOV, info.walkingCurve.Evaluate(percent));
-            Camera.main.transform.position
+            targetCamera.transform.position
                 = Vector3.Lerp(startPosition, info.targetPosition, info.walkingCurve.Evaluate(percent));
 
             yield return null;
         }
 
-        Camera.main.fieldOfView = info.targetFOV;
-        Camera.main.transform.position = info.targetPosition;
+        targetCamera.fieldOfView = info.targetFOV;
+        targetCamera.transform.position = info.targetPosition;
 
         info.onFinishedCameraWalking.Invoke();
     }
@@ -106,25 +114,27 @@ public class CameraWalkingController : MonoBehaviour
 
     public static void Shake(float amount, float duration)
     {
-        if (instance == null || instance.isWalking) return;
-
-        instance.StopAllCoroutines();
-        instance.StartCoroutine(instance.ShakeRoutine(amount, duration));
+        foreach (CameraWalkingController instance in instances)
+        {
+            if (instance.isWalking) continue;
+            instance.StopAllCoroutines();
+            instance.StartCoroutine(instance.ShakeRoutine(amount, duration));
+        }
     }
 
     private IEnumerator ShakeRoutine(float amount, float duration)
     {
         float timer = 0;
-        Vector3 originPos = Camera.main.transform.position;
+        Vector3 originPos = targetCamera.transform.position;
 
         while (timer <= duration)
         {
-            Camera.main.transform.localPosition = (Vector3)UnityEngine.Random.insideUnitCircle * amount + originPos;
+            targetCamera.transform.localPosition = (Vector3)UnityEngine.Random.insideUnitCircle * amount + originPos;
 
             timer += Time.deltaTime;
             yield return null;
         }
 
-        Camera.main.transform.position = originPos;
+        targetCamera.transform.position = originPos;
     }
 }
