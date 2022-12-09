@@ -21,13 +21,15 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
     [SerializeField]
     private Transform uiIndexTransform;
     [SerializeField]
-    private TextMeshProUGUI textIndex;
+    private Image imageIndex;
+    [SerializeField]
+    private Sprite[] indexSprites;
+    [SerializeField]
+    private Sprite selectedSprite;
 
     private void Start()
     {
         MyPlayerPrefs.SetPlayerActive(playerIndex, false);
-
-        textIndex.text = $"{playerIndex}";
 
         if (currentCharacter)
             UpdateCurrentCharacter(currentCharacter);
@@ -70,6 +72,7 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
 
         uiIndexTransform.gameObject.SetActive(true);
         uiIndexTransform.position = Camera.main.WorldToScreenPoint(currentCharacter.CharacterTransform.position);
+        imageIndex.sprite = indexSprites[playerIndex - 1];
     }
 
     public void OnButtonDown(ButtonType buttonType)
@@ -88,12 +91,12 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
             if (state == SelectableCharacterState.Hover)
             {
                 currentCharacter.UpdateState(SelectableCharacterState.Select);
-                textIndex.text = $"{playerIndex} (selected)";
+                imageIndex.sprite = selectedSprite;
             }
             else if (state == SelectableCharacterState.Select)
             {
                 currentCharacter.UpdateState(SelectableCharacterState.Hover);
-                textIndex.text = $"{playerIndex}";
+                imageIndex.sprite = indexSprites[playerIndex - 1];
             }
         }
     }
