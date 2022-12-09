@@ -12,9 +12,9 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
     [Header("Index")]
     [SerializeField]
-    private RectTransform indexTransform;
+    private Image imageIndex;
     [SerializeField]
-    private TextMeshProUGUI textIndex;
+    private Sprite[] indexSprites;
     [SerializeField]
     private Vector3 addIndexPosition;
 
@@ -56,7 +56,7 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
     private void Start()
     {
-        textIndex.text = playerStatus.Index.ToString();
+        imageIndex.sprite = indexSprites[playerStatus.Index];
     }
 
     private void Update()
@@ -69,7 +69,7 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
     private void UpdateIndexPosition()
     {
-        indexTransform.position = WorldToScreenPoint(playerTransfrom.position + addIndexPosition);
+        imageIndex.transform.position = WorldToScreenPoint(playerTransfrom.position + addIndexPosition);
     }
 
     private void UpdateIconPosition()

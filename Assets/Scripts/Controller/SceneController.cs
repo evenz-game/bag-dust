@@ -13,6 +13,7 @@ public class SceneController : MonoBehaviour
 
     private void Start()
     {
+        Screen.SetResolution(1920, 1080, true);
         onStartedScene.Invoke();
     }
 
@@ -23,6 +24,9 @@ public class SceneController : MonoBehaviour
             if (Input.GetKeyDown(key))
                 Restart();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     public void Restart()

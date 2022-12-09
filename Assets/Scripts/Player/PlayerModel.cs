@@ -37,7 +37,10 @@ public class PlayerModel : PlayerComponent, PlayerStatus.OnChangedPlayerState
             Debug.LogError("PlayerModel: 모델 인덱스가 -1입니다.");
             return;
         }
+    }
 
+    private void Start()
+    {
         Init(modelIndex, PlayerModelType.Normal);
     }
 

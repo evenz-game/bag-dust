@@ -1601,7 +1601,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502502021}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be15e243bf8b64ee5af64de1999d9f00, type: 3}
   m_Name: 
@@ -4907,7 +4907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 9
+      value: 370
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
@@ -6756,7 +6756,7 @@ PrefabInstance:
       objectReference: {fileID: 1667755477}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8546319720549657635, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: m_ConstrainProportionsScale

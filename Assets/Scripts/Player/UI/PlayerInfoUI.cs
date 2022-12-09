@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
 {
@@ -23,13 +24,17 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
     [SerializeField]
     private Image imgaeCharacter;
     [SerializeField]
-    private Image imageDustCount;
+    private TextMeshProUGUI textDustPercentLeft;
+    [SerializeField]
+    private TextMeshProUGUI textDustPercentRight;
 
     [Header("Fill Image Dust Count")]
     [SerializeField]
     private float fillImageDustCountTime = 0.4f;
     [SerializeField]
     private AnimationCurve fillImageDustCountCurve;
+    [SerializeField]
+    private AnimationCurve textDustPercentScaleCurve;
 
     private void Awake()
     {
@@ -39,6 +44,11 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
             imgaeCharacter.transform.position = targetPositions[playerStatus.Index];
             imgaeCharacter.gameObject.SetActive(true);
             imgaeCharacter.sprite = characterSprites[info.ModelIndex];
+
+            if (playerStatus.Index % 2 == 0)
+                textDustPercentLeft.gameObject.SetActive(true);
+            else
+                textDustPercentRight.gameObject.SetActive(true);
         });
     }
 
@@ -48,25 +58,38 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
         StartCoroutine(FillImageDustCountRoutine(currentDustCount));
     }
 
+    private int prevPercent = 0;
     private IEnumerator FillImageDustCountRoutine(int currentDustCount)
     {
         float timer = 0, percent = 0;
-        float currentFill = imageDustCount.fillAmount;
-        float targetFill = (float)currentDustCount / (float)playerStatus.MaxDustCount;
 
+        int startPercent = prevPercent;
+        int targetPercent = (int)((float)currentDustCount / (float)playerStatus.MaxDustCount * 100);
+
+        int currentPercent = startPercent;
+        string percentString = "";
         while (percent < 1)
         {
             timer += Time.deltaTime;
             percent = timer / fillImageDustCountTime;
 
-            float fill = Mathf.Lerp(currentFill, targetFill, fillImageDustCountCurve.Evaluate(percent));
+            currentPercent = (int)Mathf.Lerp(startPercent, targetPercent, fillImageDustCountCurve.Evaluate(percent));
+            prevPercent = currentPercent;
 
-            imageDustCount.fillAmount = fill;
+            percentString = $"{ currentPercent.ToString()}<size=30>%</size>";
+            textDustPercentLeft.text = percentString;
+            textDustPercentRight.text = percentString;
+
+            float scale = Mathf.Lerp(1, 1.2f, textDustPercentScaleCurve.Evaluate(percent));
+            textDustPercentLeft.transform.localScale = Vector3.one * scale;
+            textDustPercentRight.transform.localScale = Vector3.one * scale;
 
             yield return null;
         }
 
-        imageDustCount.fillAmount = targetFill;
+        percentString = $"{ currentPercent.ToString()}<size=30>%</size>";
+        textDustPercentLeft.text = percentString;
+        textDustPercentRight.text = percentString;
     }
 
     [ContextMenu("Add Target Position")]
