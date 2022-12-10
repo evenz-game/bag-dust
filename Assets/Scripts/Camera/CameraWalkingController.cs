@@ -61,6 +61,8 @@ public class CameraWalkingController : MonoBehaviour
 
         foreach (CameraWalkingInfo info in cameraWalkingInfos)
         {
+            if (info.disable) continue;
+
             yield return StartCoroutine(CameraWalkingRoutineByInfo(info));
             yield return new WaitForSeconds(info.stayTime);
         }
@@ -96,6 +98,24 @@ public class CameraWalkingController : MonoBehaviour
         info.onFinishedCameraWalking.Invoke();
     }
 
+    public static void RemoveWalkingInfoByCode(int code)
+    {
+        foreach (CameraWalkingController inst in instances)
+            inst._RemoveWalkingInfoByCode(code);
+    }
+
+    private void _RemoveWalkingInfoByCode(int code)
+    {
+
+        for (int i = 0; i < cameraWalkingInfos.Count; i++)
+        {
+            CameraWalkingInfo info = cameraWalkingInfos[i];
+            if (info.code == code)
+                info.disable = true;
+        }
+
+    }
+
     public interface OnFinishedCameraWalking
     {
         public void OnFinishedCameraWalking();
@@ -104,6 +124,8 @@ public class CameraWalkingController : MonoBehaviour
     [Serializable]
     private class CameraWalkingInfo
     {
+        public int code;
+        public bool disable = false;
         public float walkingTime;
         public AnimationCurve walkingCurve;
         public float targetFOV;

@@ -223,7 +223,7 @@ MonoBehaviour:
     CutoutThreshold: 0.5
     CullMode: 2
     cutoutTextureName: 
-    DilateRenderingMode: 1
+    DilateRenderingMode: 0
     cutoutTextureIndex: 0
   renderStyle: 2
   outlineParameters:
@@ -244,7 +244,7 @@ MonoBehaviour:
       serializedProperties: []
   frontParameters:
     enabled: 1
-    color: {r: 1, g: 0, b: 0, a: 1}
+    color: {r: 0.03137255, g: 0.03137255, b: 0.03137255, a: 1}
     dilateShift: 1
     blurShift: 1
     fillPass:

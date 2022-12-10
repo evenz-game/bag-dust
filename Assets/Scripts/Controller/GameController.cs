@@ -103,7 +103,10 @@ public class GameController : MonoBehaviour
                 activePlayers.Add(player);
             }
             else
+            {
                 player.transform.root.gameObject.SetActive(false);
+                CameraWalkingController.RemoveWalkingInfoByCode(player.Index);
+            }
         }
     }
 

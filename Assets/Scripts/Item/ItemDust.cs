@@ -28,7 +28,6 @@ public class ItemDust : Item
 
     public void Scatter(Vector3 scatterForce)
     {
-        print("ItemDust.Scatter" + scatterForce.ToString());
         StartCoroutine(ScatterRoutine(scatterForce));
     }
 

@@ -16,8 +16,6 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     [SerializeField]
     private bool spawnBottom = false;
     public bool SpawnBottom => spawnBottom;
-    [SerializeField]
-    private bool useGravity = false;
 
     private Vector2 flyingDirection;
     [Space]

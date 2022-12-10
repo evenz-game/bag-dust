@@ -4219,7 +4219,9 @@ MonoBehaviour:
         m_CallState: 2
   manualCamera: {fileID: 0}
   cameraWalkingInfos:
-  - walkingTime: 0
+  - code: 0
+    disable: 0
+    walkingTime: 0
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -4250,7 +4252,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.4
+  - code: 1
+    disable: 0
+    walkingTime: 0.4
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -4281,7 +4285,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 2
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -4312,7 +4318,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 2
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -4343,7 +4351,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 3
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -4374,7 +4384,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 3
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -4405,7 +4417,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 4
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -4436,7 +4450,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 4
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -4467,7 +4483,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.4
+  - code: 0
+    disable: 0
+    walkingTime: 0.4
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -8771,7 +8789,9 @@ MonoBehaviour:
         m_CallState: 2
   manualCamera: {fileID: 386604532}
   cameraWalkingInfos:
-  - walkingTime: 0
+  - code: 0
+    disable: 0
+    walkingTime: 0
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -8802,7 +8822,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.4
+  - code: 1
+    disable: 0
+    walkingTime: 0.4
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -8833,7 +8855,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 2
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -8864,7 +8888,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 2
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -8895,7 +8921,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 3
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -8926,7 +8954,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 3
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -8957,7 +8987,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 4
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -8988,7 +9020,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.2
+  - code: 4
+    disable: 0
+    walkingTime: 0.2
     walkingCurve:
       serializedVersion: 2
       m_Curve:
@@ -9019,7 +9053,9 @@ MonoBehaviour:
     onFinishedCameraWalking:
       m_PersistentCalls:
         m_Calls: []
-  - walkingTime: 0.4
+  - code: 0
+    disable: 0
+    walkingTime: 0.4
     walkingCurve:
       serializedVersion: 2
       m_Curve:
