@@ -75,8 +75,10 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
 
     private void OnTriggerEnter(Collider other)
     {
-        if (GameObjectUtils.FindCompoenet<ObstacleFlyingObject>(other.gameObject, out _))
+        if (GameObjectUtils.FindCompoenet<ObstacleFlyingObject>(other.gameObject, out ObstacleFlyingObject obstacle))
         {
+            if (obstacle.IsSubObstacle) return;
+
             isSpawnable = true;
             Destroy(other.transform.root.gameObject);
         }

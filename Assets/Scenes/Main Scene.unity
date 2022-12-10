@@ -8213,6 +8213,7 @@ MonoBehaviour:
   - {fileID: 7490870109495255933, guid: 94ad079b410fc499b8d2d5d697a1d122, type: 3}
   - {fileID: 8493827668972711638, guid: 6002bd15dac9a4044bd0ecc1c2825da4, type: 3}
   - {fileID: 7736362685003393793, guid: f95d624f0653e4fa9a4ef763ab2ae68c, type: 3}
+  - {fileID: 3960847950358302558, guid: d80200cca7d0c4f8a92c638c48f456fc, type: 3}
 --- !u!65 &1710309362
 BoxCollider:
   m_ObjectHideFlags: 0

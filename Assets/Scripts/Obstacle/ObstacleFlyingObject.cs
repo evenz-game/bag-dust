@@ -5,6 +5,11 @@ using UnityEngine;
 public abstract class ObstacleFlyingObject : MonoBehaviour
 {
     [SerializeField]
+    private bool isSubObstacle = false;
+    public bool IsSubObstacle => isSubObstacle;
+
+    [Space]
+    [SerializeField]
     private bool useManualFlyingDirection = false;
     [SerializeField]
     private Vector2 manualFlyingDirection;
@@ -28,6 +33,8 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     [Header("UI")]
     [SerializeField]
     private ObstacleDangerUI dangerUIPrefab;
+    [SerializeField]
+    private Transform dangerUISpawnTransform;
 
     [Header("Audio Clips")]
     [SerializeField]
@@ -53,7 +60,11 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
                     Random.Range(-1f, 0f)
                 ).normalized;
 
-        ObstacleDangerUI dangerUI = Instantiate<ObstacleDangerUI>(dangerUIPrefab, transform.position, Quaternion.Euler(0, 0, Angle(flyingDirection)));
+        Vector3 dangerUISpawnPos = transform.position;
+        if (dangerUISpawnTransform)
+            dangerUISpawnPos = dangerUISpawnTransform.position;
+
+        ObstacleDangerUI dangerUI = Instantiate<ObstacleDangerUI>(dangerUIPrefab, dangerUISpawnPos, Quaternion.Euler(0, 0, Angle(flyingDirection)));
         dangerUI.onDisabledUI.AddListener(Init);
     }
 
