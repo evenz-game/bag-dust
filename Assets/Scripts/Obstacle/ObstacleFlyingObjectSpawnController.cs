@@ -27,11 +27,15 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
     [Header("Obstacle")]
     [SerializeField]
     private ObstacleFlyingObject[] obstaclePrefabs;
+    private Dictionary<ObstacleFlyingObject, int> spawnCount = new Dictionary<ObstacleFlyingObject, int>();
 
     private bool isSpawnable = true;
 
     private void Awake()
     {
+        foreach (var obstaclePrefab in obstaclePrefabs)
+            spawnCount.Add(obstaclePrefab, 0);
+
         currentLevelIndex = startLevelIndex - 1;
         NextLevel();
     }
@@ -60,9 +64,29 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
 
     private void Spawn()
     {
-        int index = Random.Range(0, obstaclePrefabs.Length);
+        // 제일 작은 카운드 탐색
+        int minCnt = int.MaxValue;
+        foreach (var key in spawnCount.Keys)
+        {
+            int cnt = spawnCount[key];
+            if (cnt < minCnt)
+                minCnt = cnt;
+        }
 
-        ObstacleFlyingObject obstacle = obstaclePrefabs[index];
+        // 작은 카운트들만 모으기
+        List<ObstacleFlyingObject> prefabs = new List<ObstacleFlyingObject>();
+        foreach (var key in spawnCount.Keys)
+        {
+            int cnt = spawnCount[key];
+            if (cnt == minCnt)
+                prefabs.Add(key);
+        }
+
+        // 프리팹 선택
+        int index = Random.Range(0, prefabs.Count);
+
+        ObstacleFlyingObject obstacle = prefabs[index];
+        spawnCount[obstacle]++;
 
         Vector3 minPos = minSpawnTransform.position;
         Vector3 maxPos = maxSpawnTransform.position;
