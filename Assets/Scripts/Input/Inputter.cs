@@ -15,14 +15,12 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
     [SerializeField]
     private bool useAxisRaw = false;
 
+    [Header("Inputter Setting")]
+    [SerializeField]
+    private InputterSetting inputterSetting;
+
     [Header("Axis")]
     public UnityEvent<Vector2> onUpdatedAxis = new UnityEvent<Vector2>();
-    [SerializeField]
-    private string xAxisName;
-    [SerializeField]
-    private string yAxisName;
-    [SerializeField]
-    private Vector2 axisScale = Vector2.one;
     private Vector2 currentAxis;
     public Vector2 CurrentAxis => currentAxis;
 
@@ -49,9 +47,15 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
         if (!useAxis) return;
 
         if (useAxisRaw)
-            currentAxis = new Vector2(Input.GetAxisRaw(xAxisName) * axisScale.x, Input.GetAxisRaw(yAxisName) * axisScale.y);
+            currentAxis = new Vector2(
+                Input.GetAxisRaw(inputterSetting.xAxisName) * inputterSetting.axisScale.x,
+                Input.GetAxisRaw(inputterSetting.yAxisName) * inputterSetting.axisScale.y
+            );
         else
-            currentAxis = new Vector2(Input.GetAxis(xAxisName) * axisScale.x, Input.GetAxis(yAxisName) * axisScale.y);
+            currentAxis = new Vector2(
+                Input.GetAxis(inputterSetting.xAxisName) * inputterSetting.axisScale.x,
+                Input.GetAxis(inputterSetting.yAxisName) * inputterSetting.axisScale.y
+            );
 
         onUpdatedAxis.Invoke(currentAxis);
     }
@@ -59,13 +63,15 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
     private void UdpateButtons()
     {
         foreach (ButtonEventSet set in buttonEventSets)
-            set.CheckButtonDown();
+            foreach (InputterSetting.ButtonMapping buttonMapping in inputterSetting.buttonMappings)
+                if (set.CheckButtonDown(buttonMapping)) break;
     }
 
     private void UpdateAnyButtonDown()
     {
         if (!checkAnyButtonDown) return;
         if (!Input.anyKeyDown) return;
+        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2) || Input.GetMouseButtonDown(3))) return;
 
         onDownAnyButton.Invoke();
     }
@@ -86,14 +92,19 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
         [SerializeField]
         private ButtonType buttonType;
         [SerializeField]
-        private KeyCode buttonKeyCode;
-        [SerializeField]
         private UnityEvent<ButtonType> onButtonDown = new UnityEvent<ButtonType>();
 
-        public void CheckButtonDown()
+        public bool CheckButtonDown(InputterSetting.ButtonMapping buttonMapping)
         {
-            if (Input.GetKeyDown(buttonKeyCode))
+            if (buttonMapping.buttonType != this.buttonType) return false;
+
+            if (Input.GetKeyDown(buttonMapping.buttonKeyCode))
+            {
                 onButtonDown.Invoke(buttonType);
+                return true;
+            }
+
+            return false;
         }
     }
 

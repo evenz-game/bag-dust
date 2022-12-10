@@ -738,19 +738,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d230058bd8f4d4e42b0761da35482815, type: 2}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 2
+      value: Horizontal PC 1P
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 2
+      value: Vertical PC 1P
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: axisScale.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 370
+      value: 303
       objectReference: {fileID: 0}
     - target: {fileID: 8460372269244486049, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Mesh
@@ -2302,11 +2302,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a70e260b0199815489b5e8e0378ce27b, type: 2}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 4
+      value: Joystick Horizontal 2
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 4
+      value: Joystick Vertical 2
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: axisScale.y
@@ -2314,7 +2314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 410
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 8460372269244486049, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Mesh
@@ -2435,19 +2435,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 1
+      value: Horizontal PC 2P
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 1
+      value: Vertical PC 2P
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: axisScale.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 350
+      value: 304
       objectReference: {fileID: 0}
     - target: {fileID: 8460372269244486049, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Mesh
@@ -3709,7 +3709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daaa04934204f46488a42bc0e65ab64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartKeyCode: 7200000061010000
+  restartKeyCode: 
   onStartedScene:
     m_PersistentCalls:
       m_Calls:
@@ -5492,11 +5492,11 @@ PrefabInstance:
       objectReference: {fileID: 1474697076949527217, guid: 11d7e43e53a86aa4c9d5a9472f896e39, type: 3}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 3
+      value: Joystick Horizontal 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 3
+      value: Joystick Vertical 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: axisScale.y
@@ -5504,7 +5504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 390
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 8460372269244486049, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Mesh
@@ -6596,7 +6596,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563904174}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be15e243bf8b64ee5af64de1999d9f00, type: 3}
   m_Name: 
@@ -6652,6 +6652,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  checkAnyButtonDown: 0
+  onDownAnyButton:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1676188592 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5048160503961519035, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}

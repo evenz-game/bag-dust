@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daaa04934204f46488a42bc0e65ab64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartKeyCode: 7200000061010000
+  restartKeyCode: 
   onStartedScene:
     m_PersistentCalls:
       m_Calls: []

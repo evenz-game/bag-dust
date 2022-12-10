@@ -184,15 +184,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 4
+      value: Joystick Horizontal 2
       objectReference: {fileID: 0}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 4
+      value: Joystick Vertical 2
       objectReference: {fileID: 0}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: f241228b883724ae1b7a3c9539df30b9, type: 2}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: inputterAxisSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: f241228b883724ae1b7a3c9539df30b9, type: 2}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 410
+      value: 370
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
@@ -1578,77 +1586,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477103806}
   m_Mesh: {fileID: 7415706457262966020, guid: b80cb2b090449654c9a55e8dfb1b597b, type: 3}
---- !u!1 &502502021 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 544902385478088148, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
-  m_PrefabInstance: {fileID: 544902385925662545}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &502502022 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 544902385478088151, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
   m_PrefabInstance: {fileID: 544902385925662545}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502502021}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8c46a9a476d144f49697d83702ddba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &502502024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502502021}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be15e243bf8b64ee5af64de1999d9f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  init: 1
-  useAxis: 1
-  useAxisRaw: 1
-  onUpdatedAxis:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 502502022}
-        m_TargetAssemblyTypeName: CharacterSelector, Assembly-CSharp
-        m_MethodName: OnUpdatedAxis
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  xAxisName: Horizontal
-  yAxisName: Vertical
-  axisScale: {x: 1, y: 1}
-  buttonEventSets:
-  - buttonType: 0
-    buttonKeyCode: 122
-    onButtonDown:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 502502022}
-          m_TargetAssemblyTypeName: CharacterSelector, Assembly-CSharp
-          m_MethodName: OnButtonDown
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  checkAnyButtonDown: 0
-  onDownAnyButton:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &511272227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,15 +2239,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 3
+      value: Joystick Horizontal 1
       objectReference: {fileID: 0}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 3
+      value: Joystick Vertical 1
       objectReference: {fileID: 0}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 0431d2608256a4b728fbcda58f42904b, type: 2}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: inputterAxisSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 0431d2608256a4b728fbcda58f42904b, type: 2}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 390
+      value: 350
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
@@ -4075,7 +4031,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 1.55
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4899,15 +4855,27 @@ PrefabInstance:
       objectReference: {fileID: 2035750051}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 2
+      value: Horizontal PC 1P
       objectReference: {fileID: 0}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 2
+      value: Vertical PC 1P
       objectReference: {fileID: 0}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: axisScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 02dcbdfe228654c6fb90ecc1880b3844, type: 2}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: inputterAxisSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 02dcbdfe228654c6fb90ecc1880b3844, type: 2}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 370
+      value: 303
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
@@ -6757,6 +6725,30 @@ PrefabInstance:
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: xAxisName
+      value: Horizontal PC 2P
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: yAxisName
+      value: Vertical PC 2P
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: axisScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e4491e85a0a94537a4473a2e0cb8967, type: 2}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: inputterAxisSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 813463f9862064d2a8a53298a58c1562, type: 2}
+    - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
+      propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
+      value: 304
       objectReference: {fileID: 0}
     - target: {fileID: 8546319720549657635, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: m_ConstrainProportionsScale

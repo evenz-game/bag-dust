@@ -867,19 +867,23 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d230058bd8f4d4e42b0761da35482815, type: 2}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 2
+      value: Horizontal PC 1P
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 2
+      value: Vertical PC 1P
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: axisScale.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: e3fc774885476459492b41848738dd24, type: 2}
+    - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 370
+      value: 303
       objectReference: {fileID: 0}
     - target: {fileID: 8460372269244486049, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Mesh
@@ -1942,7 +1946,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.55
+  m_Intensity: 1.55
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2636,19 +2640,23 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a70e260b0199815489b5e8e0378ce27b, type: 2}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 4
+      value: Joystick Horizontal 2
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 4
+      value: Joystick Vertical 2
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: axisScale.y
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: f241228b883724ae1b7a3c9539df30b9, type: 2}
+    - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 410
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 8418685899147810121, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2998,19 +3006,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 1
+      value: Horizontal PC 2P
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 1
+      value: Vertical PC 2P
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: axisScale.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e4491e85a0a94537a4473a2e0cb8967, type: 2}
+    - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 350
+      value: 304
       objectReference: {fileID: 0}
     - target: {fileID: 8460372269244486049, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Mesh
@@ -3110,22 +3122,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
---- !u!114 &563904173 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8335586040316597048, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
-  m_PrefabInstance: {fileID: 563904172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563904174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd667879c8801436c8ef11a533de5637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &563904174 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6532438998029367463, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
-  m_PrefabInstance: {fileID: 563904172}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &579102676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3981314182892921931, guid: f62979804942942a1b1822fe5b5ee929, type: 3}
@@ -6470,19 +6466,23 @@ PrefabInstance:
       objectReference: {fileID: 1474697076949527217, guid: 11d7e43e53a86aa4c9d5a9472f896e39, type: 3}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: xAxisName
-      value: Joystick Horizontal 3
+      value: Joystick Horizontal 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: yAxisName
-      value: Joystick Vertical 3
+      value: Joystick Vertical 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: axisScale.y
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 0431d2608256a4b728fbcda58f42904b, type: 2}
+    - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
-      value: 390
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 8418685899147810121, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8101,84 +8101,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1676188572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563904174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be15e243bf8b64ee5af64de1999d9f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  init: 0
-  useAxis: 1
-  useAxisRaw: 0
-  onUpdatedAxis:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 563904173}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnUpdatedAxis
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  xAxisName: Horizontal
-  yAxisName: Vertical
-  axisScale: {x: 1, y: 1}
-  buttonEventSets:
-  - buttonType: 0
-    buttonKeyCode: 122
-    onButtonDown:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 563904173}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: Dash
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1676188592}
-          m_TargetAssemblyTypeName: PlayerGhost, Assembly-CSharp
-          m_MethodName: OnButtonDown
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  checkAnyButtonDown: 0
-  onDownAnyButton:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1676188592 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5048160503961519035, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
-  m_PrefabInstance: {fileID: 563904172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563904174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc9000be14494854913bb89bb53eb52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1696514149
 GameObject:
   m_ObjectHideFlags: 0
@@ -8950,7 +8872,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1736231878}
   - component: {fileID: 1736231877}
-  - component: {fileID: 1736231879}
   - component: {fileID: 1736231880}
   m_Layer: 0
   m_Name: Game Controller
@@ -9046,7 +8967,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1736231879}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -9200,66 +9121,6 @@ Transform:
   m_Father: {fileID: 264812067}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1736231879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736231876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be15e243bf8b64ee5af64de1999d9f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  init: 1
-  useAxis: 1
-  useAxisRaw: 0
-  onUpdatedAxis:
-    m_PersistentCalls:
-      m_Calls: []
-  xAxisName: Joystick Horizontal 1
-  yAxisName: Joystick Vertical 1
-  axisScale: {x: 1, y: -1}
-  buttonEventSets:
-  - buttonType: 2
-    buttonKeyCode: 350
-    onButtonDown:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1736231877}
-          m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-          m_MethodName: StartGame
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - buttonType: 2
-    buttonKeyCode: 115
-    onButtonDown:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1736231877}
-          m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-          m_MethodName: StartGame
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  checkAnyButtonDown: 0
-  onDownAnyButton:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!82 &1736231880
 AudioSource:
   m_ObjectHideFlags: 0
