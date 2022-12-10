@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d149c84110bfe4806a5b7d221362be13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerModel: {fileID: 6792157716391364251}
   index: 0
   onChangedPlayerState:
     m_PersistentCalls:
@@ -202,7 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535759fd9851d4d01a78352392fbe330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugModelIndex: 0
+  useManualModelIndex: 0
+  modelIndex: -1
   onInitializedPlayerModel:
     m_PersistentCalls:
       m_Calls:
@@ -289,7 +291,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   init: 0
+  useAxis: 1
   useAxisRaw: 0
+  inputterSetting: {fileID: 0}
   onUpdatedAxis:
     m_PersistentCalls:
       m_Calls:
@@ -305,12 +309,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  xAxisName: Horizontal
-  yAxisName: Vertical
-  axisScale: {x: 1, y: 1}
   buttonEventSets:
   - buttonType: 0
-    buttonKeyCode: 122
     onButtonDown:
       m_PersistentCalls:
         m_Calls:
@@ -338,6 +338,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  checkAnyButtonDown: 0
+  onDownAnyButton:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1238594928748252005
 MonoBehaviour:
   m_ObjectHideFlags: 0

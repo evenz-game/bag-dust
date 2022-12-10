@@ -14,6 +14,11 @@ public enum PlayerState
 [Serializable]
 public class PlayerStatus : PlayerComponent
 {
+    [Header("Init")]
+    [SerializeField]
+    private PlayerModel playerModel;
+    private bool init = false;
+
     [Header("Index")]
     [SerializeField]
     private int index = 0;
@@ -91,13 +96,23 @@ public class PlayerStatus : PlayerComponent
     public float MaxRotateSpeed => maxRotateSpeed;
     public float RotateSpeed => Mathf.Lerp(minRotateSpeed, maxRotateSpeed, dustCountPercent);
 
-    private void Start()
+    protected override void Awake()
     {
-        IncreaseDustCount(0, true);
+        base.Awake();
+
+        playerModel.onInitializedPlayerModel.AddListener((_) => Init());
 
         // 죽음 체크
         // 죽을 경우, 유령 상태로 변경
         onChangedPlayerState.AddListener(CheckDeath);
+    }
+
+    private void Init()
+    {
+        if (init) return;
+
+        IncreaseDustCount(0, true);
+        init = true;
     }
 
     /// <summary>
