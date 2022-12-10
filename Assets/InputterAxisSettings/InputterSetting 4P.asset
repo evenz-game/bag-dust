@@ -19,3 +19,5 @@ MonoBehaviour:
   buttonMappings:
   - buttonKeyCode: 410
     buttonType: 0
+  - buttonKeyCode: 411
+    buttonType: 0

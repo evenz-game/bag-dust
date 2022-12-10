@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ede01b5e0b64995a2269bffae4d798, type: 3}
   m_Name: InputterSetting 1P
   m_EditorClassIdentifier: 
-  reference: {fileID: 11400000, guid: 7e4491e85a0a94537a4473a2e0cb8967, type: 2}
-  xAxisName: Horizontal PC 1P
-  yAxisName: Vertical PC 1P
-  axisScale: {x: 1, y: 1}
+  reference: {fileID: 11400000, guid: 813463f9862064d2a8a53298a58c1562, type: 2}
+  xAxisName: Joystick Horizontal 1
+  yAxisName: Joystick Vertical 1
+  axisScale: {x: 1, y: -1}
   buttonMappings:
-  - buttonKeyCode: 304
+  - buttonKeyCode: 350
     buttonType: 0
-  - buttonKeyCode: 310
+  - buttonKeyCode: 351
     buttonType: 0

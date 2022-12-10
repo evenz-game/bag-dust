@@ -842,10 +842,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5312516211967657374, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
-      propertyPath: modelIndex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5312516211967657374, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: debugModelIndex
       value: 1
       objectReference: {fileID: 0}
@@ -2611,10 +2607,6 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5312516211967657374, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
-      propertyPath: modelIndex
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5312516211967657374, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: debugModelIndex
       value: 4
       objectReference: {fileID: 0}
@@ -2960,10 +2952,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -6010033391688967697, guid: b8bbfeb00bd12954ab01a3676db7dcf3, type: 3}
-    - target: {fileID: 5312516211967657374, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
-      propertyPath: modelIndex
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5312516211967657374, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: debugModelIndex
       value: 3
@@ -6440,10 +6428,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8dfbcb0e59dac4c4383b540654bb9db7, type: 2}
-    - target: {fileID: 5312516211967657374, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
-      propertyPath: modelIndex
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5312516211967657374, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: debugModelIndex
       value: 2

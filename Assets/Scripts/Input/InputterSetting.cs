@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InputterSetting", menuName = "ScriptableObjects/InputterSetting", order = 1)]
 public class InputterSetting : ScriptableObject
 {
+    [Header("Reference")]
     public InputterSetting reference;
 
     [ContextMenu("Sync")]
@@ -19,6 +20,7 @@ public class InputterSetting : ScriptableObject
     }
 
     [Space]
+    [Header("Settings")]
     public string xAxisName;
     public string yAxisName;
     public Vector2 axisScale = Vector2.one;
