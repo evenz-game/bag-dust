@@ -880,7 +880,7 @@ PrefabInstance:
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: inputterSetting
       value: 
-      objectReference: {fileID: 11400000, guid: e3fc774885476459492b41848738dd24, type: 2}
+      objectReference: {fileID: 11400000, guid: 09f545f412d6f444288bd330728b4fd0, type: 2}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
       value: 303
@@ -2653,7 +2653,7 @@ PrefabInstance:
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: inputterSetting
       value: 
-      objectReference: {fileID: 11400000, guid: f241228b883724ae1b7a3c9539df30b9, type: 2}
+      objectReference: {fileID: 11400000, guid: 1006a9aa56b2a448a9a5cd5e6465795c, type: 2}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
       value: 370
@@ -3019,7 +3019,7 @@ PrefabInstance:
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: inputterSetting
       value: 
-      objectReference: {fileID: 11400000, guid: 7e4491e85a0a94537a4473a2e0cb8967, type: 2}
+      objectReference: {fileID: 11400000, guid: f90cbd2cb33f642e08f59442b0e2fdf0, type: 2}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
       value: 304
@@ -6479,7 +6479,7 @@ PrefabInstance:
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: inputterSetting
       value: 
-      objectReference: {fileID: 11400000, guid: 0431d2608256a4b728fbcda58f42904b, type: 2}
+      objectReference: {fileID: 11400000, guid: 17181496cdffd4d708f7b0f405a6cc7d, type: 2}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
       value: 350

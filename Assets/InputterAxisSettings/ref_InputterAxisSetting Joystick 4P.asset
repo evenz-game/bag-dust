@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87ede01b5e0b64995a2269bffae4d798, type: 3}
-  m_Name: InputterAxisSetting PC 1P
+  m_Name: ref_InputterAxisSetting Joystick 4P
   m_EditorClassIdentifier: 
-  xAxisName: Horizontal PC 1P
-  yAxisName: Vertical PC 1P
-  axisScale: {x: 1, y: 1}
+  xAxisName: Joystick Horizontal 4
+  yAxisName: Joystick Vertical 4
+  axisScale: {x: 1, y: -1}
   buttonMappings:
-  - buttonKeyCode: 304
-    buttonType: 0
-  - buttonKeyCode: 310
+  - buttonKeyCode: 410
     buttonType: 0

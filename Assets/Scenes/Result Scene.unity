@@ -749,6 +749,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f545f412d6f444288bd330728b4fd0, type: 2}
+    - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
       value: 303
       objectReference: {fileID: 0}
@@ -2313,6 +2317,10 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 1006a9aa56b2a448a9a5cd5e6465795c, type: 2}
+    - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
       value: 370
       objectReference: {fileID: 0}
@@ -2445,6 +2453,10 @@ PrefabInstance:
       propertyPath: axisScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: f90cbd2cb33f642e08f59442b0e2fdf0, type: 2}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
       value: 304
@@ -5503,6 +5515,10 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 17181496cdffd4d708f7b0f405a6cc7d, type: 2}
+    - target: {fileID: 8185784395712760982, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: buttonEventSets.Array.data[0].buttonKeyCode
       value: 350
       objectReference: {fileID: 0}
@@ -6604,6 +6620,7 @@ MonoBehaviour:
   init: 0
   useAxis: 1
   useAxisRaw: 0
+  inputterSetting: {fileID: 11400000, guid: 7e4491e85a0a94537a4473a2e0cb8967, type: 2}
   onUpdatedAxis:
     m_PersistentCalls:
       m_Calls:
@@ -6619,12 +6636,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  xAxisName: Horizontal
-  yAxisName: Vertical
-  axisScale: {x: 1, y: 1}
   buttonEventSets:
   - buttonType: 0
-    buttonKeyCode: 122
     onButtonDown:
       m_PersistentCalls:
         m_Calls:
