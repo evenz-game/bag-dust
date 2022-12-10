@@ -143,6 +143,8 @@ public class PlayerMovement : PlayerComponent, PlayerStatus.OnChangedPlayerState
         dir.Normalize();
         rigidbody.constraints = RigidbodyConstraints.None;
         rigidbody.velocity = dir * 400;
+
+        CameraWalkingController.Shake(0.5f, 0.5f);
     }
 
     /* 유령 생성 */
