@@ -4,12 +4,26 @@ using UnityEngine;
 
 public abstract class ObstacleFlyingObject : MonoBehaviour
 {
+    [SerializeField]
+    private bool useManualFlyingDirection = false;
+    [SerializeField]
+    private Vector2 manualFlyingDirection;
+
     private Vector2 flyingDirection;
+    [Space]
     [SerializeField]
     private float flyingSpeed;
-    private Vector3 flyingForce => flyingDirection * flyingSpeed;
+    protected Vector3 flyingForce => flyingDirection * flyingSpeed;
     [SerializeField]
     private float knockbackForceScale = 1;
+
+    [Header("Shake")]
+    [SerializeField]
+    private bool useShakeAtDestroy = false;
+    [SerializeField]
+    private float shakeAmount = 0.3f;
+    [SerializeField]
+    private float shakeDuration = 0.4f;
 
     [Header("UI")]
     [SerializeField]
@@ -31,10 +45,13 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
 
         EnableMeshRenderers(false);
 
-        flyingDirection = new Vector2(
-                Random.Range(-1f, 1f),
-                Random.Range(-1f, 0f)
-            ).normalized;
+        if (useManualFlyingDirection)
+            flyingDirection = manualFlyingDirection.normalized;
+        else
+            flyingDirection = new Vector2(
+                    Random.Range(-1f, 1f),
+                    Random.Range(-1f, 0f)
+                ).normalized;
 
         ObstacleDangerUI dangerUI = Instantiate<ObstacleDangerUI>(dangerUIPrefab, transform.position, Quaternion.Euler(0, 0, Angle(flyingDirection)));
         dangerUI.onDisabledUI.AddListener(Init);
@@ -92,5 +109,11 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + flyingForce);
+    }
+
+    private void OnDestroy()
+    {
+        if (useShakeAtDestroy)
+            CameraWalkingController.Shake(shakeAmount, shakeDuration);
     }
 }

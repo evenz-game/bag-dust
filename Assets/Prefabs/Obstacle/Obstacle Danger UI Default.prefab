@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 76947883525144592}
   - component: {fileID: 76947883525144594}
   m_Layer: 28
-  m_Name: Obstacle Danger UI
+  m_Name: Obstacle Danger UI Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

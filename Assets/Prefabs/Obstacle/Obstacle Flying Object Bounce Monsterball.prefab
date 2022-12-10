@@ -91,7 +91,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4668093167197922732}
   serializedVersion: 2
-  m_Mass: 0.38
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -111,8 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b85ee438c4f045b5a667b7fbde559c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useManualFlyingDirection: 0
+  manualFlyingDirection: {x: 0, y: 0}
   flyingSpeed: 20
   knockbackForceScale: 2
+  useShakeAtDestroy: 0
+  shakeAmount: 0.3
+  shakeDuration: 0.4
   dangerUIPrefab: {fileID: 76947883525144594, guid: 99c7dee97a69f4ee4a4fc8961b28fdd3, type: 3}
   spawnAudioClip: {fileID: 8300000, guid: 1dfad36235a3943828d4b1cd4dc92510, type: 3}
   bounceColliderDisableTimeAtFirst: 0.5
