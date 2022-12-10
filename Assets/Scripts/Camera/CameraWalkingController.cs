@@ -101,7 +101,7 @@ public class CameraWalkingController : MonoBehaviour
     public static void RemoveWalkingInfoByCode(int code)
     {
         foreach (CameraWalkingController inst in instances)
-            inst._RemoveWalkingInfoByCode(code);
+            inst?._RemoveWalkingInfoByCode(code);
     }
 
     private void _RemoveWalkingInfoByCode(int code)
@@ -138,9 +138,10 @@ public class CameraWalkingController : MonoBehaviour
     {
         foreach (CameraWalkingController instance in instances)
         {
+            if (!instance) continue;
             if (instance.isWalking) continue;
-            instance.StopAllCoroutines();
-            instance.StartCoroutine(instance.ShakeRoutine(amount, duration));
+            instance?.StopAllCoroutines();
+            instance?.StartCoroutine(instance?.ShakeRoutine(amount, duration));
         }
     }
 
