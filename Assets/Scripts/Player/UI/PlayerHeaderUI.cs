@@ -69,7 +69,7 @@ public class PlayerHeaderUI : PlayerUI, PlayerStatus.OnChangedPlayerState
 
     private void UpdateIndexPosition()
     {
-        imageIndex.transform.position = WorldToScreenPoint(playerTransfrom.position + addIndexPosition);
+        imageIndex.transform.position = playerTransfrom.position + addIndexPosition;
     }
 
     private void UpdateIconPosition()
