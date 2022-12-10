@@ -10,11 +10,13 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
     [SerializeField]
     private Transform maxSpawnTransform;
 
-    [Header("Time")]
+    [Header("Level")]
     [SerializeField]
-    private float minSpawnDeltaTime;
+    private Level[] levels;
     [SerializeField]
-    private float maxSpawnDeltaTime;
+    private int startLevelIndex = 0;
+    private int currentLevelIndex;
+    private Level currentLevel;
 
     [Header("Obstacle")]
     [SerializeField]
@@ -22,11 +24,25 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
 
     private bool isSpawnable = true;
 
+    private void Awake()
+    {
+        currentLevelIndex = startLevelIndex - 1;
+        NextLevel();
+    }
+
+    public void NextLevel()
+    {
+        if (currentLevelIndex >= levels.Length - 1) return;
+
+        currentLevelIndex++;
+        currentLevel = levels[currentLevelIndex];
+    }
+
     private IEnumerator SpawnRoutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(minSpawnDeltaTime, maxSpawnDeltaTime));
+            yield return new WaitForSeconds(Random.Range(currentLevel.minSpawnDeltaTime, currentLevel.maxSpawnDeltaTime));
 
             Spawn();
 
@@ -75,5 +91,12 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
     public void OnStartedGame()
     {
         StartCoroutine(SpawnRoutine());
+    }
+
+    [System.Serializable]
+    private class Level
+    {
+        public float minSpawnDeltaTime;
+        public float maxSpawnDeltaTime;
     }
 }

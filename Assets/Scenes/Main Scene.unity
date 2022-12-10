@@ -8197,8 +8197,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnTransform: {fileID: 1696514150}
   maxSpawnTransform: {fileID: 690716263}
-  minSpawnDeltaTime: 5
-  maxSpawnDeltaTime: 8
+  levels:
+  - minSpawnDeltaTime: 5
+    maxSpawnDeltaTime: 8
+  - minSpawnDeltaTime: 3
+    maxSpawnDeltaTime: 5
+  - minSpawnDeltaTime: 1
+    maxSpawnDeltaTime: 3
+  currentLevelIndex: -1
   obstaclePrefabs:
   - {fileID: 1788294513, guid: 41a5b638ecabb43e1af81402c0703c33, type: 3}
   - {fileID: 4668093167197922721, guid: 1a39c911ce7f7471787b66e29c0a9a29, type: 3}
@@ -9077,6 +9083,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1710309361}
+          m_TargetAssemblyTypeName: ObstacleFlyingObjectSpawnController, Assembly-CSharp
+          m_MethodName: NextLevel
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - targetTime: 60
     onComeTime:
       m_PersistentCalls:
@@ -9108,6 +9126,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1553352570}
           m_TargetAssemblyTypeName: ObstacleDamageZone, Assembly-CSharp
           m_MethodName: Spawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1710309361}
+          m_TargetAssemblyTypeName: ObstacleFlyingObjectSpawnController, Assembly-CSharp
+          m_MethodName: NextLevel
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
