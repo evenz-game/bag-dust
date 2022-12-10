@@ -3325,7 +3325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690716263}
   m_Layer: 0
-  m_Name: Max Spawn Transform
+  m_Name: Max Obstacle Top Spawn Transform
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4575,6 +4575,37 @@ MonoBehaviour:
     onFinishedCameraZoom:
       m_PersistentCalls:
         m_Calls: []
+--- !u!1 &838616832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 838616833}
+  m_Layer: 0
+  m_Name: Max Obstacle Bottom Spawn Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &838616833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838616832}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.9473684, y: -4.9, z: 0}
+  m_LocalScale: {x: 0.4784689, y: 0.4784689, z: 0.6315789}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1635321135}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844421755
 GameObject:
   m_ObjectHideFlags: 0
@@ -4816,7 +4847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 958007023}
   m_Layer: 0
-  m_Name: Max Spawn Transform
+  m_Name: Max Dust Spawn Transform
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -7865,6 +7896,8 @@ Transform:
   - {fileID: 690716263}
   - {fileID: 1938039300}
   - {fileID: 958007023}
+  - {fileID: 1666940644}
+  - {fileID: 838616833}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8088,6 +8121,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1666940643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666940644}
+  m_Layer: 0
+  m_Name: Min Obstacle Bottom Spawn Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1666940644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666940643}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.36, y: -4.852154, z: 0}
+  m_LocalScale: {x: 0.4784689, y: 0.4784689, z: 0.6315789}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1635321135}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1696514149
 GameObject:
   m_ObjectHideFlags: 0
@@ -8098,7 +8162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1696514150}
   m_Layer: 0
-  m_Name: Min Spawn Transform
+  m_Name: Min Obstacle Top Spawn Transform
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8198,6 +8262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnTransform: {fileID: 1696514150}
   maxSpawnTransform: {fileID: 690716263}
+  minBottomSpawnTransform: {fileID: 1666940644}
+  maxBottomSpawnTransform: {fileID: 838616833}
   levels:
   - minSpawnDeltaTime: 5
     maxSpawnDeltaTime: 8
@@ -8214,6 +8280,7 @@ MonoBehaviour:
   - {fileID: 8493827668972711638, guid: 6002bd15dac9a4044bd0ecc1c2825da4, type: 3}
   - {fileID: 7736362685003393793, guid: f95d624f0653e4fa9a4ef763ab2ae68c, type: 3}
   - {fileID: 3960847950358302558, guid: d80200cca7d0c4f8a92c638c48f456fc, type: 3}
+  - {fileID: 3960847950358302558, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
 --- !u!65 &1710309362
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9809,7 +9876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1938039300}
   m_Layer: 0
-  m_Name: Min Spawn Transform
+  m_Name: Min Dust Spawn Transform
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

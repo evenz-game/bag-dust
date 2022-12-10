@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController.OnStartedGame
 {
-    [Header("Position")]
+    [Header("Position - Top")]
     [SerializeField]
     private Transform minSpawnTransform;
     [SerializeField]
     private Transform maxSpawnTransform;
+
+    [Header("Position - Bottom")]
+    [SerializeField]
+    private Transform minBottomSpawnTransform;
+    [SerializeField]
+    private Transform maxBottomSpawnTransform;
 
     [Header("Level")]
     [SerializeField]
@@ -56,12 +62,20 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
     {
         int index = Random.Range(0, obstaclePrefabs.Length);
 
+        ObstacleFlyingObject obstacle = obstaclePrefabs[index];
+
         Vector3 minPos = minSpawnTransform.position;
         Vector3 maxPos = maxSpawnTransform.position;
 
+        if (obstacle.SpawnBottom)
+        {
+            minPos = minBottomSpawnTransform.position;
+            maxPos = maxBottomSpawnTransform.position;
+        }
+
         ObstacleFlyingObject obstacleClone
             = Instantiate<ObstacleFlyingObject>(
-                obstaclePrefabs[index],
+                obstacle,
                 new Vector3(
                     Random.Range(minPos.x, maxPos.x),
                     Random.Range(minPos.y, maxPos.y),
@@ -88,6 +102,7 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(minSpawnTransform.position, maxSpawnTransform.position);
+        Gizmos.DrawLine(minBottomSpawnTransform.position, maxBottomSpawnTransform.position);
     }
 
     public void OnStartedGame()
