@@ -54,6 +54,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8755916289493340060}
     m_Modifications:
+    - target: {fileID: 954194143762566311, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 954194143762566311, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
+      propertyPath: m_Constraints
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 5280282732378514065, guid: 18dcd585a29db41bfa5e8a8761976304, type: 3}
       propertyPath: index
       value: -1

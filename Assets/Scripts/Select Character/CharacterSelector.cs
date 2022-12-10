@@ -27,6 +27,15 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
     [SerializeField]
     private Sprite selectedSprite;
 
+    [SerializeField]
+    private float moveTime;
+    [SerializeField]
+    private AnimationCurve moveCurve;
+    [SerializeField]
+    private float minScale;
+    [SerializeField]
+    private AnimationCurve scaleCurve;
+
     private void Start()
     {
         MyPlayerPrefs.SetPlayerActive(playerIndex, false);
@@ -70,9 +79,33 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
         MyPlayerPrefs.SetPlayerActive(playerIndex, true);
         MyPlayerPrefs.SetPlayerModelIndex(playerIndex, currentCharacter.ModelIndex);
 
+
         uiIndexTransform.gameObject.SetActive(true);
-        uiIndexTransform.position = Camera.main.WorldToScreenPoint(currentCharacter.CharacterTransform.position);
         imageIndex.sprite = indexSprites[playerIndex - 1];
+
+        Vector3 targetUIPos = Camera.main.WorldToScreenPoint(currentCharacter.CharacterTransform.position);
+        StopAllCoroutines();
+        StartCoroutine(MoveUIIndexRoutine(targetUIPos));
+    }
+
+    private IEnumerator MoveUIIndexRoutine(Vector2 targetPosition)
+    {
+        float tiemr = 0, percent = 0;
+        Vector2 startPos = uiIndexTransform.position;
+
+        while (percent < 1)
+        {
+            tiemr += Time.deltaTime;
+            percent = tiemr / moveTime;
+
+            uiIndexTransform.position = Vector3.Lerp(startPos, targetPosition, moveCurve.Evaluate(percent));
+            uiIndexTransform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * minScale, scaleCurve.Evaluate(percent));
+
+            yield return null;
+        }
+
+        uiIndexTransform.position = targetPosition;
+        uiIndexTransform.localScale = Vector3.one;
     }
 
     public void OnButtonDown(ButtonType buttonType)

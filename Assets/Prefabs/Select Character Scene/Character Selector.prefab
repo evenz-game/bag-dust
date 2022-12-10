@@ -57,6 +57,65 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ddf246eb1569ee94e90d300972eb8d42, type: 3}
   - {fileID: 21300000, guid: ced08f37b56bc704183abac8844b0b6f, type: 3}
   selectedSprite: {fileID: 21300000, guid: 0810704b3b548da469846868623c98e8, type: 3}
+  moveTime: 0.1
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minScale: 0.4
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.570183
+      outSlope: 4.570183
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.193133
+      value: 0.88265306
+      inSlope: 1.7381282
+      outSlope: 1.7381282
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.0939263
+      outSlope: -1.0939263
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &2453770322272178414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +131,7 @@ MonoBehaviour:
   init: 1
   useAxis: 1
   useAxisRaw: 1
+  inputterSetting: {fileID: 0}
   onUpdatedAxis:
     m_PersistentCalls:
       m_Calls:
@@ -87,12 +147,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  xAxisName: Joystick Horizontal 1
-  yAxisName: Joystick Vertical 1
-  axisScale: {x: 1, y: -1}
   buttonEventSets:
   - buttonType: 0
-    buttonKeyCode: 350
     onButtonDown:
       m_PersistentCalls:
         m_Calls:
@@ -108,6 +164,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  checkAnyButtonDown: 0
+  onDownAnyButton:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1224549265228814840
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +280,7 @@ GameObject:
   - component: {fileID: 8546319720549657635}
   - component: {fileID: 1362011672834900881}
   - component: {fileID: 5800561349268911048}
+  - component: {fileID: 5523842191394187431}
   m_Layer: 5
   m_Name: Image Index
   m_TagString: Untagged
@@ -285,6 +346,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &5523842191394187431
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321243844765309497}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64a0ff9eab3e6415794239bb16e0c99e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6302299825096087751
 GameObject:
   m_ObjectHideFlags: 0
