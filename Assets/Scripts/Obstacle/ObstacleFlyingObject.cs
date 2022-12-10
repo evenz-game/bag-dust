@@ -4,16 +4,22 @@ using UnityEngine;
 
 public abstract class ObstacleFlyingObject : MonoBehaviour
 {
+    private Vector2 flyingDirection;
     [SerializeField]
-    private Vector3 flyingForce;
+    private float flyingSpeed;
+    private Vector3 flyingForce => flyingDirection * flyingSpeed;
     [SerializeField]
     private float knockbackForceScale = 1;
+
+    [Header("UI")]
+    [SerializeField]
+    private ObstacleDangerUI dangerUIPrefab;
 
     [Header("Audio Clips")]
     [SerializeField]
     private AudioClip spawnAudioClip;
 
-    private new Rigidbody rigidbody;
+    protected new Rigidbody rigidbody;
     private MeshRenderer[] meshRenderers;
     protected AudioSource audioSource;
 
@@ -24,15 +30,30 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         EnableMeshRenderers(false);
+
+        flyingDirection = new Vector2(
+                Random.Range(-1f, 1f),
+                Random.Range(-1f, 0f)
+            ).normalized;
+
+        ObstacleDangerUI dangerUI = Instantiate<ObstacleDangerUI>(dangerUIPrefab, transform.position, Quaternion.Euler(0, 0, Angle(flyingDirection)));
+        dangerUI.onDisabledUI.AddListener(Init);
+    }
+
+    public static float Angle(Vector2 direction)
+    {
+        float degree = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        degree = (degree + 360) % 360;  // -180~180 -> 0~360
+
+        return degree;
     }
 
     private void OnEnable()
     {
         rigidbody.isKinematic = true;
-        Invoke(nameof(Init), 1f);
     }
 
-    protected virtual void Init()
+    public virtual void Init()
     {
         EnableMeshRenderers(true);
         AddForce();
@@ -49,8 +70,8 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     protected virtual void AddForce()
     {
         rigidbody.isKinematic = false;
-        // rigidbody.velocity = Vector3.zero;
-        rigidbody.AddForce(flyingForce, ForceMode.Impulse);
+        rigidbody.velocity = flyingForce;
+        // rigidbody.AddForce(flyingSpeed, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)

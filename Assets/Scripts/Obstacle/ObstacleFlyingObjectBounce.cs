@@ -35,6 +35,15 @@ public class ObstacleFlyingObjectBounce : ObstacleFlyingObject
         bounceCollider.enabled = true;
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (((1 << other.gameObject.layer) & targetBounceLayerMask) == 0) return;
+        if (currentBounceCount != 0) return;
+
+        rigidbody.isKinematic = false;
+        rigidbody.useGravity = true;
+    }
+
     private void OnCollisionExit(Collision other)
     {
         if (((1 << other.gameObject.layer) & targetBounceLayerMask) == 0) return;

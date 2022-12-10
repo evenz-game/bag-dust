@@ -62,7 +62,7 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
         if (GameObjectUtils.FindCompoenet<ObstacleFlyingObject>(other.gameObject, out _))
         {
             isSpawnable = true;
-            Destroy(other.gameObject);
+            Destroy(other.transform.root.gameObject);
         }
     }
 
