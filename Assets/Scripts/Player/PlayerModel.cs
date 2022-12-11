@@ -9,6 +9,7 @@ public class PlayerModel : PlayerComponent, PlayerStatus.OnChangedPlayerState
     private bool useManualModelIndex = false;
     [SerializeField]
     private int modelIndex = -1;
+    public int ModelIndex => modelIndex;
 
     public UnityEvent<PlayerModelInfo> onInitializedPlayerModel = new UnityEvent<PlayerModelInfo>();
 
