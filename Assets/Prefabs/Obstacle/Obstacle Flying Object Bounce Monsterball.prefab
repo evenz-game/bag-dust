@@ -111,14 +111,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b85ee438c4f045b5a667b7fbde559c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSubObstacle: 0
   useManualFlyingDirection: 0
   manualFlyingDirection: {x: 0, y: 0}
+  spawnBottom: 0
   flyingSpeed: 20
-  knockbackForceScale: 2
+  knockbackForceScale: 6
   useShakeAtDestroy: 0
   shakeAmount: 0.3
   shakeDuration: 0.4
   dangerUIPrefab: {fileID: 76947883525144594, guid: 99c7dee97a69f4ee4a4fc8961b28fdd3, type: 3}
+  dangerUISpawnTransform: {fileID: 0}
   spawnAudioClip: {fileID: 8300000, guid: 1dfad36235a3943828d4b1cd4dc92510, type: 3}
   bounceColliderDisableTimeAtFirst: 0.5
   targetBounceLayerMask:

@@ -40,7 +40,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495601547}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 74f68055f6e65a946baf791654415f83, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -573,25 +573,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5184707162151941445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6589215576687380605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b0b42c30dcd94c02be9e733d64cd325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modelIndex: 8
-  modelType: 0
-  playerFaceTransform: {fileID: 1199128652}
-  faceHeight: 0.5
-  bodyTransform: {fileID: 495601548}
-  bodyCollider: {fileID: 495601549}
-  animator: {fileID: 2135739001923070218}
 --- !u!114 &-137609538935002912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +589,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -624,7 +605,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -672,7 +653,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -713,6 +694,25 @@ MonoBehaviour:
     fillPass:
       shader: {fileID: 0}
       serializedProperties: []
+--- !u!114 &5184707162151941445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589215576687380605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0b42c30dcd94c02be9e733d64cd325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelIndex: 8
+  modelType: 0
+  playerFaceTransform: {fileID: 1199128652}
+  faceHeight: 0.5
+  bodyTransform: {fileID: 495601548}
+  bodyCollider: {fileID: 495601549}
+  animator: {fileID: 2135739001923070218}
 --- !u!137 &6791171105506019313 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -8534348413759360291, guid: f781341e80e71eb44bfe959bc82971cb, type: 3}

@@ -86,7 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2306214642767978116, guid: 1a39c911ce7f7471787b66e29c0a9a29, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306214642767978116, guid: 1a39c911ce7f7471787b66e29c0a9a29, type: 3}
+      propertyPath: rotateSpeed.z
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2719065680800362737, guid: 1a39c911ce7f7471787b66e29c0a9a29, type: 3}
       propertyPath: m_Radius
@@ -103,6 +107,10 @@ PrefabInstance:
     - target: {fileID: 4668093167197922721, guid: 1a39c911ce7f7471787b66e29c0a9a29, type: 3}
       propertyPath: useShakeAtDestroy
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668093167197922721, guid: 1a39c911ce7f7471787b66e29c0a9a29, type: 3}
+      propertyPath: knockbackForceScale
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4668093167197922721, guid: 1a39c911ce7f7471787b66e29c0a9a29, type: 3}
       propertyPath: manualFlyingDirection.y

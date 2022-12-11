@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84e62c5c2a8a477fb3c6d73cc7c30c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackPower: 10
+  knockbackPower: 12
   decreaseDustCount: 4
 --- !u!114 &659239123483566909
 MonoBehaviour:

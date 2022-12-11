@@ -18,9 +18,12 @@ public class CameraZoomController : MonoBehaviour
     [SerializeField]
     private List<CameraZoomInfo> cameraZoomInfos;
 
+    private Vector3 startPosition;
+
     private void Start()
     {
         targetCamera = manualCamera ? manualCamera : Camera.main;
+        startPosition = targetCamera.transform.position;
     }
 
     public void ZoomByInfoName(string name)
@@ -62,6 +65,8 @@ public class CameraZoomController : MonoBehaviour
 
         targetCamera.fieldOfView = info.targetCameraFOV;
         wallTransform.localScale = new Vector3(info.targetWallScale, info.targetWallScale, info.targetWallScale);
+
+        targetCamera.transform.position = startPosition;
 
         info.onFinishedCameraZoom.Invoke();
     }
