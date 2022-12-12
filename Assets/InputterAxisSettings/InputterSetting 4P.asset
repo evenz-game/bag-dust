@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: InputterSetting 4P
   m_EditorClassIdentifier: 
   reference: {fileID: 11400000, guid: 02dcbdfe228654c6fb90ecc1880b3844, type: 2}
-  xAxisName: Joystick Horizontal 2
-  yAxisName: Joystick Vertical 2
-  axisScale: {x: 1, y: -1}
-  buttonMappings:
-  - buttonKeyCode: 370
-    buttonType: 0
-  - buttonKeyCode: 371
-    buttonType: 0
+  xAxisName: 
+  yAxisName: 
+  axisScale: {x: 0, y: 0}
+  buttonMappings: []

@@ -48,13 +48,13 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
 
         if (useAxisRaw)
             currentAxis = new Vector2(
-                Input.GetAxisRaw(inputterSetting.xAxisName) * inputterSetting.axisScale.x,
-                Input.GetAxisRaw(inputterSetting.yAxisName) * inputterSetting.axisScale.y
+                Input.GetAxisRaw(inputterSetting.XAxisName) * inputterSetting.AxisScale.x,
+                Input.GetAxisRaw(inputterSetting.YAxisName) * inputterSetting.AxisScale.y
             );
         else
             currentAxis = new Vector2(
-                Input.GetAxis(inputterSetting.xAxisName) * inputterSetting.axisScale.x,
-                Input.GetAxis(inputterSetting.yAxisName) * inputterSetting.axisScale.y
+                Input.GetAxis(inputterSetting.XAxisName) * inputterSetting.AxisScale.x,
+                Input.GetAxis(inputterSetting.YAxisName) * inputterSetting.AxisScale.y
             );
 
         onUpdatedAxis.Invoke(currentAxis);
@@ -63,7 +63,7 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
     private void UdpateButtons()
     {
         foreach (ButtonEventSet set in buttonEventSets)
-            foreach (InputterSetting.ButtonMapping buttonMapping in inputterSetting.buttonMappings)
+            foreach (InputterSetting.ButtonMapping buttonMapping in inputterSetting.ButtonMappings)
                 if (set.CheckButtonDown(buttonMapping)) break;
     }
 

@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: InputterSetting 1P
   m_EditorClassIdentifier: 
   reference: {fileID: 11400000, guid: 7e4491e85a0a94537a4473a2e0cb8967, type: 2}
-  xAxisName: Horizontal PC 1P
-  yAxisName: Vertical PC 1P
-  axisScale: {x: 1, y: 1}
-  buttonMappings:
-  - buttonKeyCode: 304
-    buttonType: 0
-  - buttonKeyCode: 310
-    buttonType: 0
+  xAxisName: 
+  yAxisName: 
+  axisScale: {x: 0, y: 0}
+  buttonMappings: []

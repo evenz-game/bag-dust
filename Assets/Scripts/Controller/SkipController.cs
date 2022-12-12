@@ -57,7 +57,7 @@ public class SkipController : MonoBehaviour
 
     private void UpdateTargetKeyCode()
     {
-        foreach (var mapping in inputterSetting.buttonMappings)
+        foreach (var mapping in inputterSetting.ButtonMappings)
         {
             if (mapping.buttonType == ButtonType.A)
             {

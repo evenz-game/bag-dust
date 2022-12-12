@@ -24,9 +24,6 @@ public class SceneController : MonoBehaviour
             if (Input.GetKeyDown(key))
                 Restart();
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
     }
 
     public void Restart()
@@ -37,5 +34,10 @@ public class SceneController : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

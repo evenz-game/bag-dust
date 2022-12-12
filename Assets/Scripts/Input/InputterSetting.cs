@@ -21,11 +21,19 @@ public class InputterSetting : ScriptableObject
 
     [Space]
     [Header("Settings")]
-    public string xAxisName;
-    public string yAxisName;
-    public Vector2 axisScale = Vector2.one;
+    [SerializeField]
+    private string xAxisName;
+    public string XAxisName => reference != null ? reference.xAxisName : xAxisName;
+    [SerializeField]
+    private string yAxisName;
+    public string YAxisName => reference != null ? reference.yAxisName : yAxisName;
+    [SerializeField]
+    private Vector2 axisScale = Vector2.one;
+    public Vector2 AxisScale => reference != null ? reference.axisScale : axisScale;
 
-    public ButtonMapping[] buttonMappings;
+    [SerializeField]
+    private ButtonMapping[] buttonMappings;
+    public ButtonMapping[] ButtonMappings => reference != null ? reference.buttonMappings : buttonMappings;
 
     [Serializable]
     public class ButtonMapping
