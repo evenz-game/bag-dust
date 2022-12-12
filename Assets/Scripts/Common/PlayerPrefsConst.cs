@@ -7,6 +7,7 @@ public class MyPlayerPrefs
     private readonly static string PLAYER_MODEL_INDEX = "playerModelIndex_";
     private readonly static string PLAYER_ACTIVE = "playerActive_";
     private readonly static string WINNER_INDEX = "winnerIndex";
+    private readonly static string MAP_INDEX = "mapIndex";
 
     public static void SetPlayerModelIndex(int playerIndex, int modelIndex)
         => PlayerPrefs.SetInt(PLAYER_MODEL_INDEX + playerIndex.ToString(), modelIndex);
@@ -22,4 +23,9 @@ public class MyPlayerPrefs
         => PlayerPrefs.SetInt(WINNER_INDEX, playerIndex);
     public static int GetWinnerIndex()
         => PlayerPrefs.GetInt(WINNER_INDEX, -1);
+
+    public static void SetMapIndex(int mapIndex)
+        => PlayerPrefs.SetInt(MAP_INDEX, mapIndex);
+    public static int GetMapIndex()
+        => PlayerPrefs.GetInt(MAP_INDEX, 0);
 }
