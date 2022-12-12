@@ -24,6 +24,8 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     protected Vector3 flyingForce => flyingDirection * flyingSpeed;
     [SerializeField]
     private float knockbackForceScale = 1;
+    [SerializeField]
+    private int decreaseDustCount = 2;
 
     [Header("Shake")]
     [SerializeField]
@@ -115,7 +117,7 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     {
         if (GameObjectUtils.FindCompoenet<PlayerStatus>(other.gameObject, out PlayerStatus status))
         {
-            status.ClashObstacle(2);
+            status.ClashObstacle(decreaseDustCount);
         }
     }
 
