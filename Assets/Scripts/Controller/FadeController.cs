@@ -55,12 +55,8 @@ public class FadeController : MonoBehaviour
         }
     }
 
-    private bool isFading = false;
     public void StartFade(FadeInfo fadeInfo)
     {
-        if (isFading) return;
-
-        isFading = true;
         StartCoroutine(FadeRoutine(fadeInfo));
     }
 
@@ -93,8 +89,6 @@ public class FadeController : MonoBehaviour
 
         // 페이드 완료 이벤트 호출
         fadeInfo.onFinishedFade.Invoke();
-
-        isFading = false;
     }
 }
 
