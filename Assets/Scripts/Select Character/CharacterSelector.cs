@@ -36,6 +36,18 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
     [SerializeField]
     private AnimationCurve scaleCurve;
 
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip clipHoverCharacter;
+    [SerializeField]
+    private AudioClip clipSelectCharacter;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
         MyPlayerPrefs.SetPlayerActive(playerIndex, false);
@@ -79,6 +91,7 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
         MyPlayerPrefs.SetPlayerActive(playerIndex, true);
         MyPlayerPrefs.SetPlayerModelIndex(playerIndex, currentCharacter.ModelIndex);
 
+        audioSource.PlayOneShot(clipHoverCharacter);
 
         uiIndexTransform.gameObject.SetActive(true);
         imageIndex.sprite = indexSprites[playerIndex - 1];
@@ -125,6 +138,8 @@ public class CharacterSelector : MonoBehaviour, Inputter.OnUpdatedAxis, Inputter
             {
                 currentCharacter.UpdateState(SelectableCharacterState.Select);
                 imageIndex.sprite = selectedSprite;
+
+                audioSource.PlayOneShot(clipSelectCharacter);
             }
             else if (state == SelectableCharacterState.Select)
             {

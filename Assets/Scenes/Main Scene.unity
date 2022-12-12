@@ -5866,6 +5866,18 @@ MonoBehaviour:
   onFinishedGame:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1736231880}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: a0b47215f13474cbab0ea19eb0c512f8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 3546416245823680949}
         m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
         m_MethodName: StartFadeByName
@@ -5961,6 +5973,18 @@ MonoBehaviour:
             m_StringArgument: Twinkle
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1736231880}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: c9cdd3325c81d47059a1ecd2cf3c80f1, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - targetTime: 60
     onComeTime:
       m_PersistentCalls:
@@ -6035,6 +6059,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: Twinkle
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1736231880}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: c9cdd3325c81d47059a1ecd2cf3c80f1, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!4 &1736231878
