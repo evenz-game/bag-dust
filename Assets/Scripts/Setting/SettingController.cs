@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SettingController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class SettingController : MonoBehaviour
     [SerializeField]
     private GameObject canvasSetting;
     private bool isActive = false;
+    public UnityEvent onActive = new UnityEvent();
+    public UnityEvent onDeactive = new UnityEvent();
 
     [Header("Debug")]
     [SerializeField]
@@ -96,8 +99,15 @@ public class SettingController : MonoBehaviour
 
     public void Active(bool value)
     {
+        if (value && selected) return;
+
         isActive = value;
         canvasSetting.SetActive(value);
         Time.timeScale = value ? 0.0001f : 1;
+
+        if (isActive)
+            onActive.Invoke();
+        else
+            onDeactive.Invoke();
     }
 }

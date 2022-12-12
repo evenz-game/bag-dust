@@ -72,6 +72,7 @@ public class Inputter : MonoBehaviour, GameController.InitializeInputterEvent
         if (!checkAnyButtonDown) return;
         if (!Input.anyKeyDown) return;
         if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2) || Input.GetMouseButtonDown(3))) return;
+        if (inputterSetting != null && (Input.GetKeyDown(KeyCode.Joystick1Button8) || Input.GetKeyDown(KeyCode.Joystick1Button9))) return;
 
         onDownAnyButton.Invoke();
     }

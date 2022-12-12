@@ -130,6 +130,7 @@ MonoBehaviour:
   spawnBottom: 0
   flyingSpeed: 20
   knockbackForceScale: 5
+  decreaseDustCount: 2
   useShakeAtDestroy: 0
   shakeAmount: 0.3
   shakeDuration: 0.4
@@ -145,7 +146,7 @@ AudioSource:
   m_GameObject: {fileID: 4668093167197922732}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 37fd459c03a1f49088d6aa4c049bad77, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

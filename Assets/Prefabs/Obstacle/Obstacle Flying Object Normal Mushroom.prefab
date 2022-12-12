@@ -130,9 +130,9 @@ MonoBehaviour:
   useManualFlyingDirection: 1
   manualFlyingDirection: {x: 0, y: 1}
   spawnBottom: 1
-  useGravity: 1
   flyingSpeed: 10
   knockbackForceScale: 8
+  decreaseDustCount: 2
   useShakeAtDestroy: 1
   shakeAmount: 0.1
   shakeDuration: 0.1
@@ -148,7 +148,7 @@ AudioSource:
   m_GameObject: {fileID: 7629145277915397952}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 37fd459c03a1f49088d6aa4c049bad77, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

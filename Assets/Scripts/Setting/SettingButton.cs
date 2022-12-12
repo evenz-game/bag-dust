@@ -48,11 +48,12 @@ public class SettingButton : MonoBehaviour
             StopCoroutine(hoverCoroutine);
 
         float targetScale = isHover ? maxHoverScale : minHoverScale;
+        float hoverAnimationTime = isHover ? this.hoverAnimationTime : this.hoverAnimationTime / 2;
         hoverCoroutine
-            = StartCoroutine(HoverAnimationRoutine(imageButton.transform.localScale.x, targetScale));
+            = StartCoroutine(HoverAnimationRoutine(imageButton.transform.localScale.x, targetScale, hoverAnimationTime));
     }
 
-    private IEnumerator HoverAnimationRoutine(float startScale, float targetScale)
+    private IEnumerator HoverAnimationRoutine(float startScale, float targetScale, float hoverAnimationTime)
     {
         float timer = 0, percent = 0;
 
@@ -67,7 +68,7 @@ public class SettingButton : MonoBehaviour
         }
     }
 
-    public void Select()
+    public virtual void Select()
     {
         if (!isSelectable) return;
 

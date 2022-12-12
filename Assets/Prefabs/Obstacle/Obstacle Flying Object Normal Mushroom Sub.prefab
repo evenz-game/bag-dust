@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6314744334474700809, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 37fd459c03a1f49088d6aa4c049bad77, type: 2}
     - target: {fileID: 7629145277915397952, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
       propertyPath: m_Name
       value: Obstacle Flying Object Normal Mushroom Sub

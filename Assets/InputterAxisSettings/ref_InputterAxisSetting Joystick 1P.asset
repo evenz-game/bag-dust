@@ -17,7 +17,11 @@ MonoBehaviour:
   yAxisName: Joystick Vertical 1
   axisScale: {x: 1, y: -1}
   buttonMappings:
-  - buttonKeyCode: 350
-    buttonType: 0
   - buttonKeyCode: 351
     buttonType: 0
+  - buttonKeyCode: 350
+    buttonType: 0
+  - buttonKeyCode: 358
+    buttonType: 2
+  - buttonKeyCode: 359
+    buttonType: 2

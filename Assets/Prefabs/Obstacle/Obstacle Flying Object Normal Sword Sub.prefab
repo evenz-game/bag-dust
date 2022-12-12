@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6314744334474700809, guid: d80200cca7d0c4f8a92c638c48f456fc, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 37fd459c03a1f49088d6aa4c049bad77, type: 2}
     - target: {fileID: 7629145277915397952, guid: d80200cca7d0c4f8a92c638c48f456fc, type: 3}
       propertyPath: m_Name
       value: Obstacle Flying Object Normal Sword Sub

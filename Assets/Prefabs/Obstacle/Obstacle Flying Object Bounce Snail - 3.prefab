@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4691790395949662222, guid: f4b257fc353c74d01a7726b0d21ce45b, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 37fd459c03a1f49088d6aa4c049bad77, type: 2}
     - target: {fileID: 8235751032246763417, guid: f4b257fc353c74d01a7726b0d21ce45b, type: 3}
       propertyPath: m_Name
       value: Obstacle Flying Object Bounce Snail - 3

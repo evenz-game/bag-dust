@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4356536552004141284}
   - component: {fileID: 4356536552004141285}
+  - component: {fileID: 1272091513960389030}
   m_Layer: 0
   m_Name: Scene Controller
   m_TagString: Untagged
@@ -48,3 +49,17 @@ MonoBehaviour:
   onStartedScene:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1272091513960389030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4356536552004141287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13877b229cbb4eee8f809f51e8eb25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundLevel: 3
+  audioMixer: {fileID: 24100000, guid: 37fd459c03a1f49088d6aa4c049bad77, type: 2}
