@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Select Character Scene.unity
     guid: ec6983ebd0d2e4c34987e0a6bf7f6d10
   - enabled: 1
-    path: Assets/Scenes/Main Scene.unity
+    path: Assets/Scenes/Main Scene 02.unity
     guid: 7253eead92b2b4064af4031b36e89cab
   - enabled: 1
     path: Assets/Scenes/Result Scene.unity
