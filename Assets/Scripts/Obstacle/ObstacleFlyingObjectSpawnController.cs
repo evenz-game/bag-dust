@@ -50,6 +50,8 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
 
     private IEnumerator SpawnRoutine()
     {
+        yield return new WaitForSeconds(5f);
+
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(currentLevel.minSpawnDeltaTime, currentLevel.maxSpawnDeltaTime));

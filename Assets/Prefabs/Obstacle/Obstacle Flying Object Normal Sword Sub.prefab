@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3960847950358302558, guid: d80200cca7d0c4f8a92c638c48f456fc, type: 3}
+      propertyPath: flyingSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960847950358302558, guid: d80200cca7d0c4f8a92c638c48f456fc, type: 3}
       propertyPath: isSubObstacle
       value: 1
       objectReference: {fileID: 0}

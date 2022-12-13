@@ -91,7 +91,7 @@ Transform:
   m_GameObject: {fileID: 7629145277915397952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 32.442345, y: 0.22161627, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6968165025861696892}
@@ -130,7 +130,7 @@ MonoBehaviour:
   useManualFlyingDirection: 1
   manualFlyingDirection: {x: 0, y: 1}
   spawnBottom: 1
-  flyingSpeed: 10
+  flyingSpeed: 20
   knockbackForceScale: 8
   decreaseDustCount: 2
   useShakeAtDestroy: 1
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subObstaclePrefab: {fileID: 7049265193854161030, guid: faf3b4095207e4686abdcc3defbdcf4d, type: 3}
-  subSpawnCount: 5
+  subSpawnCount: 2
   originSpawnTransform: {fileID: 6968165025861696892}
   subSpawnDeltaDistance: {x: 4, y: 0}
   subSpawnDeltaTime: 0.2

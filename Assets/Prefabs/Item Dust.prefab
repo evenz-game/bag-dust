@@ -163,6 +163,32 @@ MonoBehaviour:
   scatterAngle: 0
   minScatterForceScale: 0.3
   maxScatterForceScale: 0.6
+  minimizeDelayTimeAtStart: 2
+  minimizeTime: 3
+  minimizeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.12043356
+      outSlope: 0.12043356
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.78333336
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 3.3254697
+      outSlope: 3.3254697
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.03333336
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   itemCollisionCollider: {fileID: 3981314181963544519}
 --- !u!54 &3981314182892921930
 Rigidbody:

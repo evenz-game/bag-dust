@@ -75,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 4668093167197922732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4668093167035720696}
@@ -115,16 +115,16 @@ MonoBehaviour:
   useManualFlyingDirection: 0
   manualFlyingDirection: {x: 0, y: 0}
   spawnBottom: 0
-  flyingSpeed: 20
+  flyingSpeed: 40
   knockbackForceScale: 6
   decreaseDustCount: 2
   useShakeAtDestroy: 0
   shakeAmount: 0.3
   shakeDuration: 0.4
-  dangerUIPrefab: {fileID: 76947883525144594, guid: 99c7dee97a69f4ee4a4fc8961b28fdd3, type: 3}
+  dangerUIPrefab: {fileID: 7201550939500039978, guid: db1fcb1033a7747c59248d0f7a540ce2, type: 3}
   dangerUISpawnTransform: {fileID: 0}
   spawnAudioClip: {fileID: 8300000, guid: 1dfad36235a3943828d4b1cd4dc92510, type: 3}
-  bounceColliderDisableTimeAtFirst: 0.5
+  bounceColliderDisableTimeAtFirst: 0.1
   targetBounceLayerMask:
     serializedVersion: 2
     m_Bits: 1048576
