@@ -11,9 +11,25 @@ PrefabInstance:
       propertyPath: subObstaclePrefab
       value: 
       objectReference: {fileID: 7049265193854161030}
+    - target: {fileID: 3960847950358302558, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
+      propertyPath: flyingSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4167698407131349169, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167698407131349169, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167698407131349169, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167698407131349169, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4167698407131349169, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
       propertyPath: m_LocalPosition.x

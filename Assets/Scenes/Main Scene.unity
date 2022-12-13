@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13300848, g: 0.11639877, b: 0.03036331, a: 1}
+  m_IndirectSpecularColor: {r: 0.13300902, g: 0.116399035, b: 0.030363245, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -607,6 +607,10 @@ PrefabInstance:
     - target: {fileID: 6826360850642985364, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: index
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826360850642985364, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: maxScale
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 7203229419555733396, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1424,6 +1428,10 @@ PrefabInstance:
       propertyPath: index
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6826360850642985364, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: maxScale
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7203229419555733396, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1815,6 +1823,10 @@ PrefabInstance:
     - target: {fileID: 6826360850642985364, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: index
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826360850642985364, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: maxScale
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 8153896573691982817, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3816,6 +3828,10 @@ PrefabInstance:
       propertyPath: index
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6826360850642985364, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
+      propertyPath: maxScale
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7203229419555733396, guid: 87d62fd9596a94da8b53ba9ab98fb04c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4554,10 +4570,10 @@ MonoBehaviour:
   itemDustPrefab: {fileID: 261626029426540592, guid: f62979804942942a1b1822fe5b5ee929, type: 3}
   minSpawnTransform: {fileID: 1938039300}
   maxSpawnTransform: {fileID: 958007023}
-  minSpawnCount: 3
-  maxSpawnCount: 5
-  minSpawnDeltaTime: 5
-  maxSpawnDeltaTime: 10
+  minSpawnCount: 4
+  maxSpawnCount: 8
+  minSpawnDeltaTime: 3
+  maxSpawnDeltaTime: 7
   minSpawnForce: 50
   maxSpawnForce: 80
 --- !u!1 &1510040774
@@ -5287,8 +5303,8 @@ MonoBehaviour:
   minBottomSpawnTransform: {fileID: 1666940644}
   maxBottomSpawnTransform: {fileID: 838616833}
   levels:
-  - minSpawnDeltaTime: 5
-    maxSpawnDeltaTime: 8
+  - minSpawnDeltaTime: 4
+    maxSpawnDeltaTime: 7
   - minSpawnDeltaTime: 3
     maxSpawnDeltaTime: 5
   - minSpawnDeltaTime: 1
@@ -5983,13 +5999,13 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   panelFinishGame: {fileID: 1349903359}
-  gamePlayTime: 180
+  gamePlayTime: 120
   textTimer: {fileID: 2112464340}
   onFinishedTimer:
     m_PersistentCalls:
       m_Calls: []
   timelineInfos:
-  - targetTime: 120
+  - targetTime: 90
     onComeTime:
       m_PersistentCalls:
         m_Calls:
@@ -6077,7 +6093,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - targetTime: 60
+  - targetTime: 30
     onComeTime:
       m_PersistentCalls:
         m_Calls:
