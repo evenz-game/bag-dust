@@ -17,6 +17,17 @@ public class ItemDust : Item
     [SerializeField]
     private float maxScatterForceScale = 1;
 
+    [Header("Minimize")]
+    [SerializeField]
+    private bool minimize = true;
+    [SerializeField]
+    private float minimizeDelayTimeAtStart = 2;
+    [SerializeField]
+    private float minimizeTime = 3;
+    [SerializeField]
+    private AnimationCurve minimizeCurve;
+
+    [Space]
     [SerializeField]
     private Collider itemCollisionCollider;
     private new Rigidbody rigidbody;
@@ -24,6 +35,12 @@ public class ItemDust : Item
     private void Awake()
     {
         rigidbody = GameObjectUtils.FindCompoenet<Rigidbody>(gameObject);
+    }
+
+    private void Start()
+    {
+        if (minimize)
+            StartCoroutine(MinimizeRoutine());
     }
 
     public void Scatter(Vector3 scatterForce)
@@ -48,5 +65,26 @@ public class ItemDust : Item
             status.IncreaseDustCount(increaseDustAmount);
             Destroy(this.gameObject);
         }
+    }
+
+    private IEnumerator MinimizeRoutine()
+    {
+        yield return new WaitForSeconds(minimizeDelayTimeAtStart);
+
+        Vector3 startScale = transform.localScale;
+
+        float timer = 0, percent = 0;
+
+        while (percent < 1)
+        {
+            timer += Time.deltaTime;
+            percent = timer / minimizeTime;
+
+            transform.localScale = Vector3.Lerp(startScale, Vector3.zero, minimizeCurve.Evaluate(percent));
+
+            yield return null;
+        }
+
+        Destroy(this.gameObject);
     }
 }

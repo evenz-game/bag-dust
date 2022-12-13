@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2786858125096100835, guid: 41a5b638ecabb43e1af81402c0703c33, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788294513, guid: 41a5b638ecabb43e1af81402c0703c33, type: 3}
+      propertyPath: flyingSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1788294513, guid: 41a5b638ecabb43e1af81402c0703c33, type: 3}
       propertyPath: spawnAudioClip
       value: 
@@ -15,6 +23,14 @@ PrefabInstance:
       propertyPath: bounceAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: c30ff70a494c94ff09aea557c87620b4, type: 3}
+    - target: {fileID: 1788294513, guid: 41a5b638ecabb43e1af81402c0703c33, type: 3}
+      propertyPath: knockbackForceScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788294513, guid: 41a5b638ecabb43e1af81402c0703c33, type: 3}
+      propertyPath: bounceColliderDisableTimeAtFirst
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4668093167197922732, guid: 41a5b638ecabb43e1af81402c0703c33, type: 3}
       propertyPath: m_Name
       value: Obstacle Flying Object Bounce Snail
