@@ -48,14 +48,18 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     protected new Rigidbody rigidbody;
     private MeshRenderer[] meshRenderers;
     protected AudioSource audioSource;
+    private new Collider collider;
 
     private void Awake()
     {
         rigidbody = GameObjectUtils.FindCompoenet<Rigidbody>(gameObject);
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
         audioSource = GetComponent<AudioSource>();
+        collider = GetComponent<Collider>();
+        if (!collider)
+            collider = GetComponentInChildren<Collider>();
 
-        EnableMeshRenderers(false);
+        EnableMeshRenderersAndCollider(false);
 
         if (useManualFlyingDirection)
             flyingDirection = manualFlyingDirection.normalized;
@@ -88,16 +92,18 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
 
     public virtual void Init()
     {
-        EnableMeshRenderers(true);
+        EnableMeshRenderersAndCollider(true);
         AddForce();
 
         audioSource?.PlayOneShot(spawnAudioClip);
     }
 
-    protected void EnableMeshRenderers(bool value)
+    protected void EnableMeshRenderersAndCollider(bool value)
     {
         foreach (MeshRenderer renderer in meshRenderers)
             renderer.enabled = value;
+
+        collider.enabled = value;
     }
 
     protected virtual void AddForce()

@@ -5347,14 +5347,14 @@ MonoBehaviour:
     maxSpawnDeltaTime: 3
   startLevelIndex: 0
   obstaclePrefabs:
-  - {fileID: 1788294513, guid: 41a5b638ecabb43e1af81402c0703c33, type: 3}
-  - {fileID: 4668093167197922721, guid: 1a39c911ce7f7471787b66e29c0a9a29, type: 3}
-  - {fileID: 8741313020168457899, guid: e9a5898e64b3b4beaa612a3d23b63ec2, type: 3}
-  - {fileID: 7490870109495255933, guid: 94ad079b410fc499b8d2d5d697a1d122, type: 3}
-  - {fileID: 8493827668972711638, guid: 6002bd15dac9a4044bd0ecc1c2825da4, type: 3}
-  - {fileID: 7736362685003393793, guid: f95d624f0653e4fa9a4ef763ab2ae68c, type: 3}
-  - {fileID: 3960847950358302558, guid: d80200cca7d0c4f8a92c638c48f456fc, type: 3}
-  - {fileID: 3960847950358302558, guid: c95eaf86cfc0f45da915e5d25688e799, type: 3}
+  - {fileID: 3586287002953913523, guid: b45e6d7e8c19e461aa00ec6d6fce5440, type: 3}
+  - {fileID: 6637022201894127575, guid: db3930c1ef3e04cebad799c61066ff6b, type: 3}
+  - {fileID: 5517882550640597212, guid: 5d554806cb82645edb0f5f4b878a2ba1, type: 3}
+  - {fileID: 7523551735067337916, guid: 1cf750f94a80646d2bb5e3d0304a6527, type: 3}
+  - {fileID: 3106634479068499934, guid: 57a38ff37582844cf978dc8bf2bb2f94, type: 3}
+  - {fileID: 6185454026376703759, guid: 698c5c239fe0640e0b7295f423d6b5e8, type: 3}
+  - {fileID: 2638273402754566800, guid: cf06e8f4be1154c07bab761ab85f59cf, type: 3}
+  - {fileID: 6976737965389889360, guid: fe9f609e2ea8c4b52a8563e330ccdcf2, type: 3}
 --- !u!65 &1710309362
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6040,13 +6040,13 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   panelFinishGame: {fileID: 1349903359}
-  gamePlayTime: 120
+  gamePlayTime: 60
   textTimer: {fileID: 2112464340}
   onFinishedTimer:
     m_PersistentCalls:
       m_Calls: []
   timelineInfos:
-  - targetTime: 90
+  - targetTime: 40
     onComeTime:
       m_PersistentCalls:
         m_Calls:
@@ -6134,7 +6134,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - targetTime: 30
+  - targetTime: 20
     onComeTime:
       m_PersistentCalls:
         m_Calls:
@@ -7754,6 +7754,10 @@ PrefabInstance:
     - target: {fileID: 2812399506454554439, guid: 352926a6e9bf14d0eab8ffb30f57cf57, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270274959287740703, guid: 352926a6e9bf14d0eab8ffb30f57cf57, type: 3}
+      propertyPath: fadeInfoPresets.Array.data[0].onFinishedFade.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Single Mode Select Character Scene
       objectReference: {fileID: 0}
     - target: {fileID: 4219058677746666901, guid: 352926a6e9bf14d0eab8ffb30f57cf57, type: 3}
       propertyPath: m_SizeDelta.x

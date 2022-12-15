@@ -12,7 +12,7 @@ public enum PlayerState
 }
 
 [Serializable]
-public class PlayerStatus : PlayerComponent
+public class PlayerStatus : PlayerComponent, GameController.OnFinishedGame
 {
     [Header("Init")]
     [SerializeField]
@@ -98,6 +98,10 @@ public class PlayerStatus : PlayerComponent
     public float MaxRotateSpeed => maxRotateSpeed;
     public float RotateSpeed => Mathf.Lerp(minRotateSpeed, maxRotateSpeed, dustCountPercent);
 
+    [Header("For Single Mode Result Scene")]
+    [SerializeField]
+    private bool isSingleModeResultScene = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -113,7 +117,11 @@ public class PlayerStatus : PlayerComponent
     {
         if (init) return;
 
-        IncreaseDustCount(0, true);
+        if (isSingleModeResultScene)
+            IncreaseDustCount(MyPlayerPrefs.GetDustCount(1) - currentDustCount, true);
+        else
+            IncreaseDustCount(0, true);
+
         init = true;
     }
 
@@ -273,6 +281,11 @@ public class PlayerStatus : PlayerComponent
         IncreaseDustCount(-decreaseDustAmount);
 
         playerEffector?.ClashObstacle();
+    }
+
+    public void OnFinishedGame()
+    {
+        MyPlayerPrefs.SetDustCount(index, currentDustCount);
     }
 
     public interface OnChangedPlayerState
