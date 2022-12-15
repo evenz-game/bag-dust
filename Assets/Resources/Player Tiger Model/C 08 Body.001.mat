@@ -260,7 +260,7 @@ Material:
     - _Scroll_EmissiveU: 0
     - _Scroll_EmissiveV: 0
     - _Set_SystemShadowsToBase: 1
-    - _ShadeColor_Step: 0.43
+    - _ShadeColor_Step: 0.345
     - _Smoothness: 0.4472136
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -298,12 +298,12 @@ Material:
     - _utsVersionY: 5
     - _utsVersionZ: 1
     m_Colors:
-    - _1st_ShadeColor: {r: 0.7924528, g: 0.7571707, b: 0.70647913, a: 1}
-    - _2nd_ShadeColor: {r: 0.745283, g: 0.58708614, b: 0.58708614, a: 1}
+    - _1st_ShadeColor: {r: 0.6603774, g: 0.51491374, b: 0.4267533, a: 1}
+    - _2nd_ShadeColor: {r: 0.5188679, g: 0.4430864, b: 0.369571, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.90588236, g: 0.90588236, b: 0.90588236, a: 1}
+    - _Color: {r: 0.90588236, g: 0.90588236, b: 0.90588236, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
