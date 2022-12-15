@@ -493,6 +493,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8826866692545838027, guid: f1caaf547b8b645e490b79f2dc210601, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1535056071832470156}
+    - target: {fileID: 8826866692545838027, guid: f1caaf547b8b645e490b79f2dc210601, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826866692545838027, guid: f1caaf547b8b645e490b79f2dc210601, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingButtonSound, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4481297771456332754, guid: f1caaf547b8b645e490b79f2dc210601, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f1caaf547b8b645e490b79f2dc210601, type: 3}

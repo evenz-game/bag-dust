@@ -1368,7 +1368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1724670009602414530, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
       propertyPath: fadeInfoPresets.Array.data[0].onFinishedFade.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Select Character Scene
+      value: Multi Mode Select Character Scene
       objectReference: {fileID: 0}
     - target: {fileID: 1724670009602414530, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
       propertyPath: fadeInfoPresets.Array.data[1].onFinishedFade.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument

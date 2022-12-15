@@ -8,6 +8,9 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField]
+    private bool isSingleMode = false;
+
     private List<PlayerStatus> activePlayers = new List<PlayerStatus>();
 
     private enum GameStatus { None, Start, Finish }
@@ -114,9 +117,11 @@ public class GameController : MonoBehaviour
     {
         if ((int)state > (int)PlayerState.Dead) return;
 
+        PlayerStatus player = new PlayerStatus();
+
         for (int i = 0; i < activePlayers.Count; i++)
         {
-            PlayerStatus player = activePlayers[i];
+            player = activePlayers[i];
 
             if ((int)player.CurrentPlayerState <= (int)PlayerState.Dead)
                 activePlayers.Remove(player);
@@ -125,6 +130,10 @@ public class GameController : MonoBehaviour
         // 혼자 남았을 때
         if (activePlayers.Count == 1)
             FinishGame(activePlayers[0]);
+
+        // 싱글 모드
+        if (isSingleMode && activePlayers.Count == 0)
+            FinishGame(player);
     }
 
     private PlayerStatus FindWinnerByDustCount()

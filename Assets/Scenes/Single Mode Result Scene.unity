@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13300902, g: 0.116399035, b: 0.030363245, a: 1}
+  m_IndirectSpecularColor: {r: 0.13300848, g: 0.11639877, b: 0.03036331, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1964,7 +1964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1724670009602414530, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
       propertyPath: fadeInfoPresets.Array.data[0].onFinishedFade.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Select Character Scene
+      value: Select Mode Scene
       objectReference: {fileID: 0}
     - target: {fileID: 1724670009602414530, guid: 7c7e5537747ba4ee4be494bf4a6d3850, type: 3}
       propertyPath: fadeInfoPresets.Array.data[0].onFinishedFade.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

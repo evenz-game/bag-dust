@@ -3,26 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SettingController : MonoBehaviour
+public class SelectModeController : MonoBehaviour
 {
-    [Header("Properties")]
+    private bool selected = false;
+
     [SerializeField]
     private SettingButton[] settingButtons;
 
     [Space]
     [SerializeField]
     private GameObject canvasSetting;
-    [SerializeField]
     private bool isActive = false;
-    private bool isDone = false;
     public UnityEvent onActive = new UnityEvent();
     public UnityEvent onDeactive = new UnityEvent();
-
-    [Space]
-    [SerializeField]
-    private bool verticalMove = true;
-    [SerializeField]
-    private float timeScaleAtActive = 0.0001f;
 
     [Header("Debug")]
     [SerializeField]
@@ -43,7 +36,7 @@ public class SettingController : MonoBehaviour
     private bool movable = false;
     public void OnUpdatedAxis(Vector2 axis)
     {
-        if (!isActive || isDone) return;
+        if (!isActive || selected) return;
 
         /* 클릭 형식으로 인식할 수 있도록 계산 */
         if (!movable)
@@ -56,8 +49,6 @@ public class SettingController : MonoBehaviour
 
         /* On Key Down */
         int dir = -(int)Mathf.Sign(axis.y);
-        if (!verticalMove)
-            dir = (int)Mathf.Sign(axis.x);
 
         int prevIndex = currentIndex;
 
@@ -86,7 +77,7 @@ public class SettingController : MonoBehaviour
 
     public void Select()
     {
-        if (!isActive || isDone) return;
+        if (!isActive || selected) return;
 
         SettingButton curButton = settingButtons[currentIndex];
         curButton.Select();
@@ -95,7 +86,7 @@ public class SettingController : MonoBehaviour
         {
             if (curButton.IsSelectOnce)
             {
-                isDone = true;
+                selected = true;
                 Active(false);
             }
         });
@@ -108,16 +99,15 @@ public class SettingController : MonoBehaviour
 
     public void Active(bool value)
     {
-        if (value && isDone) return;
+        if (value && selected) return;
 
         isActive = value;
-        Time.timeScale = value ? timeScaleAtActive : 1;
+        canvasSetting.SetActive(value);
+        Time.timeScale = value ? 0.0001f : 1;
 
         if (isActive)
             onActive.Invoke();
         else
             onDeactive.Invoke();
-
-        canvasSetting?.SetActive(value);
     }
 }

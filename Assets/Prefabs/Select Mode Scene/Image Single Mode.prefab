@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2677749046940177204
+--- !u!1 &39137308276682717
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8312933647107448180}
-  - component: {fileID: 6505872526674146265}
-  - component: {fileID: 8282007769051081211}
-  - component: {fileID: -4481297771456332754}
+  - component: {fileID: 39137308276682716}
+  - component: {fileID: 39137308276682718}
+  - component: {fileID: 39137308276682719}
+  - component: {fileID: 6032985450964855549}
   m_Layer: 5
-  m_Name: Image Button
+  m_Name: Image Single Mode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8312933647107448180
+--- !u!224 &39137308276682716
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2677749046940177204}
+  m_GameObject: {fileID: 39137308276682717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 520, y: 182}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -400, y: -15}
+  m_SizeDelta: {x: 726, y: 796}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6505872526674146265
+--- !u!222 &39137308276682718
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2677749046940177204}
+  m_GameObject: {fileID: 39137308276682717}
   m_CullTransparentMesh: 1
---- !u!114 &8282007769051081211
+--- !u!114 &39137308276682719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2677749046940177204}
+  m_GameObject: {fileID: 39137308276682717}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0babccdd48da5534bbdd9987febb383b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6a2e04379d872d4fa0c13946e9d7d1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77,20 +77,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-4481297771456332754
+--- !u!114 &6032985450964855549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2677749046940177204}
+  m_GameObject: {fileID: 39137308276682717}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c897faa7901549c68b40f084dcfa54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageButton: {fileID: 8282007769051081211}
-  hoverAnimationTime: 0.00003
+  imageButton: {fileID: 39137308276682719}
+  hoverAnimationTime: 0.5
   hoverAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -115,13 +115,25 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  minHoverScale: 0.7
-  maxHoverScale: 0.85
-  isSelectOnce: 0
+  minHoverScale: 1
+  maxHoverScale: 1.15
+  isSelectOnce: 1
   onSelected:
     m_PersistentCalls:
-      m_Calls: []
-  selectAnimationTime: 0.00003
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: StartFadeByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Start Single Mode
+          m_BoolArgument: 0
+        m_CallState: 2
+  selectAnimationTime: 0.5
   selectAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -146,5 +158,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  minSelectScale: 0.85
-  maxSelectScale: 0.95
+  minSelectScale: 1.15
+  maxSelectScale: 1.2
