@@ -23,17 +23,17 @@ public class InputterSetting : ScriptableObject
     [Header("Settings")]
     [SerializeField]
     private string xAxisName;
-    public string XAxisName => reference != null ? reference.xAxisName : xAxisName;
+    public string XAxisName => reference != null ? reference.XAxisName : xAxisName;
     [SerializeField]
     private string yAxisName;
-    public string YAxisName => reference != null ? reference.yAxisName : yAxisName;
+    public string YAxisName => reference != null ? reference.YAxisName : yAxisName;
     [SerializeField]
     private Vector2 axisScale = Vector2.one;
-    public Vector2 AxisScale => reference != null ? reference.axisScale : axisScale;
+    public Vector2 AxisScale => reference != null ? reference.AxisScale : axisScale;
 
     [SerializeField]
     private ButtonMapping[] buttonMappings;
-    public ButtonMapping[] ButtonMappings => reference != null ? reference.buttonMappings : buttonMappings;
+    public ButtonMapping[] ButtonMappings => reference != null ? reference.ButtonMappings : buttonMappings;
 
     [Serializable]
     public class ButtonMapping

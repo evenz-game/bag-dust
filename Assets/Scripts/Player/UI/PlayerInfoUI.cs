@@ -27,6 +27,8 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
     private TextMeshProUGUI textDustPercentLeft;
     [SerializeField]
     private TextMeshProUGUI textDustPercentRight;
+    [SerializeField]
+    private bool displayCount = false;
 
     [Header("Fill Image Dust Count")]
     [SerializeField]
@@ -77,6 +79,9 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
             prevPercent = currentPercent;
 
             percentString = $"{ currentPercent.ToString()}<size=30>%</size>";
+            if (displayCount)
+                percentString = currentDustCount.ToString();
+
             textDustPercentLeft.text = percentString;
             textDustPercentRight.text = percentString;
 
@@ -88,6 +93,9 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
         }
 
         percentString = $"{ currentPercent.ToString()}<size=30>%</size>";
+        if (displayCount)
+            percentString = currentDustCount.ToString();
+
         textDustPercentLeft.text = percentString;
         textDustPercentRight.text = percentString;
     }

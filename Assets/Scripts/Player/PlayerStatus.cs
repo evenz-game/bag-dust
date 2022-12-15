@@ -43,6 +43,8 @@ public class PlayerStatus : PlayerComponent
     [SerializeField]
     private int maxDustCount = 10;                      // 최대 먼지 개수
     public int MaxDustCount => maxDustCount;
+    [SerializeField]
+    private bool useMaxCount = true;                    // 최대 존재 여부 (싱글 모드)
     [Min(0)]
     [SerializeField]
     private int currentDustCount = 3;                   // 현재 먼지 개수
@@ -143,7 +145,10 @@ public class PlayerStatus : PlayerComponent
 
         // 현재 먼지 개수 업데이트
         currentDustCount += amount;
-        currentDustCount = Mathf.Clamp(currentDustCount, minDustCount, maxDustCount);
+        if (useMaxCount)
+            currentDustCount = Mathf.Clamp(currentDustCount, minDustCount, maxDustCount);
+        else
+            currentDustCount = Mathf.Clamp(currentDustCount, minDustCount, Int16.MaxValue);
 
         // 플레이어 상태 업데이트 후, 변경 이벤트 호출
         if (UpdatePlayerState(prevDustCount, currentDustCount, amount))
@@ -181,9 +186,9 @@ public class PlayerStatus : PlayerComponent
         float prev = currentWeight;
 
         if (useWeightCurve)
-            currentWeight = Mathf.Lerp(minWeight, maxWeight, weightCurve.Evaluate(percent));
+            currentWeight = Mathf.LerpUnclamped(minWeight, maxWeight, weightCurve.Evaluate(percent));
         else
-            currentWeight = Mathf.Lerp(minWeight, maxWeight, percent);
+            currentWeight = Mathf.LerpUnclamped(minWeight, maxWeight, percent);
 
         return prev;
     }
@@ -198,9 +203,9 @@ public class PlayerStatus : PlayerComponent
         float prev = TotalWeight;
 
         if (useScaleCurve)
-            currentScale = Mathf.Lerp(minScale, maxScale, scaleCurve.Evaluate(percent));
+            currentScale = Mathf.LerpUnclamped(minScale, maxScale, scaleCurve.Evaluate(percent));
         else
-            currentScale = Mathf.Lerp(minScale, maxScale, percent);
+            currentScale = Mathf.LerpUnclamped(minScale, maxScale, percent);
 
         return prev;
     }

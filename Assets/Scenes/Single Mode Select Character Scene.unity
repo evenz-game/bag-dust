@@ -2190,6 +2190,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4219058679518059703, guid: 352926a6e9bf14d0eab8ffb30f57cf57, type: 3}
+      propertyPath: inputterSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 7150be1d0eb214780a83f142af242a93, type: 2}
     - target: {fileID: 4219058679518059704, guid: 352926a6e9bf14d0eab8ffb30f57cf57, type: 3}
       propertyPath: onActive.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -2795,7 +2799,7 @@ PrefabInstance:
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: inputterSetting
       value: 
-      objectReference: {fileID: 11400000, guid: f90cbd2cb33f642e08f59442b0e2fdf0, type: 2}
+      objectReference: {fileID: 11400000, guid: 7150be1d0eb214780a83f142af242a93, type: 2}
     - target: {fileID: 2453770322272178414, guid: a381b18c2c9764804ab70a8c1c5da156, type: 3}
       propertyPath: inputterAxisSetting
       value: 

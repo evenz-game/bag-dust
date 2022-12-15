@@ -159,10 +159,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increaseDustAmount: 1
-  disableColliderTime: 1
+  disableColliderTime: 0.5
   scatterAngle: 0
   minScatterForceScale: 0.3
   maxScatterForceScale: 0.6
+  minimize: 1
   minimizeDelayTimeAtStart: 2
   minimizeTime: 3
   minimizeCurve:
