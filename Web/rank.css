@@ -5,6 +5,7 @@
 }
 
 #rank-header {
+  color: #a1a1a1;
 }
 
 .rank-row {
@@ -28,8 +29,40 @@
   width: 10%;
 }
 
-.rank-rank: {
-  width: 10%;
+#rank-body-container > span {
+  position: relative;
+}
+
+#rank-body-container > :nth-child(1) .rank-rank,
+#rank-body-container > :nth-child(2) .rank-rank,
+#rank-body-container > :nth-child(3) .rank-rank {
+  /* color: var(--sub-title-text-color); */
+  color: #00000000;
+}
+
+#rank-body-container > :nth-child(1) .rank-rank::after,
+#rank-body-container > :nth-child(2) .rank-rank::after,
+#rank-body-container > :nth-child(3) .rank-rank::after {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#rank-body-container > :nth-child(1) .rank-rank::after {
+  content: "1";
+  color: #ffe32c;
+  text-shadow: #ffb60b 0.13rem 0.13rem;
+}
+#rank-body-container > :nth-child(2) .rank-rank::after {
+  content: "2";
+  color: #54ef01;
+  text-shadow: #40b700 0.13rem 0.13rem;
+}
+#rank-body-container > :nth-child(3) .rank-rank::after {
+  content: "3";
+  color: #1c9dff;
+  text-shadow: #046cbb 0.13rem 0.13rem;
 }
 
 .rank-name {

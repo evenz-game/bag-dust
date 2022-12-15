@@ -19,7 +19,7 @@
 /******* COMMON *******/
 
 :root {
-  --main-bg-color: #e6e6e6;
+  --main-bg-color: #f0f0f0;
   --main-text-color: #353535;
   --sub-title-text-color: #ff82b4;
   --button-text-color: white;
@@ -43,11 +43,12 @@ a:active {
 }
 
 .round {
-  border-radius: 20px;
+  border-radius: 1.5rem;
+  box-shadow: 2px 3px 10px 0px rgb(0 0 0 / 8%);
 }
 
 .display-none {
-  display: none;
+  display: none !important;
 }
 
 /******* CONTAINER *******/
@@ -76,7 +77,6 @@ body {
 #main-container {
   width: 100%;
   aspect-ratio: 16 / 9;
-  /* padding: 60px 0 50px 0; */
   background-image: url(./img/main-background.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -84,27 +84,33 @@ body {
   position: relative;
 }
 
-@keyframes neon {
-  0% {
-    filter: brightness(0.2);
-  }
-  20% {
-    filter: brightness(0.5);
-  }
+@keyframes move-1 {
   50% {
-    filter: brightness(0.2);
+    transform: translate3d(0, -0.6rem, 0) scale3d(1.1, 1.1, 1.1);
   }
-  60% {
-    filter: brightness(0.5);
+}
+
+@keyframes move-2 {
+  50% {
+    transform: translate3d(0, -0.6rem, 1.2rem) scale3d(1.3, 1.3, 1.3);
   }
-  80% {
-    filter: brightness(0.2);
+}
+
+@keyframes move-3 {
+  50% {
+    transform: translate3d(0, -50px, 1.2rem);
   }
-  90% {
-    filter: brightness(0.5);
+}
+
+@keyframes move-4 {
+  50% {
+    transform: translate3d(0, -0.6rem, 1.2rem) scale3d(0.9, 0.9, 0.9);
   }
-  100% {
-    filter: brightness(0.2);
+}
+
+@keyframes move-5 {
+  50% {
+    transform: translate3d(0, -0.6rem, 1.2rem) scale3d(0.95, 0.95, 0.95);
   }
 }
 
@@ -120,11 +126,33 @@ body {
 #main-logo {
   max-width: 100%;
   position: absolute;
+  top: 37vw;
+  z-index: 50;
 }
 
-#main-arrow {
+/* #main-arrow {
   width: 40px;
   margin: 0 auto;
+} */
+
+#main-umbrella {
+  animation: move-4 5s ease-in-out infinite;
+}
+
+#main-phone {
+  animation: move-5 5s ease-in-out infinite;
+}
+
+#main-coin {
+  animation: move-3 30s ease-in-out infinite;
+}
+
+#main-character {
+  animation: move-1 5s ease-in-out infinite;
+}
+
+#main-character-dust {
+  animation: move-2 5s ease-in-out infinite;
 }
 
 /******* SUB CONTAINER *******/
@@ -136,23 +164,22 @@ body {
   background: linear-gradient(
     180deg,
     var(--main-bg-color) 0%,
-    #e6e6e6 35%,
-    #e6e6e6 100%
+    var(--main-bg-color) 35%,
+    var(--main-bg-color) 100%
   );
-  padding: 30px 20px 150px;
+  padding: 2rem 1.5rem 10rem;
 }
 
 .sub-title {
-  font-family: Cafe24Ssurround !important;
   font-size: 2rem;
-  padding: 10px 0;
-  margin-bottom: 20px;
+  padding: 1.1rem 0;
+  margin-bottom: 1rem;
   color: var(--sub-title-text-color);
-  text-shadow: #ff4690 2px 2px;
-  margin-top: 100px;
+  text-shadow: #ff4690 0.13rem 0.13rem;
+  margin-top: 6rem;
 }
 
-.sub-container .sub-title:first-child {
+#sub-container > .sub-title:first-child {
   margin-top: 0;
 }
 
@@ -163,17 +190,17 @@ body {
   width: 100%;
   padding-bottom: 56.25%; /* 16:9 비율 */
   background-color: white;
-  margin-bottom: 30px;
+  margin-bottom: 1.8rem;
 }
 
 .synopsis-description {
-  padding-top: 20px;
+  padding-top: 1.5rem;
   font-size: 1rem;
   line-height: 2.5rem;
 }
 
 .synopsis-description strong {
-  font-size: 1.1em;
+  font-size: 1.3em;
   /* text-decoration-style: wavy; */
 }
 
@@ -269,6 +296,11 @@ body {
 
 /******* CAROUSEL *******/
 @media (min-width: 768px) {
+  #main-logo {
+    transform: scale(0.8);
+    top: 29vw;
+  }
+
   #main-arrow {
     display: none;
   }
@@ -345,7 +377,6 @@ body {
   height: 100%;
   position: absolute;
   overflow: hidden;
-  box-shadow: 10px 25px 30px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes slide {

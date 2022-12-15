@@ -11,7 +11,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="BAG DUST">
     <meta property="og:description" content="우당탕탕~@#! 가방 속 먼지들의 파티 게임!">
-    <meta property="og:image" content="https://bagdust.yucheon.io/Web/img/synopsis3.png">
+    <meta property="og:image" content="https://bagdust.yucheon.io/Web/img/synopsis3.png?v=2">
     <meta property="og:url" content="https://bagdust.yucheon.io">
 
     <link rel="canonical" href="https://bagdust.yucheon.io/" />
@@ -27,24 +27,24 @@
 
     <script src="https://unpkg.com/realm-web/dist/bundle.iife.js"></script>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./Web/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./Web/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./Web/img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./Web/img/apple-touch-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Web/img/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Web/img/favicon-16x16.png?v=2">
     <link rel="manifest" href="./Web/img/site.webmanifest">
 </head>
 
 <body class="container">
-    <!-- <img id="logo" src="./Web/img/Express Agent Title.png"> -->
+    <!-- <img id="logo" src="./Web/img/Express Agent Title.png?v=2"> -->
 
     <div id="main-container">
-        <img id="main-umbrella" class="main-img" src="./Web/img/main-umbrella.png">
-        <img id="main-phone" class="main-img" src="./Web/img/main-phone.png">
-        <img id="main-coin" class="main-img" src="./Web/img/main-coin.png">
-        <img id="main-dust" class="main-img" src="./Web/img/main-dust.png">
-        <img id="main-logo" class="main-img" src="./Web/img/main-logo.png">
-        <img id="main-character-dust" class="main-img" src="./Web/img/main-character-dust.png">
-        <img id="main-character" class="main-img" src="./Web/img/main-character.png">
-        <!-- <img id="main-character" class="main-img" src="./Web/img/character.png">
+        <img id="main-umbrella" class="main-img" src="./Web/img/main-umbrella.png?v=2">
+        <img id="main-phone" class="main-img" src="./Web/img/main-phone.png?v=2">
+        <img id="main-coin" class="main-img" src="./Web/img/main-coin.png?v=2">
+        <img id="main-dust" class="main-img" src="./Web/img/main-dust.png?v=2">
+        <img id="main-logo" class="main-img" src="./Web/img/main-logo.png?v=2">
+        <img id="main-character-dust" class="main-img" src="./Web/img/main-character-dust.png?v=2">
+        <img id="main-character" class="main-img" src="./Web/img/main-character.png?v=2">
+        <!-- <img id="main-character" class="main-img" src="./Web/img/character.png?v=2">
         <div id="main-arrow">
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#292540"
                 class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
@@ -66,7 +66,7 @@
         <div id="synopsis-img" class="round ratio-16-9">
             <div class="container round">
                 <div class="wrapper">
-                    <img src="./Web/img/synopsis1.png" /><!-- photo -->
+                    <img src="./Web/img/synopsis1.png?v=2" /><!-- photo -->
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
 
         <div class="sub-title text">Trailer</div>
         <div class="trailer-video ratio-16-9 round">
-            <iframe src="https://www.youtube.com/embed/JY2UAUP4v94?showinfo=0" title="YouTube video player"
+            <iframe src="https://www.youtube.com/embed/mzjpFos7NJ4?showinfo=0" title="YouTube video player"
                 class="round" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
@@ -94,7 +94,12 @@
                 <div class="rank-score rank-row-item">score</div>
                 <div class="rank-date rank-row-item">date</div>
             </div>
+
+            <span id="rank-body-container">
+
+            </span>
         </span>
+
 
         <script>
             async function a() {
@@ -113,6 +118,7 @@
                 const rank = await collection.find({}, { sort: { name: -1 } });
 
                 let $rank = document.getElementById("rank");
+                let $rankBodyContainer = document.getElementById("rank-body-container");
 
                 let rankIndex = 1;
 
@@ -128,7 +134,7 @@
                             <div class="rank-date rank-row-item">${date.getFullYear() % 2000}.${date.getMonth() + 1}.${date.getDate()}</div>
                         </div>
                         `;
-                    $rank.appendChild($user);
+                    $rankBodyContainer.appendChild($user);
 
                     rankIndex++;
                     if (rankIndex == 11) break;
@@ -155,8 +161,9 @@
                 <span class="download-button-desc text">다운로드 없이 플레이</span>
             </a> -->
 
-            <a href="https://github.com/yucheon6000/express-agent/releases/download/release-1.1.0/Express.Agent.Windows.zip"
-                target="_self" class="download-button">
+            <!-- <a href="https://github.com/yucheon6000/express-agent/releases/download/release-1.1.0/Express.Agent.Windows.zip"
+            target="_self" class="download-button"> -->
+            <a href="#" onclick="confirm('준비 중입니다.')" class="download-button">
                 <div class="download-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="white" class="bi bi-microsoft" viewBox="0 0 16 16">
                         <path
@@ -165,8 +172,9 @@
                 <span class="download-button-title text">Windows</span>
             </a>
 
-            <a href="https://github.com/yucheon6000/express-agent/releases/download/release-1.1.0/Express.Agent.Mac.zip"
-                target="_self" class="download-button">
+            <!-- <a href="https://github.com/yucheon6000/express-agent/releases/download/release-1.1.0/Express.Agent.Mac.zip"
+            target="_self" class="download-button"> -->
+            <a href="#" onclick="confirm('준비 중입니다.')" class="download-button">
                 <div class="download-button-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-apple"
                         viewBox="0 0 16 16">
@@ -183,7 +191,7 @@
     </div>
 
     <div id="footer">
-        <img id="team-logo" src="./Web/img/team-logo.png">
+        <img id="team-logo" src="./Web/img/team-logo.png?v=2">
         <span class="text">
             copyright(C) 2022 All rights reserved by EVENZ
         </span>
