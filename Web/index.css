@@ -87,7 +87,7 @@ body {
 
 @keyframes move-1 {
   50% {
-    transform: translate3d(0, -0.6rem, 0) scale3d(1.1, 1.1, 1.1);
+    transform: translate3d(0, 0.8rem, 0) scale3d(1.1, 1.1, 1.1);
   }
 }
 
@@ -149,6 +149,7 @@ body {
 }
 
 #main-character {
+  transform: translate3d(0, 0.6rem, 0);
   animation: move-1 5s ease-in-out infinite;
 }
 
