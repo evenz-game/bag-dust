@@ -117,7 +117,7 @@
                 const mongo = app.currentUser.mongoClient("mongodb-atlas");
                 const collection = mongo.db("bagdust").collection("solo-ranking");
 
-                const rank = await collection.find({}, { sort: { name: -1 } });
+                const rank = await collection.find({}, { sort: { score: -1 } });
 
                 let $rank = document.getElementById("rank");
                 let $rankBodyContainer = document.getElementById("rank-body-container");
