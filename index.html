@@ -98,6 +98,8 @@
             <span id="rank-body-container">
 
             </span>
+
+            <span id="rank-last-update-date"></span>
         </span>
 
 
@@ -119,6 +121,7 @@
 
                 let $rank = document.getElementById("rank");
                 let $rankBodyContainer = document.getElementById("rank-body-container");
+                $rankBodyContainer.innerHTML = "";
 
                 let rankIndex = 1;
 
@@ -141,7 +144,14 @@
                 }
 
                 $rank.classList.remove("display-none");
+
+                $rankLastUpdateDate = document.getElementById("rank-last-update-date");
+                $rankLastUpdateDate.innerHTML = new Date().toLocaleString("ko-kr");
+
+                setTimeout(a, 10 * 1000);
+                console.log("a");
             }
+
             a();
 
         </script>

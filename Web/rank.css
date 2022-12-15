@@ -1,5 +1,6 @@
 #rank {
   display: block;
+  position: relative;
 }
 
 #rank-header {
@@ -71,4 +72,14 @@
   .rank-name {
     width: 45%;
   }
+}
+
+#rank-last-update-date {
+  position: absolute;
+  display: block;
+  font-weight: 100;
+  font-size: 0.5rem;
+  margin-top: 20px;
+  right: 0;
+  color: #a1a1a1;
 }
