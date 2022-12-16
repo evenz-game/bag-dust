@@ -10,6 +10,7 @@ using MongoDB.Bson.Serialization.Attributes;
 public class RankController : MonoBehaviour
 {
     public UnityEvent onInitializedRank = new UnityEvent();
+    public UnityEvent onSelectedNameCharacter = new UnityEvent();
 
     private int myScore;
 
@@ -139,6 +140,9 @@ public class RankController : MonoBehaviour
     public void NextCharacter()
     {
         if (currentNameCharIndex >= textNameCharacters.Length) return;
+
+        if (currentNameCharIndex >= 0)
+            onSelectedNameCharacter.Invoke();
 
         currentNameCharIndex++;
 
