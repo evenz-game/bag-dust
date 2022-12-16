@@ -103,7 +103,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4316138822179829361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -112,8 +112,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 139, y: -0}
-  m_SizeDelta: {x: 0, y: 90}
+  m_AnchoredPosition: {x: 172, y: -11}
+  m_SizeDelta: {x: 177.4, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7181789900439329639
 CanvasRenderer:
@@ -170,8 +170,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 87
+  m_fontSizeBase: 87
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -461,6 +461,7 @@ MonoBehaviour:
   imgaeCharacter: {fileID: 8631131349385636665}
   textDustPercentLeft: {fileID: 5817532038808281106}
   textDustPercentRight: {fileID: 7631619989939199680}
+  displayCount: 0
   fillImageDustCountTime: 0.2
   fillImageDustCountCurve:
     serializedVersion: 2
@@ -570,7 +571,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6360584129695837886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000001907349}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000008174354}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -579,8 +580,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -136, y: 0.0000038146973}
-  m_SizeDelta: {x: 0, y: 90}
+  m_AnchoredPosition: {x: -167, y: -11.000019}
+  m_SizeDelta: {x: 177.4, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7804943511874526703
 CanvasRenderer:
@@ -637,8 +638,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 87
+  m_fontSizeBase: 87
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -720,7 +721,7 @@ RectTransform:
   m_GameObject: {fileID: 6991405084392998212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8418685899147810121}
