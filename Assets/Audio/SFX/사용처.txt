@@ -1,0 +1,10 @@
+fartbiscuit1700__8-bit-arcade-video-game-start-sound-effect-gun-reload-and-jump / 게임 시작 효과음
+prof-mudkip__8-bit-jump / 뭉지 이동 효과음
+sweet-trip__hit-02 / 오브젝트 벽 충돌 효과음
+tissman__fail8 / 뭉지 리타이어 효과음
+jofae__8-bit-fireball / 오브젝트, 뭉지 or 벽 충돌 효과음
+breviceps__8-bit-time-s-up / 뭉지 목숨 하나 남음 경고
+jofae__8-bit-slam / 뭉지끼리 충돌
+samsterbirdies__8-bit-drop / 오브젝트 등장
+
+각 음원들 출처
