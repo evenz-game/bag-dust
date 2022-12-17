@@ -171,6 +171,7 @@ public class RankController : MonoBehaviour
         info.Name = name;
         info.Score = myScore;
         info.Date = System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        info.ModelIndex = MyPlayerPrefs.GetPlayerModelIndex(1);
         await collection.InsertOneAsync(info);
 
         InitRank();
@@ -195,6 +196,10 @@ public class SoloRanking
     [BsonElement("date")]
     [BsonRepresentation(BsonType.Int64)]
     public long Date { get; set; }
+
+    [BsonElement("modelIndex")]
+    [BsonRepresentation(BsonType.Int32)]
+    public int ModelIndex { get; set; }
 
     public override string ToString()
     {
