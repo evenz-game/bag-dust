@@ -28,6 +28,14 @@
   width: 10%;
 }
 
+.rank-model-img {
+  position: absolute;
+  height: 1.6em;
+  top: 50%;
+  transform: translate(2em, -50%);
+  aspect-ratio: 1/1;
+}
+
 .rank-date {
   display: none;
 }

@@ -132,7 +132,10 @@
                     $user.innerHTML = `
                         <div class="rank-body rank-row">
                             <div class="rank-rank rank-row-item">${rankIndex}</div>
-                            <div class="rank-name rank-row-item">${user.name}</div>
+                            <div class="rank-name rank-row-item">
+                                ${user.name}
+                                <img class="rank-model-img" style="${user.modelIndex ? "" : "display: none;"}" src="./Web/img/character/character-${user.modelIndex}.png" />
+                            </div>
                             <div class="rank-score rank-row-item">${user.score}</div>
                             <div class="rank-date rank-row-item">${date.getFullYear() % 2000}.${date.getMonth() + 1}.${date.getDate()}</div>
                         </div>
@@ -172,7 +175,7 @@
             </a> -->
 
             <a href="https://github.com/yucheon6000/bag-dust/releases/download/v1.0/BAG.DUST.v1.0-win-k.zip"
-            target="_self" class="download-button">
+                target="_self" class="download-button">
                 <div class="download-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="white" class="bi bi-microsoft" viewBox="0 0 16 16">
                         <path
@@ -182,7 +185,7 @@
             </a>
 
             <a href="https://github.com/yucheon6000/bag-dust/releases/download/v1.0/BAD.DUST.v1.0-mac-k.zip"
-            target="_self" class="download-button">
+                target="_self" class="download-button">
                 <div class="download-button-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-apple"
                         viewBox="0 0 16 16">
