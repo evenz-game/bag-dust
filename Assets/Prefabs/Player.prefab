@@ -137,6 +137,7 @@ MonoBehaviour:
         m_CallState: 2
   minDustCount: 0
   maxDustCount: 30
+  useMaxCount: 1
   currentDustCount: 6
   onChangedWeight:
     m_PersistentCalls:
@@ -191,6 +192,8 @@ MonoBehaviour:
   dashPower: 10
   minRotateSpeed: 5
   maxRotateSpeed: 5
+  ghostDustCount: 6
+  isSingleModeResultScene: 0
 --- !u!114 &6792157716391364251
 MonoBehaviour:
   m_ObjectHideFlags: 0
