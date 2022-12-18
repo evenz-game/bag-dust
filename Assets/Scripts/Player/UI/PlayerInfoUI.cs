@@ -24,6 +24,8 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
     [SerializeField]
     private Image imgaeCharacter;
     [SerializeField]
+    private Material grayscaleMaterial;
+    [SerializeField]
     private TextMeshProUGUI textDustPercentLeft;
     [SerializeField]
     private TextMeshProUGUI textDustPercentRight;
@@ -41,6 +43,17 @@ public class PlayerInfoUI : PlayerUI, PlayerStatus.OnChangedDustCount
     private void Awake()
     {
         playerStatus.onChangedDustCount.AddListener(OnChangedDustCount);
+
+        playerStatus.onChangedPlayerState.AddListener((PlayerState state) =>
+        {
+            if (state == PlayerState.Ghost)
+            {
+                textDustPercentLeft.gameObject.SetActive(false);
+                textDustPercentRight.gameObject.SetActive(false);
+                imgaeCharacter.material = grayscaleMaterial;
+            }
+        });
+
         playerModel.onInitializedPlayerModel.AddListener((PlayerModelInfo info) =>
         {
             imgaeCharacter.transform.position = targetPositions[playerStatus.Index];
