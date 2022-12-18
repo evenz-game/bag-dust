@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController.OnStartedGame
 {
+    [SerializeField]
+    private float delayTimeAtStart = 5f;
+
     [Header("Position - Top")]
     [SerializeField]
     private Transform minSpawnTransform;
@@ -50,7 +53,7 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
 
     private IEnumerator SpawnRoutine()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(delayTimeAtStart);
 
         while (true)
         {
@@ -109,6 +112,8 @@ public class ObstacleFlyingObjectSpawnController : MonoBehaviour, GameController
                 ),
                 Quaternion.identity
             );
+
+        obstacleClone.transform.parent = obstacle.SpawnBottom ? maxBottomSpawnTransform : maxSpawnTransform;
 
         isSpawnable = false;
     }

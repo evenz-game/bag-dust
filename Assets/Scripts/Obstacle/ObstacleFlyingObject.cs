@@ -8,6 +8,9 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     public UnityEvent onInitialized = new UnityEvent();
 
     [SerializeField]
+    private Transform realTransform;
+
+    [SerializeField]
     private bool isSubObstacle = false;
     public bool IsSubObstacle => isSubObstacle;
 
@@ -29,6 +32,8 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     private float knockbackForceScale = 1;
     [SerializeField]
     private int decreaseDustCount = 2;
+
+    private Vector3 startScale;
 
     [Header("Shake")]
     [SerializeField]
@@ -55,6 +60,8 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
 
     private void Awake()
     {
+        startScale = transform.lossyScale;
+
         rigidbody = GameObjectUtils.FindCompoenet<Rigidbody>(gameObject);
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
         audioSource = GetComponent<AudioSource>();
@@ -77,6 +84,7 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
             dangerUISpawnPos = dangerUISpawnTransform.position;
 
         ObstacleDangerUI dangerUI = Instantiate<ObstacleDangerUI>(dangerUIPrefab, dangerUISpawnPos, Quaternion.Euler(0, 0, Angle(flyingDirection)));
+        dangerUI.Init(realTransform ? realTransform : transform);
         dangerUI.onDisabledUI.AddListener(Init);
     }
 
@@ -95,6 +103,9 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
 
     public virtual void Init()
     {
+        transform.parent = null;
+        transform.localScale = startScale;
+
         EnableMeshRenderersAndCollider(true);
         AddForce();
 

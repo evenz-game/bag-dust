@@ -74,33 +74,38 @@ public class RankController : MonoBehaviour
 
     private async void InitRank(bool init = false)
     {
-        var result = await collection.FindAsync(null, new { score = -1 });
-
-        int rank = 1;
-        int myRank = 1;
-        bool findRank = false;
-
-        foreach (var r in result)
+        try
         {
-            if (rank <= 10)
-                rankBoardItems[rank - 1].Init(rank, r.Name, r.Score);
+            var result = await collection.FindAsync(null, new { score = -1 });
 
-            if (myScore > r.Score && !findRank)
+            int rank = 1;
+            int myRank = 1;
+            bool findRank = false;
+
+            foreach (var r in result)
             {
-                myRank = rank;
-                findRank = true;
+                if (rank <= 10)
+                    rankBoardItems[rank - 1].Init(rank, r.Name, r.Score);
+
+                if (myScore > r.Score && !findRank)
+                {
+                    myRank = rank;
+                    findRank = true;
+                }
+
+                rank++;
             }
 
-            rank++;
+            if (myScore == 0)
+                myRank = result.Length + 1;
+
+            if (init)
+                textRank.text = myRank.ToString();
         }
-
-        if (myScore == 0)
-            myRank = result.Length + 1;
-
-        if (init)
+        finally
         {
-            textRank.text = myRank.ToString();
-            onInitializedRank.Invoke();
+            if (init)
+                onInitializedRank.Invoke();
         }
     }
 

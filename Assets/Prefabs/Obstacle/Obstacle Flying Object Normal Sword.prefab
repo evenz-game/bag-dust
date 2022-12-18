@@ -350,6 +350,7 @@ MonoBehaviour:
   onInitialized:
     m_PersistentCalls:
       m_Calls: []
+  realTransform: {fileID: 6968165025861696892}
   isSubObstacle: 0
   useManualFlyingDirection: 1
   manualFlyingDirection: {x: 0, y: -1}
