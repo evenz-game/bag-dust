@@ -80,6 +80,7 @@ Transform:
   m_Children:
   - {fileID: 4668093167035720696}
   - {fileID: 8511891032948189710}
+  - {fileID: 6989480214390491629}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -111,6 +112,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b85ee438c4f045b5a667b7fbde559c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onInitialized:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4794403711530369702}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   isSubObstacle: 0
   useManualFlyingDirection: 0
   manualFlyingDirection: {x: 0, y: 0}
@@ -256,7 +272,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -272,7 +288,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -288,7 +304,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -329,6 +345,77 @@ MonoBehaviour:
     fillPass:
       shader: {fileID: 0}
       serializedProperties: []
+--- !u!1001 &4382755382706171440
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4668093167197922734}
+    m_Modifications:
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105020651079789718, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_Name
+      value: Ghost Trail
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105020651079789718, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+--- !u!1 &4794403711530369702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9105020651079789718, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+  m_PrefabInstance: {fileID: 4382755382706171440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6989480214390491629 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+  m_PrefabInstance: {fileID: 4382755382706171440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8190630136405085669
 PrefabInstance:
   m_ObjectHideFlags: 0

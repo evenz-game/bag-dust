@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class ObstacleFlyingObject : MonoBehaviour
 {
+    public UnityEvent onInitialized = new UnityEvent();
+
     [SerializeField]
     private bool isSubObstacle = false;
     public bool IsSubObstacle => isSubObstacle;
@@ -94,6 +97,8 @@ public abstract class ObstacleFlyingObject : MonoBehaviour
     {
         EnableMeshRenderersAndCollider(true);
         AddForce();
+
+        onInitialized.Invoke();
 
         audioSource?.PlayOneShot(spawnAudioClip);
     }
