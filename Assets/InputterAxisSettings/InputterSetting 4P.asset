@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ede01b5e0b64995a2269bffae4d798, type: 3}
   m_Name: InputterSetting 4P
   m_EditorClassIdentifier: 
-  reference: {fileID: 11400000, guid: f241228b883724ae1b7a3c9539df30b9, type: 2}
+  reference: {fileID: 11400000, guid: 02dcbdfe228654c6fb90ecc1880b3844, type: 2}
   xAxisName: 
   yAxisName: 
   axisScale: {x: 0, y: 0}

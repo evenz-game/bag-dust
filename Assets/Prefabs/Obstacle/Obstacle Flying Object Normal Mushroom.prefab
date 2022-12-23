@@ -129,6 +129,7 @@ MonoBehaviour:
   onInitialized:
     m_PersistentCalls:
       m_Calls: []
+  realTransform: {fileID: 0}
   isSubObstacle: 0
   useManualFlyingDirection: 1
   manualFlyingDirection: {x: 0, y: 1}
@@ -361,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -393,6 +394,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642022155569342429, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7078467720235423347, guid: 5c113bcc58fa245729c1172c3dd9afc3, type: 3}

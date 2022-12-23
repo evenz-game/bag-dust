@@ -57,7 +57,7 @@ public class RankController : MonoBehaviour
     {
         try
         {
-            var app = App.Create("application-0-qkomx");
+            var app = App.Create("application-1-erftt");
             var user = await app.LogInAsync(Credentials.Anonymous());
             var mongoClient = user.GetMongoClient("mongodb-atlas");
             var dbPlantInventory = mongoClient.GetDatabase("bagdust");
