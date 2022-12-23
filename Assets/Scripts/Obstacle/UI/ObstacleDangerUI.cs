@@ -8,6 +8,8 @@ public class ObstacleDangerUI : MonoBehaviour
 {
     public UnityEvent onDisabledUI = new UnityEvent();
 
+    private Transform targetTransform;
+
     [Header("Twinkle")]
     [SerializeField]
     private float minAlpha = 0.3f;
@@ -29,6 +31,16 @@ public class ObstacleDangerUI : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void Init(Transform targetTransform)
+    {
+        this.targetTransform = targetTransform;
+    }
+
+    private void Update()
+    {
+        transform.position = targetTransform.position;
     }
 
     private void OnEnable()

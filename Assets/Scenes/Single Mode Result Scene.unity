@@ -7165,9 +7165,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '93
-
-'
+  m_text: "<size=40>\uC778\uD130\uB137\uC744\n\uC5F0\uACB0\uD558\uC138\uC694!</size>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e43187ee38434403b00ad8ca539a6b4, type: 2}
   m_sharedMaterial: {fileID: -6886926321922217225, guid: 7e43187ee38434403b00ad8ca539a6b4, type: 2}

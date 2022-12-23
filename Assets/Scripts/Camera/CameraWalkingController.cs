@@ -17,6 +17,8 @@ public class CameraWalkingController : MonoBehaviour
     private List<CameraWalkingInfo> cameraWalkingInfos;
     private bool isWalking = false;
 
+    private Vector3 startPosition;
+
     private void Awake()
     {
         instances.Add(this);
@@ -25,6 +27,7 @@ public class CameraWalkingController : MonoBehaviour
     private void Start()
     {
         targetCamera = manualCamera ? manualCamera : Camera.main;
+        startPosition = targetCamera.transform.position;
     }
 
     [ContextMenu("Add Camera Walking Info")]
@@ -158,6 +161,6 @@ public class CameraWalkingController : MonoBehaviour
             yield return null;
         }
 
-        targetCamera.transform.position = originPos;
+        targetCamera.transform.position = startPosition;
     }
 }

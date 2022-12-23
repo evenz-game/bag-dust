@@ -57,7 +57,7 @@ public class RankController : MonoBehaviour
     {
         try
         {
-            var app = App.Create("application-0-qkomx");
+            var app = App.Create("application-1-erftt");
             var user = await app.LogInAsync(Credentials.Anonymous());
             var mongoClient = user.GetMongoClient("mongodb-atlas");
             var dbPlantInventory = mongoClient.GetDatabase("bagdust");
@@ -74,33 +74,38 @@ public class RankController : MonoBehaviour
 
     private async void InitRank(bool init = false)
     {
-        var result = await collection.FindAsync(null, new { score = -1 });
-
-        int rank = 1;
-        int myRank = 1;
-        bool findRank = false;
-
-        foreach (var r in result)
+        try
         {
-            if (rank <= 10)
-                rankBoardItems[rank - 1].Init(rank, r.Name, r.Score);
+            var result = await collection.FindAsync(null, new { score = -1 });
 
-            if (myScore > r.Score && !findRank)
+            int rank = 1;
+            int myRank = 1;
+            bool findRank = false;
+
+            foreach (var r in result)
             {
-                myRank = rank;
-                findRank = true;
+                if (rank <= 10)
+                    rankBoardItems[rank - 1].Init(rank, r.Name, r.Score);
+
+                if (myScore > r.Score && !findRank)
+                {
+                    myRank = rank;
+                    findRank = true;
+                }
+
+                rank++;
             }
 
-            rank++;
+            if (myScore == 0)
+                myRank = result.Length + 1;
+
+            if (init)
+                textRank.text = myRank.ToString();
         }
-
-        if (myScore == 0)
-            myRank = result.Length + 1;
-
-        if (init)
+        finally
         {
-            textRank.text = myRank.ToString();
-            onInitializedRank.Invoke();
+            if (init)
+                onInitializedRank.Invoke();
         }
     }
 
@@ -171,6 +176,7 @@ public class RankController : MonoBehaviour
         info.Name = name;
         info.Score = myScore;
         info.Date = System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        info.ModelIndex = MyPlayerPrefs.GetPlayerModelIndex(1);
         await collection.InsertOneAsync(info);
 
         InitRank();
@@ -195,6 +201,10 @@ public class SoloRanking
     [BsonElement("date")]
     [BsonRepresentation(BsonType.Int64)]
     public long Date { get; set; }
+
+    [BsonElement("modelIndex")]
+    [BsonRepresentation(BsonType.Int32)]
+    public int ModelIndex { get; set; }
 
     public override string ToString()
     {

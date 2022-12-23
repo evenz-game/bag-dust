@@ -98,6 +98,10 @@ public class PlayerStatus : PlayerComponent, GameController.OnFinishedGame
     public float MaxRotateSpeed => maxRotateSpeed;
     public float RotateSpeed => Mathf.Lerp(minRotateSpeed, maxRotateSpeed, dustCountPercent);
 
+    [Header("Ghost")]
+    [SerializeField]
+    private int ghostDustCount = 3;
+
     [Header("For Single Mode Result Scene")]
     [SerializeField]
     private bool isSingleModeResultScene = false;
@@ -227,6 +231,8 @@ public class PlayerStatus : PlayerComponent, GameController.OnFinishedGame
     /// <returns>상태 변경 여부</returns>
     private bool UpdatePlayerState(int previousDustCount, int currentDustCount, int increaseDustAmount)
     {
+        if (currentPlayerState == PlayerState.Ghost) return false;
+
         PlayerState prevPlayerState = currentPlayerState;
 
         if (previousDustCount == 0)
@@ -260,7 +266,7 @@ public class PlayerStatus : PlayerComponent, GameController.OnFinishedGame
     {
         currentPlayerState = PlayerState.Ghost;
         onChangedPlayerState.Invoke(currentPlayerState);
-        IncreaseDustCount(0, true);
+        IncreaseDustCount(ghostDustCount, true);
     }
 
     public void AddWeight(float weight)
